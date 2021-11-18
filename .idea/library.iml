@@ -95,7 +95,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/nesbot/carbon" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/league/commonmark" />
@@ -122,6 +121,10 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel-frontend-presets/tailwindcss" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/barryvdh/laravel-debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/maximebf/debugbar" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
