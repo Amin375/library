@@ -122,6 +122,9 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/laravel-frontend-presets/tailwindcss" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/maximebf/debugbar" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/barryvdh/laravel-debugbar" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
