@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.create.book.create');
+        return view('admin.create.genre.create');
+
     }
 
     /**
@@ -45,7 +46,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -56,7 +57,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.edit.book.edit');
+        return view('admin.edit.genre.edit');
     }
 
     /**
