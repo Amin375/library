@@ -70,6 +70,105 @@
                             name="password_confirmation" required autocomplete="new-password">
                     </div>
 
+                     {{--         Street           --}}
+                    <div class="flex flex-wrap">
+                        <label for="street" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            Street
+                        </label>
+
+                        <input id="street" type="text"
+                               class="form-input w-full @error('street') border-red-500 @enderror" name="street"
+                               required autocomplete="new-password">
+
+                        @error('street')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    {{--         house_number           --}}
+                    <div class="flex flex-wrap">
+                        <label for="housenumber" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            Housenumber
+                        </label>
+
+                        <input id="house_number" type="number"
+                               class="form-input w-full @error('house_number') border-red-500 @enderror" name="house_number"
+                               required autocomplete="new-password">
+
+                        @error('house_number')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+
+                    <div class="flex flex-wrap">
+                        <label for="postal_code" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            Postal Code
+                        </label>
+
+                        <input id="postal-code" type="text"
+                               class="form-input w-full @error('postal_code') border-red-500 @enderror" name="postal_code"
+                               required autocomplete="new-password">
+
+                        @error('postal_code')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <label for="city" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            City
+                        </label>
+
+                        <input id="city" type="text"
+                               class="form-input w-full @error('city') border-red-500 @enderror" name="city"
+                               required autocomplete="new-password">
+
+                        @error('city')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <label for="country" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            Country
+                        </label>
+
+                        <input id="country" type="text"
+                               class="form-input w-full @error('country') border-red-500 @enderror" name="country"
+                               required autocomplete="new-password">
+
+                        @error('country')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            Phone
+                        </label>
+
+                        <input id="phone" type="text"
+                               class="form-input w-full @error('phone') border-red-500 @enderror" name="phone"
+                               required autocomplete="new-password">
+
+                        @error('phone')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
                     <div class="flex flex-wrap">
                         <button type="submit"
                             class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
