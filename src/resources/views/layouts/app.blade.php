@@ -44,8 +44,9 @@
                 </nav>
             </div>
         </header>
-
-        @yield('content')
+        <main>
+            @yield('content')
+        </main>
     </div>
 </body>
 </html>

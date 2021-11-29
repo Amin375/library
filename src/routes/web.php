@@ -22,4 +22,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', );
+Route::get('/dashboard', function (){
+    return view('dashboard');
+} );
