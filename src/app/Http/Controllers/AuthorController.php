@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use Illuminate\Http\Request;
 
-class GenreController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,9 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $authors = Author::all();
+
+        return view('member.author', ['authors' => $authors]);
     }
 
     /**
@@ -23,8 +26,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        return view('admin.create.genre.create');
-
+        return view('admin.author.create');
     }
 
     /**
@@ -35,7 +37,13 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required'
+        ]);
+
+        Author::create($validatedData);
+
+        return redirect()->route('admin.author.create');
     }
 
     /**
@@ -57,7 +65,7 @@ class GenreController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.edit.genre.edit');
+        return view('admin.author.edit');
     }
 
     /**

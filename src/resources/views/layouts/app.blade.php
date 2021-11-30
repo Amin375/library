@@ -40,10 +40,10 @@
                             <a href="">Books</a>
                         </div>
                         <div>
-                            <a href="">Genres</a>
+                            <a href="{{ route('genres') }}">Genres</a>
                         </div>
                         <div>
-                            <a href="">Authors</a>
+                            <a href="{{ route('authors') }}">Authors</a>
                         </div>
                         <div>
                             <a href="">{{ auth()->user()->name }}</a>

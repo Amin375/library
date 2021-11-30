@@ -23,29 +23,37 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-Route::get('/genres/', [DashboardController::class, 'index'])->name('dashboard');
-
-
+Route::get('genres', [GenreController::class, 'index'])->name('genres');
+Route::get('authors', [AuthorController::class, 'index'])->name('authors');
 
 Route::group([
     'prefix' => 'admin',
+    'as' => 'admin',
 ], function () {
 
     Route::group([
-        'prefix' => 'create',
+        'prefix' => 'book',
+        'as' => '.book',
     ], function () {
-        Route::get('book/create', [BookController::class, 'create'])->name('create');
-        Route::get('author/create', [AuthorController::class, 'create'])->name('create');
-        Route::get('genre/create', [GenreController::class, 'create'])->name('create');
+        Route::get('create', [BookController::class, 'create']);
+        Route::get('edit', [BookController::class, 'edit']);
     });
 
     Route::group([
-        'prefix' => 'edit',
+        'prefix' => 'author',
+        'as' => '.author',
     ], function () {
-        Route::get('book/edit', [BookController::class, 'edit'])->name('edit');
-        Route::get('author/edit', [AuthorController::class, 'edit'])->name('edit');
-        Route::get('genre/edit', [GenreController::class, 'edit'])->name('edit');
+        Route::get('create', [AuthorController::class, 'create'])->name('.create');
+        Route::get('edit', [AuthorController::class, 'edit'])->name('.edit');
+        Route::post('store', [AuthorController::class, 'store'])->name('.store');
     });
 
+    Route::group([
+        'prefix' => 'genre',
+        'as' => '.genre',
+    ], function () {
+        Route::get('create', [GenreController::class, 'create'])->name('.create');
+        Route::get('edit', [GenreController::class, 'edit'])->name('.edit');
+        Route::post('store', [GenreController::class, 'store'])->name('.store');
+    });
 });
