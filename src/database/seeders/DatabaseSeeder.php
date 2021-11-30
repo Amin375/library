@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         Genre::factory(10)->create();
-//            Role::factory()->create();
-//        Role::create([
-//            'title' => 'admin'
-//        ]);
-//
-//        Role::create([
-//            'title' => 'member'
-//        ]);
+//         Genre::factory(10)->create();
+//        Role::factory(1)->create();
+        Role::create([
+            'title' => 'admin'
+        ]);
+
+        Role::create([
+            'title' => 'member'
+        ]);
     }
 }
