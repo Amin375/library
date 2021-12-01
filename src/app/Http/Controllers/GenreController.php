@@ -26,6 +26,8 @@ class GenreController extends Controller
      */
     public function create()
     {
+
+
         return view('admin.genre.create');
     }
 

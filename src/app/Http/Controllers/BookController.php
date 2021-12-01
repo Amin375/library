@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Genre;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -23,24 +26,43 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.book.create');
+        $authors = Author::all();
+        $genres = Genre::all();
+
+        return view('admin.book.create', ['authors' => $authors, 'genres' => $genres]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+
+        $author = implode(',', $request->author);
+        $genre = implode(',', $request->genre);
+
+
+        $validatedData = $request->validate([
+            'title' => ['required', 'max:255'],
+            $author => ['required', 'array'],
+            $genre => ['required', 'array'],
+            'blurb' => ['required'],
+        ]);
+
+        dd(request()->all());
+
+        Book::create($validatedData);
+
+        return redirect()->route('admin.book.create');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +73,7 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +84,8 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +96,7 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

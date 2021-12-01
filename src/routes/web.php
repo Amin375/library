@@ -39,6 +39,7 @@ Route::group([
     ], function () {
         Route::get('create', [BookController::class, 'create'])->name('.create');
         Route::get('edit', [BookController::class, 'edit'])->name('.edit');
+        Route::post('store', [BookController::class, 'store'])->name('.store');
     });
 
     Route::group([
