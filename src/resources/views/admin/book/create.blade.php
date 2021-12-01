@@ -4,7 +4,7 @@
     <div class="flex justify-center">
         <div class="flex justify-center border lg:w-1/4">
             <div class="flex flex-col justify-center lg:w-2/4 gap-2">
-                <form class="" action="{{ route('admin.book.store') }}" method="post">
+                <form action="{{ route('admin.book.store') }}" method="post">
                     @csrf
                     <div class="mb-2">
                         <h1 class="text-xl">Add Book</h1>
@@ -15,16 +15,14 @@
                     </div>
                     <div>
                         <label class="" for="author">Author</label>
-{{--                        <input name="author" class="w-10 border border-gray-400 w-full py-1 px-2" type="text">--}}
                         <select name="author[]">
                             @foreach($authors as $author)
                                 <option value="{{ $author->id }}">{{ $author->name }}</option>
                             @endforeach
                         </select>
-
                     </div>
                     <div>
-                        <label class="" for="author">Genre</label>
+                        <label class="" for="genre">Genre</label>
                         <select name="genre[]">
                             @foreach($genres as $genre)
                                 <option value="{{ $genre->id }}">{{ $genre->title }}</option>

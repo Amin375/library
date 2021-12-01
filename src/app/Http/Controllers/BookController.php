@@ -40,21 +40,24 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-
         $author = implode(',', $request->author);
-        $genre = implode(',', $request->genre);
-
+//        dd(request()->all());
 
         $validatedData = $request->validate([
             'title' => ['required', 'max:255'],
-            $author => ['required', 'array'],
-            $genre => ['required', 'array'],
-            'blurb' => ['required'],
+            'author' => ['required', 'array'],
+            'genre' => ['required', 'array'],
+            'blurb' => ['required']
         ]);
 
-        dd(request()->all());
+//        $newValidation = implode(',', $validatedData);
+//        $author = implode(',', $request->author);
+//        $genre = implode(',', $request->genre);
 
         Book::create($validatedData);
+
+//        Book::authors()->attach($request->get('authors'));
+
 
         return redirect()->route('admin.book.create');
     }
