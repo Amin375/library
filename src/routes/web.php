@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::get('genres', [GenreController::class, 'index'])->name('genres');
 Route::get('authors', [AuthorController::class, 'index'])->name('authors');
 
 Route::group([
+    'middleware' => 'admin',
     'prefix' => 'admin',
     'as' => 'admin',
 ], function () {
@@ -35,8 +37,8 @@ Route::group([
         'prefix' => 'book',
         'as' => '.book',
     ], function () {
-        Route::get('create', [BookController::class, 'create']);
-        Route::get('edit', [BookController::class, 'edit']);
+        Route::get('create', [BookController::class, 'create'])->name('.create');
+        Route::get('edit', [BookController::class, 'edit'])->name('.edit');
     });
 
     Route::group([
@@ -57,3 +59,4 @@ Route::group([
         Route::post('store', [GenreController::class, 'store'])->name('.store');
     });
 });
+
