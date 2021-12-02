@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('books', [BookController::class, 'index'])->name('books');
 Route::get('genres', [GenreController::class, 'index'])->name('genres');
 Route::get('authors', [AuthorController::class, 'index'])->name('authors');
 

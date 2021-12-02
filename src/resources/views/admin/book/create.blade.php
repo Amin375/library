@@ -15,7 +15,7 @@
                     </div>
                     <div>
                         <label class="" for="author">Author</label>
-                        <select name="author[]">
+                        <select name="author_id">
                             @foreach($authors as $author)
                                 <option value="{{ $author->id }}">{{ $author->name }}</option>
                             @endforeach
@@ -23,7 +23,7 @@
                     </div>
                     <div>
                         <label class="" for="genre">Genre</label>
-                        <select name="genre[]">
+                        <select name="genre_id">
                             @foreach($genres as $genre)
                                 <option value="{{ $genre->id }}">{{ $genre->title }}</option>
                             @endforeach
@@ -33,10 +33,6 @@
                         <label class="" for="blurb">Blurb</label>
                         <textarea name="blurb" id="" cols="18" rows="10"></textarea>
                     </div>
-{{--                    <div>--}}
-{{--                        <label class="" for="image">Cover Image</label>--}}
-{{--                        <input class="w-10 border border-gray-400 w-full py-1 px-2" type="file">--}}
-{{--                    </div>--}}
                     <div>
                         <button class="py-2 px-4 border" type="submit">Save</button>
                     </div>

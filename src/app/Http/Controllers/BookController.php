@@ -16,7 +16,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all();
+
+        return view('member.book', ['books' => $books]);
     }
 
     /**
@@ -40,24 +42,16 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $author = implode(',', $request->author);
-//        dd(request()->all());
-
         $validatedData = $request->validate([
-            'title' => ['required', 'max:255'],
-            'author' => ['required', 'array'],
-            'genre' => ['required', 'array'],
-            'blurb' => ['required']
+            'title' => 'required|max:255',
+            'author_id' => 'required',
+            'genre_id' => 'required',
+            'blurb' => 'required',
         ]);
 
-//        $newValidation = implode(',', $validatedData);
-//        $author = implode(',', $request->author);
-//        $genre = implode(',', $request->genre);
+//        dd(request()->all());
 
         Book::create($validatedData);
-
-//        Book::authors()->attach($request->get('authors'));
-
 
         return redirect()->route('admin.book.create');
     }

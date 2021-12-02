@@ -10,14 +10,19 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'author_id',
+        'genre_id',
+        'title',
+        'blurb',
+    ];
 
-    public function authors(): BelongsTo
+    public function author()
     {
         return $this->BelongsTo(Author::class);
     }
 
-    public function genres(): BelongsTo
+    public function genre()
     {
         return $this->BelongsTo(Genre::class);
     }

@@ -37,7 +37,7 @@
                             <a href="{{ route('dashboard') }}">Dashboard</a>
                         </div>
                         <div>
-                            <a href="">Books</a>
+                            <a href="{{ route('books') }}">Books</a>
                         </div>
                         <div>
                             <a href="{{ route('genres') }}">Genres</a>
