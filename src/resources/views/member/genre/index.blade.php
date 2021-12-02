@@ -15,6 +15,9 @@
                             <td>
                                 <a href="{{ route('book.genre', $genre->id) }}">{{ $genre->title }}</a>
                             </td>
+                            <td>
+                                <a href="{{ route('admin.genre.edit', $genre->id) }}">Edit</a>
+                            </td>
                         </tr>
                         @empty
                             <tr>

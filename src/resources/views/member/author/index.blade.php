@@ -15,6 +15,9 @@
                             <td>
                                 <a href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a>
                             </td>
+                            <td>
+                                <a href="{{ route('admin.author.edit', $author->id) }}">Edit</a>
+                            </td>
                         </tr>
                         @empty
                             <tr>

@@ -57,8 +57,10 @@ Route::group([
         'as' => '.author',
     ], function () {
         Route::get('create', [AuthorController::class, 'create'])->name('.create');
-        Route::get('edit', [AuthorController::class, 'edit'])->name('.edit');
+        Route::get('edit/{id}', [AuthorController::class, 'edit'])->name('.edit');
         Route::post('store', [AuthorController::class, 'store'])->name('.store');
+        Route::post('update/{id}', [AuthorController::class, 'update'])->name('.update');
+        Route::post('destroy/{id}', [AuthorController::class, 'destroy'])->name('.destroy');
     });
 
     Route::group([
@@ -66,8 +68,10 @@ Route::group([
         'as' => '.genre',
     ], function () {
         Route::get('create', [GenreController::class, 'create'])->name('.create');
-        Route::get('edit', [GenreController::class, 'edit'])->name('.edit');
+        Route::get('edit/{id}', [GenreController::class, 'edit'])->name('.edit');
         Route::post('store', [GenreController::class, 'store'])->name('.store');
+        Route::post('update/{id}', [GenreController::class, 'update'])->name('.update');
+        Route::get('destroy/{id}', [GenreController::class, 'destroy'])->name('.destroy');
     });
 });
 

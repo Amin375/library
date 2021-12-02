@@ -67,7 +67,9 @@ class GenreController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.genre.edit');
+        $genre = Genre::query()->find($id);
+
+        return view('admin.genre.edit', ['genre' => $genre]);
     }
 
     /**

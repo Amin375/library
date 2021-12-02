@@ -4,7 +4,8 @@
     <div class="flex justify-center">
         <div class="flex justify-center border lg:w-1/4">
             <div class="flex flex-col justify-center lg:w-2/4 gap-2">
-                <form class="" action="" method="">
+                <form action="{{ route('admin.author.update') }}" method="post">
+                    @csrf
                     <div class="mb-2">
                         <h1 class="text-xl">Add Author</h1>
                     </div>
