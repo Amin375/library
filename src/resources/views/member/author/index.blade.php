@@ -9,17 +9,20 @@
                         <th>
                             Genre
                         </th>
-                        <th>
-                            Show Books
-                        </th>
                     </tr>
-                    @foreach($authors as $author)
+                    @forelse($authors as $author)
                         <tr>
                             <td>
-                                {{ $author->name }}
+                                <a href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                            <tr>
+                                <td>
+                                    <p>Nothing to show...</p>
+                                </td>
+                            </tr>
+                    @endforelse
                 </table>
             </div>
         </div>

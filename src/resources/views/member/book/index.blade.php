@@ -19,7 +19,7 @@
                             Show
                         </th>
                     </tr>
-                    @foreach($books as $book)
+                    @forelse($books as $book)
                         <tr>
                             <td>
                                 {{ $book->title }}
@@ -34,7 +34,13 @@
                                 <a href="{{ route('book.show', ['id' => $book->id] )}}">View Book</a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td>
+                                <p>Nothing to show...</p>
+                            </td>
+                        </tr>
+                    @endforelse
                 </table>
             </div>
         </div>

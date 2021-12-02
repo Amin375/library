@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookAuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookGenreController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
@@ -29,6 +31,9 @@ Route::get('genres', [GenreController::class, 'index'])->name('genres.index');
 Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
 
 Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
+Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre');
+Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author');
+
 //Route::get('genres', [GenreController::class, 'show'])->name('genres.show');
 //Route::get('authors', [AuthorController::class, 'show'])->name('authors.show');
 
