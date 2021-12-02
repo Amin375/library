@@ -15,6 +15,9 @@
                         <th>
                             Genre
                         </th>
+                        <th>
+                            Show
+                        </th>
                     </tr>
                     @foreach($books as $book)
                         <tr>
@@ -27,8 +30,11 @@
                             <td>
                                 {{ $book->genre->title }}
                             </td>
+                            <td>
+                                <a href="{{ route('book.show', ['id' => $book->id] )}}">View Book</a>
+                            </td>
                         </tr>
-                        @endforeach
+                    @endforeach
                 </table>
             </div>
         </div>

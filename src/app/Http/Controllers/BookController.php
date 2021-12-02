@@ -18,7 +18,7 @@ class BookController extends Controller
     {
         $books = Book::all();
 
-        return view('member.book', ['books' => $books]);
+        return view('member.book.index', ['books' => $books]);
     }
 
     /**
@@ -64,7 +64,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
+        $book = Book::query()->where('id',$id)->first();
 
+        return view('member.book.show', ['book' => $book]);
     }
 
     /**

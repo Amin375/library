@@ -18,9 +18,6 @@
                             <td>
                                 {{ $author->name }}
                             </td>
-{{--                            <td>--}}
-{{--                                <a href="{{ route('admin') }}"></a>--}}
-{{--                            </td>--}}
                         </tr>
                     @endforeach
                 </table>

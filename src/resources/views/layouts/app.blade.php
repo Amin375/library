@@ -31,19 +31,18 @@
                         <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
                 @else
-
                     <div class="flex flex-row gap-5">
                         <div>
                             <a href="{{ route('dashboard') }}">Dashboard</a>
                         </div>
                         <div>
-                            <a href="{{ route('books') }}">Books</a>
+                            <a href="{{ route('books.index') }}">Books</a>
                         </div>
                         <div>
-                            <a href="{{ route('genres') }}">Genres</a>
+                            <a href="{{ route('genres.index') }}">Genres</a>
                         </div>
                         <div>
-                            <a href="{{ route('authors') }}">Authors</a>
+                            <a href="{{ route('authors.index') }}">Authors</a>
                         </div>
                         <div>
                             <a href="">{{ auth()->user()->name }}</a>
@@ -58,16 +57,6 @@
                             </form>
                         </div>
                     </div>
-
-{{--                    <span>{{ auth()->user()->name }}</span>--}}
-
-{{--                    <a href="{{ route('logout') }}"--}}
-{{--                       class="no-underline hover:underline"--}}
-{{--                       onclick="event.preventDefault();--}}
-{{--                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>--}}
-{{--                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">--}}
-{{--                        {{ csrf_field() }}--}}
-{{--                    </form>--}}
                 @endguest
             </nav>
         </div>

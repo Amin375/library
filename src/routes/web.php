@@ -24,9 +24,13 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('books', [BookController::class, 'index'])->name('books');
-Route::get('genres', [GenreController::class, 'index'])->name('genres');
-Route::get('authors', [AuthorController::class, 'index'])->name('authors');
+Route::get('books', [BookController::class, 'index'])->name('books.index');
+Route::get('genres', [GenreController::class, 'index'])->name('genres.index');
+Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
+
+Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
+//Route::get('genres', [GenreController::class, 'show'])->name('genres.show');
+//Route::get('authors', [AuthorController::class, 'show'])->name('authors.show');
 
 Route::group([
     'middleware' => 'admin',
