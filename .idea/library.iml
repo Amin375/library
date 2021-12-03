@@ -18,7 +18,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/css-selector" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/http-client-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/finder" />

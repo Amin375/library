@@ -12,7 +12,6 @@
       <path value="$PROJECT_DIR$/src/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/src/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/src/vendor/symfony/finder" />

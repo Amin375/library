@@ -47,7 +47,10 @@ class BookController extends Controller
             'author_id' => 'required',
             'genre_id' => 'required',
             'blurb' => 'required',
+            'image' => 'required|image',
         ]);
+
+        $validatedData['image'] = request()->file('image')->store('images');
 
 //        dd(request()->all());
 
@@ -64,7 +67,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::query()->where('id',$id)->first();
+        $book = Book::query()->where('id', $id)->first();
 
         return view('member.book.show', ['book' => $book]);
     }

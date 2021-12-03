@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Book extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'author_id',
         'genre_id',
         'title',
         'blurb',
+        'image',
     ];
 
     public function author()
@@ -25,5 +25,10 @@ class Book extends Model
     public function genre()
     {
         return $this->BelongsTo(Genre::class);
+    }
+
+    public function image()
+    {
+        return 'assets/'. $this->image;
     }
 }

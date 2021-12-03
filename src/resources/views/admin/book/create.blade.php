@@ -4,7 +4,7 @@
     <div class="flex justify-center">
         <div class="flex justify-center border lg:w-1/4">
             <div class="flex flex-col justify-center lg:w-2/4 gap-2">
-                <form action="{{ route('admin.book.store') }}" method="post">
+                <form action="{{ route('admin.book.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-2">
                         <h1 class="text-xl">Add Book</h1>
@@ -32,6 +32,10 @@
                     <div>
                         <label class="" for="blurb">Blurb</label>
                         <textarea name="blurb" id="" cols="18" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <label for="image">Book Cover</label>
+                        <input type="file" name="image">
                     </div>
                     <div>
                         <button class="py-2 px-4 border" type="submit">Save</button>
