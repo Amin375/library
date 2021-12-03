@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(auth()->user()->isAdmin())
+    @if(auth()->user()->admin())
         <div class="py-8">
             <div class="md:max-w-full flex justify-center  ">
                 <table class="bg-white shadow even:bg-gray-300 rounded">

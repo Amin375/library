@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->BelongsTo(Role::class);
     }
 
-    public function isAdmin()
+    public function admin()
     {
         return $this->role()->where('id', 1)->first();
     }

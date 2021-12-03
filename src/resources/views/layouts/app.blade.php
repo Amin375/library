@@ -35,14 +35,25 @@
                         <div>
                             <a href="{{ route('dashboard') }}">Dashboard</a>
                         </div>
+                        @if(auth()->user()->admin())
+                            <div>
+                                <a href="{{ route('admin.book.create') }}">Create Book</a>
+                            </div>
+                            <div>
+                                <a href="{{ route('admin.author.create') }}">Create Author</a>
+                            </div>
+                            <div>
+                                <a href="{{ route('admin.genre.create') }}">Create Genre</a>
+                            </div>
+                        @endif
                         <div>
                             <a href="{{ route('books.index') }}">Books</a>
                         </div>
                         <div>
-                            <a href="{{ route('genres.index') }}">Genres</a>
+                            <a href="{{ route('authors.index') }}">Genres</a>
                         </div>
                         <div>
-                            <a href="{{ route('authors.index') }}">Authors</a>
+                            <a href="{{ route('genres.index') }}">Authors</a>
                         </div>
                         <div>
                             <a href="">{{ auth()->user()->name }}</a>
