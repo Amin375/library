@@ -20,7 +20,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        //Eager loading to solve N+1 problem
+        $books = Book::with(['author', 'genre'])->get();
 
         return view('member.book.index', ['books' => $books]);
     }
@@ -53,15 +54,8 @@ class BookController extends Controller
         ]);
 
         $validatedData['image'] = request()->file('image')->store('images');
-        $slug = Str::slug($request->get('title'));
 
-        $array = [
-            'slug' => $slug,
-        ];
-
-        $arrayMerged = array_merge($array, $validatedData);
-
-        Book::create($arrayMerged);
+        Book::create($validatedData);
 
         return redirect()->route('books.index');
     }
@@ -113,7 +107,16 @@ class BookController extends Controller
             'image' => 'required|image',
         ]);
 
-        $validatedData['image'] = request()->file('image')->store('images');
+        if($request->file('image'))
+        {
+            $validatedData['image'] = request()->file('image')->store('images');
+        }
+
+        if (($validatedData['image'] ?? false)) {
+            $validatedData['image'] = request()->file('image')->store('images');
+        }
+
+
 
         $book->update($validatedData);
 
