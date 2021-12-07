@@ -27,8 +27,6 @@ class GenreController extends Controller
      */
     public function create()
     {
-
-
         return view('admin.genre.create');
     }
 
@@ -46,7 +44,7 @@ class GenreController extends Controller
 
         Genre::create($validatedData);
 
-        return redirect()->route('admin.genre.create');
+        return redirect()->route('genres.index');
     }
 
     /**
@@ -70,6 +68,7 @@ class GenreController extends Controller
     {
         $genre = Genre::query()->find($id);
 
+
         return view('admin.genre.edit', ['genre' => $genre]);
     }
 
@@ -82,7 +81,16 @@ class GenreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $genre = Genre::whereId($id)->firstOrFail();
+
+        $validatedData = $request->validate([
+            'title' => 'required'
+        ]);
+
+        $genre->update($validatedData);
+
+//        return redirect()->route('member.author.index', ['authors' => Author::all()]);
+        return redirect()->route('genres.index');
     }
 
     /**
@@ -93,6 +101,9 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $genre = Genre::whereId($id)->firstOrFail();
+
+        $genre->delete();
+        return redirect()->route('genres.index');
     }
 }

@@ -48,8 +48,11 @@ Route::group([
         'as' => '.book',
     ], function () {
         Route::get('create', [BookController::class, 'create'])->name('.create');
-        Route::get('edit', [BookController::class, 'edit'])->name('.edit');
+        Route::get('edit/{id}', [BookController::class, 'edit'])->name('.edit');
         Route::post('store', [BookController::class, 'store'])->name('.store');
+        Route::post('update/{id}', [BookController::class, 'update'])->name('.update');
+        Route::get('destroy/{book:id}', [BookController::class, 'destroy'])->name('.destroy');
+
     });
 
     Route::group([
@@ -60,7 +63,7 @@ Route::group([
         Route::get('edit/{id}', [AuthorController::class, 'edit'])->name('.edit');
         Route::post('store', [AuthorController::class, 'store'])->name('.store');
         Route::post('update/{id}', [AuthorController::class, 'update'])->name('.update');
-        Route::post('destroy/{id}', [AuthorController::class, 'destroy'])->name('.destroy');
+        Route::get('destroy/{author:id}', [AuthorController::class, 'destroy'])->name('.destroy');
     });
 
     Route::group([

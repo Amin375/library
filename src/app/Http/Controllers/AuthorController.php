@@ -32,7 +32,7 @@ class AuthorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,13 +43,13 @@ class AuthorController extends Controller
 
         Author::create($validatedData);
 
-        return redirect()->route('admin.author.create');
+        return redirect()->route('authors.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -60,7 +60,7 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -73,23 +73,35 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $author = Author::whereId($id)->firstOrFail();
+
+        $validatedData = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $author->update($validatedData);
+        return redirect()->route('authors.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Author $author)
     {
-        //
+        foreach($author->books as $book) {
+            $book->delete();
+        }
+
+        $author->delete();
+        return redirect()->route('authors.index');
     }
 }

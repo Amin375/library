@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(auth()->user()->admin())
+    @if(auth()->user()->isAdmin())
         <div class="py-8">
             <div class="md:max-w-full flex justify-center  ">
                 <table class="bg-white shadow even:bg-gray-300 ">
@@ -12,11 +12,13 @@
                         <th class="w-1/4 text-left py-3 px-4 uppercase font-semibold text-sm">Delete</th>
                     </tr>
                     </thead>
-                    <tbody class="text-gray-700 ">
+                    <tbody class="text-gray-700">
                     @forelse($authors as $author)
                         <tr>
                             <td class="w-3/5 text-left py-3 px-4"><a
-                                    href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a></td>
+                                    href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a>
+                            </td>
+                            {{--Edit--}}
                             <td class="w-1/5 text-left py-3 px-4"><a
                                     href="{{ route('admin.author.edit', $author->id )}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -46,8 +48,9 @@
                                         </g>
                                     </svg>
                                 </a></td>
-                            <td class="w-1/5 text-left py-3 pl-7"><a
-                                    href="{{ route('admin.author.edit', $author->id )}}">
+                            {{-- Delete--}}
+                            <td class="w-1/5 text-left py-3 pl-7"><a  onclick="return confirm('Are you sure you want to delete {{ $author->name }} from the list?')"
+                                    href="{{ route('admin.author.destroy', $author->id )}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                          width="25" height="25"
                                          viewBox="0 0 100 100"

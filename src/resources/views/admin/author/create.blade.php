@@ -10,7 +10,7 @@
                         <h1 class="text-xl">Add Author</h1>
                     </div>
                     <div>
-                        <label class="" for="genre">Author</label>
+                        <label for="author">Author</label>
                         <input name="name" class="w-10 border border-gray-400 w-full py-1 px-2" type="text">
                     </div>
                     <div>

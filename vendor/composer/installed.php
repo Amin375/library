@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f8c22fe1da0ef7cada7a8a6b2184fd15094ad490',
+        'reference' => '7f2d1332ef4df1e0559d6c47242990f188ebbb46',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f8c22fe1da0ef7cada7a8a6b2184fd15094ad490',
+            'reference' => '7f2d1332ef4df1e0559d6c47242990f188ebbb46',
             'dev_requirement' => false,
         ),
         'cocur/slugify' => array(
@@ -110,12 +110,12 @@
             'dev_requirement' => false,
         ),
         'nesbot/carbon' => array(
-            'pretty_version' => '2.55.0',
-            'version' => '2.55.0.0',
+            'pretty_version' => '2.55.2',
+            'version' => '2.55.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
-            'reference' => 'b46249911cba301e9eb3f05af68cf2aacc1f9d05',
+            'reference' => '8c2a18ce3e67c34efc1b29f64fe61304368259a2',
             'dev_requirement' => false,
         ),
         'psr/container' => array(

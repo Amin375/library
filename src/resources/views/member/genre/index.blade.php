@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(auth()->user()->admin())
+    @if(auth()->user()->isAdmin())
         <div class="py-8">
             <div class="md:max-w-full flex justify-center  ">
                 <table class="bg-white shadow even:bg-gray-300 rounded">
@@ -45,7 +45,7 @@
                                         </g>
                                     </svg>
                                 </a></td>
-                            <td class="w-1/5 text-left py-3 pl-7"><a href="{{ route('admin.genre.edit', $genre->id )}}">
+                            <td class="w-1/5 text-left py-3 pl-7"><a  href="{{ route('admin.genre.destroy', $genre->id )}}" onclick="return confirm('Are you sure you want to delete {{ $genre->title }} from the list?')">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                          width="25" height="25"
                                          viewBox="0 0 100 100"

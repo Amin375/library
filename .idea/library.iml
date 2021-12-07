@@ -124,6 +124,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/php-timer" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

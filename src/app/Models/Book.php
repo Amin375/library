@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Book extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'author_id',
         'genre_id',

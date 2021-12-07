@@ -35,7 +35,7 @@
                         <div>
                             <a href="{{ route('dashboard') }}">Dashboard</a>
                         </div>
-                        @if(auth()->user()->admin())
+                        @if(auth()->user()->isAdmin())
                             <div>
                                 <a href="{{ route('admin.book.create') }}">Create Book</a>
                             </div>
@@ -50,10 +50,10 @@
                             <a href="{{ route('books.index') }}">Books</a>
                         </div>
                         <div>
-                            <a href="{{ route('authors.index') }}">Genres</a>
+                            <a href="{{ route('authors.index') }}">Authors</a>
                         </div>
                         <div>
-                            <a href="{{ route('genres.index') }}">Authors</a>
+                            <a href="{{ route('genres.index') }}">Genres</a>
                         </div>
                         <div>
                             <a href="">{{ auth()->user()->name }}</a>
