@@ -69,7 +69,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td>
+                            <td class="w-full">
                                 <p>Nothing to show...</p>
                             </td>
                         </tr>
@@ -78,7 +78,6 @@
                 </table>
             </div>
         </div>
-
     @else
         <div class="py-8">
             <div class="md:max-w-full flex justify-center  ">
