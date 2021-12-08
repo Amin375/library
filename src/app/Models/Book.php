@@ -38,6 +38,6 @@ class Book extends Model
 
     public function bookCopies()
     {
-        return $this->hasMany(BookCopy::class);
+        return $this->BelongsToMany(BookCopy::class);
     }
 }

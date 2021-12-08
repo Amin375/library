@@ -79,7 +79,7 @@ Route::group([
        'prefix' => 'book_copies',
         'as' => '.book_copies'
     ], function () {
-        Route::get('add', [BookCopyController::class, 'add'])->name('.add');
+        Route::get('add/{id}', [BookCopyController::class, 'add'])->name('.add');
         Route::get('remove', [BookCopyController::class, 'remove'])->name('.remove');
     });
 });

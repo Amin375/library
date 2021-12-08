@@ -9,8 +9,14 @@ class BookCopy extends Model
 {
     use HasFactory;
 
+    public $table = 'book_copies';
+
+    protected $fillable = [
+        'book_id'
+    ];
+
     public function books()
     {
-        return $this->belongsTo(Book::class);
+        return $this->hasMany(Book::class);
     }
 }
