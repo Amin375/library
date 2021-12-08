@@ -37,6 +37,9 @@
                         </div>
                         @if(auth()->user()->isAdmin())
                             <div>
+                                <a href="{{ route('admin.book.create') }}">View Book Copies</a>
+                            </div>
+                            <div>
                                 <a href="{{ route('admin.book.create') }}">Create Book</a>
                             </div>
                             <div>

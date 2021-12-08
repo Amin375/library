@@ -53,7 +53,9 @@ class BookController extends Controller
             'image' => 'required|image',
         ]);
 
-        $validatedData['image'] = request()->file('image')->store('images');
+//        if($request->hasFile('image') && $request->file('image')->isValid()){
+//            $validatedData['image'] = request()->file('image')->store('images');
+//        }
 
         Book::create($validatedData);
 
@@ -97,7 +99,7 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $book = Book::wereId($id)->firstOrFail();
+        $book = Book::whereId($id)->firstOrFail();
 
         $validatedData = $request->validate([
             'title' => 'required|max:255',
@@ -107,16 +109,9 @@ class BookController extends Controller
             'image' => 'required|image',
         ]);
 
-        if($request->file('image'))
-        {
+        if($request->hasFile('image')){
             $validatedData['image'] = request()->file('image')->store('images');
         }
-
-        if (($validatedData['image'] ?? false)) {
-            $validatedData['image'] = request()->file('image')->store('images');
-        }
-
-
 
         $book->update($validatedData);
 

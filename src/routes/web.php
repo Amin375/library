@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookAuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookCopyController;
 use App\Http\Controllers\BookGenreController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
@@ -33,9 +34,6 @@ Route::get('authors', [AuthorController::class, 'index'])->name('authors.index')
 Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre');
 Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author');
-
-//Route::get('genres', [GenreController::class, 'show'])->name('genres.show');
-//Route::get('authors', [AuthorController::class, 'show'])->name('authors.show');
 
 Route::group([
     'middleware' => 'admin',
@@ -75,6 +73,14 @@ Route::group([
         Route::post('store', [GenreController::class, 'store'])->name('.store');
         Route::post('update/{id}', [GenreController::class, 'update'])->name('.update');
         Route::get('destroy/{id}', [GenreController::class, 'destroy'])->name('.destroy');
+    });
+
+    Route::group([
+       'prefix' => 'book_copies',
+        'as' => '.book_copies'
+    ], function () {
+        Route::get('add', [BookCopyController::class, 'add'])->name('.add');
+        Route::get('remove', [BookCopyController::class, 'remove'])->name('.remove');
     });
 });
 
