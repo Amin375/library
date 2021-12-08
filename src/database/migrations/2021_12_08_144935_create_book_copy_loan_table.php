@@ -15,6 +15,8 @@ class CreateBookCopyLoanTable extends Migration
     {
         Schema::create('book_copy_loan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('loan_id');
+            $table->foreignId('book_copy_id');
             $table->timestamps();
         });
     }

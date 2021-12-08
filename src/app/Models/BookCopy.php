@@ -19,4 +19,9 @@ class BookCopy extends Model
     {
         return $this->BelongsToMany(Book::class);
     }
+
+    public function loans()
+    {
+        return $this->BelongsToMany(Loan::class, 'book_copy_loan');
+    }
 }

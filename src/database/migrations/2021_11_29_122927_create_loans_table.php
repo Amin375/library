@@ -16,7 +16,7 @@ class CreateLoansTable extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->bigInteger('handed_in');
+            $table->bigInteger('handed_in')->default(0);
             $table->timestamps();
         });
     }
