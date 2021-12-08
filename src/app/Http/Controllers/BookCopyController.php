@@ -8,12 +8,29 @@ use Illuminate\Http\Request;
 
 class BookCopyController extends Controller
 {
-    public function add($id)
+    public function index()
     {
+        //show all books
+        $books = Book::with(['author', 'genre'])->withCount('bookCopy')->get();
 
-        $newCopy = ['book_id' => $id];
-        BookCopy::create($newCopy);
+        return view('admin.book_copies.index', ['books' => $books]);
+    }
 
-        return redirect()->route('books.index');
+    public function store($id)
+    {
+        //add one row with the given id
+        $copy = ['book_id' => $id];
+        BookCopy::create($copy);
+
+        return redirect()->route('admin.book_copies.index');
+    }
+
+    public function destroy($id)
+    {
+        //delete only 1 row from the given id
+        $book = BookCopy::query()->where('book_id', $id);
+        $book->limit(1)->delete();
+
+        return redirect()->route('admin.book_copies.index');
     }
 }

@@ -12,7 +12,7 @@
                     <p class="text-xl rounded-2xl pb-5">{{ $book->genre->title }}</p>
                     <p class="text-xl pb-8">{{ $book->blurb }}</p>
                     <div class="flex gap-5 justify-start">
-                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="{{ route('admin.book_copies.add', $book->id) }}">Leen</a>
+                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="{{ route('admin.book_copies.store', $book->id) }}">Leen</a>
                         <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Add to Wishlist</a>
                         <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Add to Cart</a>
                     </div>
