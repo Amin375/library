@@ -13,8 +13,8 @@
                     <p class="text-xl pb-8">{{ $book->blurb }}</p>
                     <div class="flex gap-5 justify-start">
                         <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="{{ route('loans.store', auth()->id()) }}">Leen</a>
-                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Add to Wishlist</a>
-                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Add to Cart</a>
+                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Wishlist</a>
+                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Cart</a>
                     </div>
                 </div>
             </div>

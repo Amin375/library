@@ -106,10 +106,14 @@ class BookController extends Controller
             'author_id' => 'required',
             'genre_id' => 'required',
             'blurb' => 'required',
-            'image' => 'required|image',
+            'image' => 'image',
         ]);
 
-        if($request->hasFile('image')){
+//        if($request->hasFile('image')){
+//            $validatedData['image'] = request()->file('image')->store('images');
+//        }
+
+        if(isset($validatedData['image'])){
             $validatedData['image'] = request()->file('image')->store('images');
         }
 

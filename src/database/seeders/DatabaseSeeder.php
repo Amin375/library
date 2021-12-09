@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Author::create([
-            'name' => 'J . K . Rowling'
+            'name' => 'J. K. Rowling'
         ]);
 
         Author::create([

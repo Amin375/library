@@ -12,6 +12,7 @@ class LoanController extends Controller
         $loan = ['user_id' => $id];
         Loan::create($loan);
 
+
         return redirect()->route('books.index');
     }
 }
