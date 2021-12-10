@@ -37,16 +37,14 @@ Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre');
 Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author');
 
-Route::get('loan/cart', [LoanCartController::class, 'index'])->name('loan.cart');
-Route::post('loan/cart/store/{id}', [LoanCartController::class, 'store'])->name('loan.cart.store');
-
-//Route::get('loan/cart/store/{id}', [LoanCartController::class, 'store'])->name('loan.cart.store');
-
 Route::group([
     'prefix' => 'loans',
     'as' => 'loans'
 ], function () {
-    Route::get('store/{id}', [LoanController::class, 'store'])->name('.store');
+    Route::get('cart', [LoanCartController::class, 'index'])->name('.cart');
+    Route::post('store/{id}', [LoanController::class, 'store'])->name('.store');
+    Route::post('cart/store/{id}', [LoanCartController::class, 'store'])->name('.cart.store');
+    Route::get('cart/destroy/{id}', [LoanCartController::class, 'destroy'])->name('.cart.destroy');
 });
 
 Route::group([

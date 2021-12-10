@@ -18,6 +18,4 @@ class Genre extends Model
     {
         return $this->hasMany(Book::class);
     }
-
-
 }

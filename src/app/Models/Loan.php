@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Loan extends Model
@@ -24,4 +25,5 @@ class Loan extends Model
     {
         return $this->belongsToMany(User::class,'sessions');
     }
+
 }
