@@ -13,8 +13,11 @@
                     <p class="text-xl pb-8">{{ $book->blurb }}</p>
                     <div class="flex gap-5 justify-start">
                         <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="{{ route('loans.store', auth()->id()) }}">Leen</a>
+                        <form action="{{ route('loan.cart.store', $book->id) }}" method="post">
+                            @csrf
+                            <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" type="submit">Cart</button>
+                        </form>
                         <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Wishlist</a>
-                        <a class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" href="">Cart</a>
                     </div>
                 </div>
             </div>

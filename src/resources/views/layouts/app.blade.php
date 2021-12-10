@@ -50,6 +50,9 @@
                             </div>
                         @endif
                         <div>
+                            <a href="{{ route('loan.cart') }}">Cart</a>
+                        </div>
+                        <div>
                             <a href="{{ route('books.index') }}">Books</a>
                         </div>
                         <div>
