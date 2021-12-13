@@ -8,7 +8,6 @@
             </div>
             <form action="{{ route('admin.book.update' , $book->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
-
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label for="title">Title</label>
                     <input value="{{ isset($book) ? $book->title : null }}" name="title"
@@ -16,7 +15,7 @@
                 </div>
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label class="rounded" for="blurb">Blurb</label>
-                    <textarea class="border border-gray-300 rounded" name="blurb" id="" cols="18"
+                    <textarea class="border border-gray-300 rounded" name="blurb" cols="18"
                               rows="10">{{ isset($book) ? $book->blurb : null }}</textarea>
                 </div>
                 <div class="flex gap-x-3 mb-3">
@@ -33,13 +32,13 @@
                     <select class="w-full p-1 bg-gray-200 rounded" name="genre_id">
                         @foreach($genres as $genre)
                             <option
-                                value="{{ $genre->id }}" {{ $book->genre_id == $genre->id ? 'selected' : null }}>{{ $genre->title }} </option>
+                                value="{{ $genre->id }}" {{ $book->genre_id == $genre->id ? 'selected' : null }}>{{ $genre->title }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mb-5 bg-gray-200 rounded p-2">
                     <label for="image">Image Cover</label>
-                    <input type="file" name="image" value="{{ old('image', $book->image ) }}">
+                    <input type="file" name="image">
                 </div>
                 <div>
                     <button class="py-2 px-10 text-lg rounded-md bg-blue-800 hover:bg-blue-900 text-white"

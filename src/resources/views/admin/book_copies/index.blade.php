@@ -47,7 +47,7 @@
                 </span>
                                 </td>
                                 <td class="px-6 py-4 leading-5 whitespace-nowrap text-md text-gray-900 flex justify-evenly">
-                                    <a class="text-3xl" href="{{ route('admin.book_copies.store', $book->id) }}">+</a> {{ $book->book_copy_count }}
+                                    <a class="text-3xl" href="{{ route('admin.book_copies.store', $book->id) }}">+</a> {{ $book->book_copies_count }}
                                     <a class="text-3xl" href="{{ route('admin.book_copies.destroy', $book->id) }}">-</a>
                                 </td>
                             </tr>

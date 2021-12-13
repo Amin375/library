@@ -12,7 +12,8 @@ class BookCopy extends Model
     public $table = 'book_copies';
 
     protected $fillable = [
-        'book_id'
+        'book_id',
+        'available',
     ];
 
     public function book()
@@ -22,6 +23,6 @@ class BookCopy extends Model
 
     public function loans()
     {
-        return $this->BelongsToMany(Loan::class, 'book_copy_loan');
+        return $this->BelongsToMany(Loan::class, 'book_copy_loan')->withTimestamps();
     }
 }

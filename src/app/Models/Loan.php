@@ -18,12 +18,12 @@ class Loan extends Model
 
     public function bookCopies() : BelongsToMany
     {
-        return $this->belongsToMany(BookCopy::class, 'book_copy_loan');
+        return $this->belongsToMany(BookCopy::class, 'book_copy_loan')->withTimestamps();
     }
 
-    public function loansCart(): BelongsToMany
+    public function loansCart(): BelongsTo
     {
-        return $this->belongsToMany(User::class,'sessions');
+        return $this->belongsTo(User::class,'sessions');
     }
 
 }

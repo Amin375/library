@@ -11,7 +11,7 @@ class BookCopyController extends Controller
     public function index()
     {
         //show all books
-        $books = Book::with(['author', 'genre'])->withCount('bookCopy')->get();
+        $books = Book::with(['author', 'genre'])->withCount('bookCopies')->get();
 
         return view('admin.book_copies.index', ['books' => $books]);
     }

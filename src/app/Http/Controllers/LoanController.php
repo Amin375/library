@@ -18,8 +18,13 @@ class LoanController extends Controller
 
         $loan->bookCopies()->sync(Arr::flatten(Session::get('loansCart')));
 
+        $bookCopies = BookCopy::whereIn('id', Arr::flatten(Session::get('loansCart')))->get();
 
+        foreach($bookCopies as $bookCopy) {
+            $bookCopy->update(['available' => 0]);
+        }
 
+        Session::forget('loansCart');
 
         return redirect()->route('books.index');
     }

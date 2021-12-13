@@ -16,6 +16,7 @@ class CreateBookCopiesTable extends Migration
         Schema::create('book_copies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('book_id');
+            $table->unsignedInteger('available')->default(1);
             $table->timestamps();
         });
     }

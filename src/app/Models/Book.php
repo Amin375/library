@@ -41,8 +41,9 @@ class Book extends Model
         return $this->hasMany(BookCopy::class, 'book_id');
     }
 
-    public function firstAvailableBookCopy()
+    public function firstAvailableBookCopyId()
     {
-        return $this->bookCopies()->first() ?? false;
+        //Add where clause for available
+        return $this->bookCopies()->where('available', 1)->first()->id ?? false;
     }
 }
