@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(empty($books))
         <div class="px-96 flex justify-center py-8 w-full">
             <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
                 <table class="min-w-full bg-white">
@@ -63,11 +62,4 @@
                 </table>
             </div>
         </div>
-    @else
-        <div class="flex justify-center">
-            <div class="px-9 py-3 mt-13 bg-white shadow text-lg rounded-md">
-                Cart is empty
-            </div>
-        </div>
-    @endif
 @endsection

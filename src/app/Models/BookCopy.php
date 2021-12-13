@@ -15,9 +15,9 @@ class BookCopy extends Model
         'book_id'
     ];
 
-    public function books()
+    public function book()
     {
-        return $this->BelongsToMany(Book::class);
+        return $this->BelongsTo(Book::class);
     }
 
     public function loans()

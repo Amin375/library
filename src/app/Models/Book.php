@@ -36,8 +36,13 @@ class Book extends Model
         return 'assets/'. $this->image;
     }
 
-    public function bookCopy()
+    public function bookCopies()
     {
-        return $this->hasOne(BookCopy::class, 'book_id');
+        return $this->hasMany(BookCopy::class, 'book_id');
+    }
+
+    public function firstAvailableBookCopy()
+    {
+        return $this->bookCopies()->first() ?? false;
     }
 }
