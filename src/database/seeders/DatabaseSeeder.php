@@ -56,6 +56,19 @@ class DatabaseSeeder extends Seeder
             'phone' => '0639173377'
         ]);
 
+        User::create([
+            'role_id' => 2,
+            'name' => 'Joost M.',
+            'email' => 'joost@test.com',
+            'password' => Hash::make('joost123'),
+            'street' => 'Maisstraat',
+            'house_number' => 9,
+            'postal_code' => '5234 BE',
+            'city' => 'Amsterdam',
+            'country' => 'Nederland',
+            'phone' => '0639173377'
+        ]);
+
         Book::create([
             'author_id' => 1,
             'genre_id' => 4,
