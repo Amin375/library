@@ -19,7 +19,8 @@
                         <td class="w-1/3 text-left py-3 px-3">{{ $book->title }}</td>
                         <td class="w-1/3 text-left py-3 px-3">{{ $book->author->name }}</td>
                         <td class="text-left py-3 px-3">{{ $book->genre->title }}</td>
-                        <td class="text-left py-3 px-3"><a href="{{ route('book.show', ['id' => $book->id] )}}">Open</a></td>
+                        <td class="text-left py-3 px-3"><a href="{{ route('book.show', ['id' => $book->id] )}}">Open</a>
+                        </td>
                         <td class="text-left py-3 pl-6"><a href="{{ route('loans.cart.destroy', $book->id )}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                      width="25" height="25"
@@ -37,7 +38,8 @@
                                           d="M61.5 25h-36c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h36c.276 0 .5.224.5.5S61.776 25 61.5 25zM73.5 25h-5c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h5c.276 0 .5.224.5.5S73.776 25 73.5 25zM66.5 25h-2c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h2c.276 0 .5.224.5.5S66.776 25 66.5 25zM50 76c-1.654 0-3-1.346-3-3V38c0-1.654 1.346-3 3-3s3 1.346 3 3v25.5c0 .276-.224.5-.5.5S52 63.776 52 63.5V38c0-1.103-.897-2-2-2s-2 .897-2 2v35c0 1.103.897 2 2 2s2-.897 2-2v-3.5c0-.276.224-.5.5-.5s.5.224.5.5V73C53 74.654 51.654 76 50 76zM62 76c-1.654 0-3-1.346-3-3V47.5c0-.276.224-.5.5-.5s.5.224.5.5V73c0 1.103.897 2 2 2s2-.897 2-2V38c0-1.103-.897-2-2-2s-2 .897-2 2v1.5c0 .276-.224.5-.5.5S59 39.776 59 39.5V38c0-1.654 1.346-3 3-3s3 1.346 3 3v35C65 74.654 63.654 76 62 76z"></path>
                                     <path fill="#1f212b"
                                           d="M59.5 45c-.276 0-.5-.224-.5-.5v-2c0-.276.224-.5.5-.5s.5.224.5.5v2C60 44.776 59.776 45 59.5 45zM38 76c-1.654 0-3-1.346-3-3V38c0-1.654 1.346-3 3-3s3 1.346 3 3v35C41 74.654 39.654 76 38 76zM38 36c-1.103 0-2 .897-2 2v35c0 1.103.897 2 2 2s2-.897 2-2V38C40 36.897 39.103 36 38 36z"></path>
-                                </svg></a></td>
+                                </svg>
+                            </a></td>
 
                     </tr>
                 @empty
@@ -48,11 +50,14 @@
                     </tr>
                 @endforelse
                 </tbody>
-                <form action="{{ route('loans.cart.destroy', $book->id )}}" method="post">
-                    @csrf
-                    <button type="submit">Order</button>
-                </form>
-
+                <tr>
+                    <td>
+                        <form action="{{ route('loans.store', auth()->id() )}}" method="post">
+                            @csrf
+                            <button class="bg-blue-900 p-2 m-1 rounded text-white" type="submit">Order</button>
+                        </form>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>

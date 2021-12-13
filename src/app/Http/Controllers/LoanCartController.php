@@ -17,6 +17,8 @@ class LoanCartController extends Controller
             $books = Book::query()->whereIn('id', Arr::flatten(Session::get('loansCart')))->get();
         }
 
+//        dd(Session::get('loansCart'));
+
         return view('member.cart', ['books' => $books ?? []]);
     }
 

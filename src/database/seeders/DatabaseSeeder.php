@@ -147,7 +147,33 @@ class DatabaseSeeder extends Seeder
             'image' => 'images/ZPGFu4KiOifZ1hRgatkly44FRstbsvqqTi7mu942.jpg',
         ]);
 
-        BookCopy::factory(10)->create();
+        BookCopy::factory(10)->create([
+            'book_id' => 7,
+        ]);
+
+        BookCopy::factory(10)->create([
+            'book_id' => 6,
+        ]);
+
+        BookCopy::factory(10)->create([
+            'book_id' => 5,
+        ]);
+
+        BookCopy::factory(10)->create([
+            'book_id' => 4,
+        ]);
+
+        BookCopy::factory(10)->create([
+            'book_id' => 3,
+        ]);
+
+        BookCopy::factory(10)->create([
+            'book_id' => 2,
+        ]);
+
+        BookCopy::factory(10)->create([
+            'book_id' => 1,
+        ]);
 
 
         Genre::create([
