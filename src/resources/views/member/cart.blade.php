@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @if(empty($books))
         <div class="px-96 flex justify-center py-8 w-full">
             <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
                 <table class="min-w-full bg-white">
@@ -52,23 +52,22 @@
                         </tr>
                     @endforelse
                     </tbody>
-{{--                    @if(empty($books))--}}
                     <tr>
-                        <td >
+                        <td>
                             <form action="{{ route('loans.store', auth()->id() )}}" method="post">
                                 @csrf
                                 <button class="bg-blue-900 p-2 m-1 rounded text-white" type="submit">Order</button>
                             </form>
                         </td>
                     </tr>
-{{--                    @else--}}
-{{--                        <div class="flex justify-center">--}}
-{{--                            <div class="px-9 py-3 mt-13 bg-white shadow text-lg rounded-md">--}}
-{{--                                Cart is empty--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
                 </table>
             </div>
         </div>
+    @else
+        <div class="flex justify-center">
+            <div class="px-9 py-3 mt-13 bg-white shadow text-lg rounded-md">
+                Cart is empty
+            </div>
+        </div>
+    @endif
 @endsection

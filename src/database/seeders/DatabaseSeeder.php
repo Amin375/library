@@ -69,18 +69,6 @@ class DatabaseSeeder extends Seeder
             'phone' => '0639173377'
         ]);
 
-        Book::create([
-            'author_id' => 1,
-            'genre_id' => 4,
-            'title' => 'Harry Potter and the Sorcerer\'s Stone',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/HQzJh6iYABAdt9XLEd1aWQwviRj7NDHH7DHE0J5V.jpg',
-        ]);
 
         Book::create([
             'author_id' => 1,
@@ -146,6 +134,27 @@ class DatabaseSeeder extends Seeder
                         PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
             'image' => 'images/AUvspWgAqKDzWmnrqLY0y2Nne7IQFtcdAOMGGD6G.jpg',
         ]);
+
+
+        Book::create([
+            'author_id' => 1,
+            'genre_id' => 4,
+            'title' => 'Harry Potter and the Half-Blood Prince',
+            'blurb' => 'Cornelis Droebel brengt een bezoek aan de Britse Dreuzelpremier. Het blijkt dat Droebel als Minister van
+            Toverkunst werd opgevolgd door Rufus Schobbejak, de voormalige nummer één op het schouwershoofdkwatier. Droebel fungeert
+            nog wel als woordvoerder en hij bespreekt met de Dreuzelpremier de rampspoed die de Dreuzelwereld de voorgaande weken is overkomen.
+            Het blijkt dat een aantal Dooddoeners (volgelingen van de herrezen Voldemort) verantwoordelijk is voor rampen als wervelstormen, plotseling
+            instortende bruggen en diverse onverklaarbare moorden, en dus niet de regering, zoals de tegenstander van de dreuzelpremier had gezegd.
+            De premier was zeer verontwaardigd door de bericht - hij kon namelijk niet vertellen dat de dooddoeners verantwoordelijk waren voor de rampen,
+            omdat niemand hem zou geloven. Het weten dat het niet zijn fout was maar het niet kunnen vertellen was voor hem veel
+            erger dan dat als het wel echt zijn fout was. De Dooddoeners zijn dus weer volop actief, zowel in de Dreuzelwereld als in de tovenaarswereld.
+            Severus Sneep, toverdrankleraar van Zweinstein en (mogelijk) dubbelspion,
+            legt een Onbreekbare Eed af aan Narcissa Malfidus, waarin hij belooft dat hij haar zoon,
+            Draco Malfidus, zal helpen bij het uitvoeren van de op dat moment voor de lezer nog onbekende
+            taak waarmee Voldemort hem heeft belast.',
+            'image' => 'images/Jv1OdQgSRWIKRVZB7ceX4GHuOCg95vvezCEu5GCm.jpg',
+        ]);
+
 
         Book::create([
             'author_id' => 1,

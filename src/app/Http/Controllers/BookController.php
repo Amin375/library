@@ -53,9 +53,7 @@ class BookController extends Controller
             'image' => 'required|image',
         ]);
 
-//        if($request->hasFile('image') && $request->file('image')->isValid()){
-//            $validatedData['image'] = request()->file('image')->store('images');
-//        }
+        $validatedData['image'] = request()->file('image')->store('images');
 
         Book::create($validatedData);
 
