@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
 //    protected $with = ['author', 'genre'];
 
@@ -22,9 +23,16 @@ class Book extends Model
     ];
 
 
-    public function scopeFilter($query, array $filters)
+    public function searchableAs()
     {
+        return 'books_index';
+    }
 
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        return $array;
     }
 
 

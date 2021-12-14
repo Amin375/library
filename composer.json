@@ -1,5 +1,6 @@
 {
     "require": {
-        "cviebrock/eloquent-sluggable": "^8.0"
+        "cviebrock/eloquent-sluggable": "^8.0",
+        "laravel/scout": "^9.3"
     }
 }

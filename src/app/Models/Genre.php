@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Scout\Searchable;
 
 class Genre extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'title'
@@ -17,5 +18,17 @@ class Genre extends Model
     public function books()
     {
         return $this->hasMany(Book::class);
+    }
+
+    public function searchableAs(): string
+    {
+        return 'genres_index';
+    }
+
+    public function toSearchableArray(): array
+    {
+        $array = $this->toArray();
+
+        return $array;
     }
 }

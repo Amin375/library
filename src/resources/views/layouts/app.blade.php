@@ -52,8 +52,10 @@
                            href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
                 @else
-                    <form action="">
-                        <input type="text" class="ml-2.5 mb-4 py-1 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
+                    <form action="{{ route('search') }}" method="post">
+                        @csrf
+                        <input name="search" type="text" class="ml-2.5 mb-4 py-1 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
+
                     </form>
 
                     <a href=""

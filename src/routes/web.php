@@ -10,6 +10,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LoanCartController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::post('search', SearchController::class)->name('search');
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('books', [BookController::class, 'index'])->name('books.index');
