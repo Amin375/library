@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="px-96 flex justify-center py-8 w-full">
+    <div class="px-64 flex justify-center py-8 w-full">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
                 <thead class="bg-blue-900 text-white">

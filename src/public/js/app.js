@@ -2060,7 +2060,15 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // grab everything we need
+
+
+var btn = document.querySelector(".mobile-menu-button");
+var sidebar = document.querySelector(".sidebar"); // add our event listener for the click
+
+btn.addEventListener("click", function () {
+  sidebar.classList.toggle("-translate-x-full");
+});
 
 /***/ }),
 

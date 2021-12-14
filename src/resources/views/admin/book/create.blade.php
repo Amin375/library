@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="flex justify-center my-10">
-        <div class="flex justify-center rounded-md border-2 border-gray-300 shadow-md flex-col p-5 lg:w-1/4 ">
-            <div class="z-10 w-full mb-5">
+        <div class="flex justify-center rounded-md border-2 border-gray-300 shadow-md flex-col p-5 lg:w-1/7 ">
+            <div class="w-full mb-5">
                 <h1 class="text-2xl text-left">Add Book</h1>
             </div>
             <form action="{{ route('admin.book.store') }}" method="post" enctype="multipart/form-data">

@@ -11,76 +11,186 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
 <div id="app">
-    <header class="bg-blue-900 py-6">
-        <div class="container mx-auto flex justify-between items-center px-6">
-            <div>
-                <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                    Library
-                </a>
-            </div>
-            <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+    <div class="relative min-h-screen md:flex">
+
+        <!-- mobile menu bar -->
+        <div class="bg-blue-900 text-gray-100 flex justify-between md:hidden">
+            <!-- logo -->
+            <a href="#" class="block p-4 text-white ">Library</a>
+
+            <!-- mobile menu button -->
+            <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- sidebar -->
+        <div
+            class="sidebar bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+            <!-- logo -->
+            <a href="#" class="text-white flex items-center space-x-2 px-4">
+                <span class="text-2xl">Library</span>
+            </a>
+
+            <!-- nav -->
+            <nav>
                 @guest
-                    <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white"
+                       href="{{ route('login') }}">{{ __('Login') }}</a>
                     @if (Route::has('register'))
-                        <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white"
+                           href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
                 @else
-                    <div class="flex flex-row gap-5">
-                        <div>
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                        </div>
-                        @if(auth()->user()->isAdmin())
-                            <div>
-                                <a href="{{ route('admin.book_copies.index') }}">View Book Copies</a>
-                            </div>
-                            <div>
-                                <a href="{{ route('admin.book.create') }}">Create Book</a>
-                            </div>
-                            <div>
-                                <a href="{{ route('admin.author.create') }}">Create Author</a>
-                            </div>
-                            <div>
-                                <a href="{{ route('admin.genre.create') }}">Create Genre</a>
-                            </div>
-                        @endif
-                        <div>
-                            <a href="{{ route('loans.cart') }}">Cart</a>
-                        </div>
-                        <div>
-                            <a href="{{ route('books.index') }}">Books</a>
-                        </div>
-                        <div>
-                            <a href="{{ route('authors.index') }}">Authors</a>
-                        </div>
-                        <div>
-                            <a href="{{ route('genres.index') }}">Genres</a>
-                        </div>
-                        <div>
-                            <a href="">{{ auth()->user()->name }}</a>
-                        </div>
-                        <div>
-                            <a href="{{ route('logout') }}"
-                               class="no-underline hover:underline"
-                               onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
-                    </div>
+                    <form action="">
+                        <input type="text" class="ml-2.5 mb-4 py-1 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
+                    </form>
+
+                    <a href=""
+                       class="block py-2.5 px-4 rounded font-bold transition duration-200 hover:bg-blue-700 hover:text-white">
+                        {{ auth()->user()->name }}
+                    </a>
+
+                    @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.book_copies.index') }}"
+                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-800 hover:text-white">
+                            Book Copies
+                        </a>
+                        <a href="{{ route('admin.book.create') }}"
+                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                            Add Book
+                        </a>
+                        <a href="{{ route('admin.author.create') }}"
+                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                            Add Author
+                        </a>
+                        <a href="{{ route('admin.genre.create') }}"
+                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                            Add Genre
+                        </a>
+                    @endif
+                    <a href="{{ route('loans.cart') }}"
+                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                        Cart
+                    </a>
+                    <a href="{{ route('books.index') }}"
+                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                        Books
+                    </a>
+                    <a href="{{ route('authors.index') }}"
+                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                        Authors
+                    </a>
+                    <a href="{{ route('genres.index') }}"
+                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                        Genres
+                    </a>
+                    <a href="{{ route('logout') }}"
+                       class="block py-2.5 mt-3.5 px-4 rounded italic transition duration-200 hover:bg-blue-700 hover:text-white"
+                       onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                        {{ csrf_field() }}
+                    </form>
                 @endguest
             </nav>
         </div>
-    </header>
-    <main>
-        @yield('content')
-    </main>
+
+        <!-- content -->
+        <div class="flex-1">
+            <main>
+                @yield('content')
+            </main>
+        </div>
+
+    </div>
+
+    {{--    <div class="">--}}
+    {{--        <header class="bg-blue-900 py-6">--}}
+    {{--            <div class="container mx-auto flex justify-between items-center px-6">--}}
+    {{--                <div>--}}
+    {{--                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">--}}
+    {{--                        Library--}}
+    {{--                    </a>--}}
+    {{--                </div>--}}
+    {{--                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">--}}
+    {{--                    @guest--}}
+    {{--                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+    {{--                        @if (Route::has('register'))--}}
+    {{--                            <a class="no-underline hover:underline"--}}
+    {{--                               href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+    {{--                        @endif--}}
+    {{--                    @else--}}
+    {{--                        <div class="flex flex-row gap-5">--}}
+    {{--                            <div>--}}
+    {{--                                <a href="{{ route('dashboard') }}">Dashboard</a>--}}
+    {{--                            </div>--}}
+    {{--                            @if(auth()->user()->isAdmin())--}}
+    {{--                                <div>--}}
+    {{--                                    <a href="{{ route('admin.book_copies.index') }}">View Book Copies</a>--}}
+    {{--                                </div>--}}
+    {{--                                <div>--}}
+    {{--                                    <a href="{{ route('admin.book.create') }}">Create Book</a>--}}
+    {{--                                </div>--}}
+    {{--                                <div>--}}
+    {{--                                    <a href="{{ route('admin.author.create') }}">Create Author</a>--}}
+    {{--                                </div>--}}
+    {{--                                <div>--}}
+    {{--                                    <a href="{{ route('admin.genre.create') }}">Create Genre</a>--}}
+    {{--                                </div>--}}
+    {{--                            @endif--}}
+    {{--                            <div>--}}
+    {{--                                <a href="{{ route('loans.cart') }}">Cart</a>--}}
+    {{--                            </div>--}}
+    {{--                            <div>--}}
+    {{--                                <a href="{{ route('books.index') }}">Books</a>--}}
+    {{--                            </div>--}}
+    {{--                            <div>--}}
+    {{--                                <a href="{{ route('authors.index') }}">Authors</a>--}}
+    {{--                            </div>--}}
+    {{--                            <div>--}}
+    {{--                                <a href="{{ route('genres.index') }}">Genres</a>--}}
+    {{--                            </div>--}}
+    {{--                            <div>--}}
+    {{--                                <a href="">{{ auth()->user()->name }}</a>--}}
+    {{--                            </div>--}}
+    {{--                            <div>--}}
+    {{--                                <a href="{{ route('logout') }}"--}}
+    {{--                                   class="no-underline hover:underline"--}}
+    {{--                                   onclick="event.preventDefault();--}}
+    {{--                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>--}}
+    {{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">--}}
+    {{--                                    {{ csrf_field() }}--}}
+    {{--                                </form>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    @endguest--}}
+    {{--                </nav>--}}
+    {{--            </div>--}}
+    {{--        </header>--}}
+    {{--    </div>--}}
+    {{--    <main>--}}
+    {{--        @yield('content')--}}
+    {{--    </main>--}}
 </div>
+<script>
+    const btn = document.querySelector(".mobile-menu-button");
+    const sidebar = document.querySelector(".sidebar");
+
+    // add our event listener for the click
+    btn.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+    });
+</script>
 </body>
 </html>

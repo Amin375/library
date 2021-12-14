@@ -21,6 +21,13 @@ class Book extends Model
         'image',
     ];
 
+
+    public function scopeFilter($query, array $filters)
+    {
+
+    }
+
+
     public function author()
     {
         return $this->BelongsTo(Author::class);
