@@ -26,4 +26,9 @@ class Loan extends Model
         return $this->belongsTo(User::class,'sessions');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

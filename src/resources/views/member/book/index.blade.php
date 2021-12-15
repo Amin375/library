@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="md:px-40 flex justify-center py-8 w-full">
+    <div class="hidden md:px-10 lg:px-20 md:flex lg:flex justify-center py-8 w-full">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
                 <thead class="bg-blue-900 text-white">
@@ -80,14 +80,14 @@
         </div>
     </div>
 
-    <div class="md:hidden lg:hidden flex justify-center py-8 w-full">
+    <div class="sm:flex md:hidden lg:hidden justify-center py-8 px-10">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
                 <thead class="bg-blue-900 text-white">
                 <tr>
                     <th class="w-1/3 text-left py-3 px-3 uppercase font-semibold text-sm">Book Title</th>
-                    <th class="w-1/3 text-left py-3 px-3 uppercase font-semibold text-sm">Author</th>
-                    <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Genre</th>
+{{--                    <th class="w-1/3 text-left py-3 px-3 uppercase font-semibold text-sm">Author</th>--}}
+{{--                    <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Genre</th>--}}
                     <th class="text-left py-3 px-3 uppercase font-semibold text-sm">View</th>
                     <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Edit</th>
                     <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Delete</th>
@@ -97,8 +97,8 @@
                 @forelse($books as $book)
                     <tr>
                         <td class="w-1/3 text-left py-3 px-3">{{ $book->title }}</td>
-                        <td class="w-1/3 text-left py-3 px-3">{{ $book->author->name }}</td>
-                        <td class="text-left py-3 px-3">{{ $book->genre->title }}</td>
+{{--                        <td class="w-1/3 text-left py-3 px-3">{{ $book->author->name }}</td>--}}
+{{--                        <td class="text-left py-3 px-3">{{ $book->genre->title }}</td>--}}
                         <td class="text-left py-3 px-3"><a href="{{ route('book.show', ['id' => $book->id] )}}">Open</a></td>
                         <td class="text-left py-3 px-3"><a href="{{ route('admin.book.edit', $book->id )}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

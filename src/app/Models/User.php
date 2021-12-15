@@ -59,5 +59,10 @@ class User extends Authenticatable
         return $this->role->title === 'admin';
     }
 
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
+
 
 }
