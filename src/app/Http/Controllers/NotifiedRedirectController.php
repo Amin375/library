@@ -10,6 +10,6 @@ class NotifiedRedirectController extends Controller
 {
     public function index()
     {
-
+        return view('mail.notify');
     }
 }
