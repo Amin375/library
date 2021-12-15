@@ -15,6 +15,9 @@ class Genre extends Model
         'title'
     ];
 
+//    protected $touches = ['books'];
+
+
     public function books()
     {
         return $this->hasMany(Book::class);

@@ -22,26 +22,15 @@ class Book extends Model
         'image',
     ];
 
-
-    public function searchableAs()
-    {
-        return 'books_index';
-    }
-
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        return $array;
-    }
+//    protected $touches = ['author', 'genre'];
 
 
-    public function author()
+    public function author() : BelongsTo
     {
         return $this->BelongsTo(Author::class);
     }
 
-    public function genre()
+    public function genre() : BelongsTo
     {
         return $this->BelongsTo(Genre::class);
     }
@@ -60,5 +49,20 @@ class Book extends Model
     {
         //Add where clause for available
         return $this->bookCopies()->where('available', 1)->first()->id ?? false;
+    }
+
+    public function searchableAs()
+    {
+        return 'books_index';
+    }
+
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $array['genre'] = $this->genre->title;
+        $array['author'] = $this->author->name;
+
+        return $array;
     }
 }

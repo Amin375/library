@@ -14,14 +14,12 @@ class SearchController extends Controller
         if ($request->get('search') != ''){
             $books = Book::search($request->get('search'))->get();
             $authors = Author::search($request->get('search'))->get();
-            $genres = Genre::search($request->get('search'))->get();
         }
 
     return view('member.search',[
         'searchRequest' => $request->get('search'),
         'books' => $books ?? [],
-        'authors' => $authors ?? [],
-        'genres' => $genres ?? [],
+        'authors' => $authors ?? []
     ]);
 
     }

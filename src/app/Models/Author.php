@@ -15,6 +15,9 @@ class Author extends Model
       'name',
     ];
 
+//    protected $touches = ['books'];
+
+
     public function books()
     {
         return $this->hasMany(Book::class);
