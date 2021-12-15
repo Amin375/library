@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Loan;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -40,7 +41,9 @@ class BookOrder extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/mail/notify');
+        $loans = Loan::all();
+
+        $url = url('notify'. $loans->id);
 
         return (new MailMessage)
             ->line('You have placed an order on our website')

@@ -36,7 +36,7 @@ class LoanController extends Controller
         $data = User::first();
 
         $orderData = [
-            'name' => 'Pablo',
+            'name' => $data->name,
             'body' => 'You have placed a new order',
             'thanks' => 'Thank you ',
             'text' => 'We have received your order.',

@@ -10,6 +10,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LoanCartController;
+use App\Http\Controllers\NotifiedRedirectController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('search', SearchController::class)->name('search');
 
 Route::post('search', SearchController::class)->name('search');
+
+
+Route::get('notify/{id}', [NotifiedRedirectController::class, 'index'])->name('notify');
 
 
 
