@@ -14,7 +14,6 @@ class SendMail extends Mailable
 
     public $loan;
 
-
     /**
      * Create a new message instance.
      *
@@ -32,6 +31,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('amin@teaminova.nl')->view('view.name');
+        return $this->from('amin@teaminova.nl')->view('mail.expired');
     }
 }

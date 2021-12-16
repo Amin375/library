@@ -2,8 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\SendMail;
 use App\Models\Loan;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+//use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class CheckDateMail extends Command
 {
@@ -12,7 +17,7 @@ class CheckDateMail extends Command
      *
      * @var string
      */
-    protected $signature = 'mail:send {user}';
+    protected $signature = 'mail:send';
 
     /**
      * The console command description.
@@ -38,8 +43,16 @@ class CheckDateMail extends Command
      */
     public function handle(Loan $loan)
     {
+        $now = Carbon::now();
 
+        $loanDate = $loan['created_at'];
+//        $loanDate = Carbon::create($loan['created_at']->format('d-m-Y'));
+        $expiredDate = Carbon::parse($loanDate)->addMinute()->format('d-m-Y');
 
+        if($now->greaterThanOrEqualTo($expiredDate)){
+            Mail::to($loan->user)->send(new SendMail($loan));
+        }
+//        $first->greaterThanOrEqualTo($second)
 //        return Command::SUCCESS;
     }
 }

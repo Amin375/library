@@ -33,7 +33,7 @@
             <table cellpadding="0" cellspacing="0" width="640" align="left">
                 <tr>
                     <td><p style="margin-top: 3px; margin-bottom: 15px;">
-                            <strong>Subject:</strong> </p></td>
+                            <strong>Subject: Expiration Date</strong></p></td>
                 </tr>
             </table>
             <hr>
@@ -41,15 +41,18 @@
                 <tr>
                     <td style="font-size: 20px;">
                         <p style="margin-top:5px;">
-
+                            You have reached the expiration date of your loan containing the following books:
+                            @foreach($loan->bookCopies as $book_copy)
+                                {{ $book_copy->book->title . '<br>' }}
+                            @endforeach
                         </p>
                     </td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" align="left" >
+            <table cellpadding="0" cellspacing="0" align="left">
                 <tr>
                     <td>
-                        <h2 style="margin-top: 20px; margin-bottom:10px"><strong>Bloggy</strong></h2>
+                        <h2 style="margin-top: 20px; margin-bottom:10px"><strong>Library</strong></h2>
                     </td>
                 </tr>
             </table>
@@ -63,14 +66,14 @@
             <table>
                 <tr>
                     <td>
-                        www.bloggy.gov
+                        www.library.gov
                     </td>
                 </tr>
             </table>
             <table>
                 <tr>
                     <td>
-                        bloggy@teaminova.nl
+                        amin@teaminova.nl
                     </td>
                 </tr>
             </table>
