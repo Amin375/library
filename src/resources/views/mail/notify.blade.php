@@ -1,65 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
-    <title>Email Design</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <style>
-        body {
-            font-family: 'Rubik', sans-serif;
-        }
+@extends('layouts.app')
 
-        table {
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-<table cellpadding="0" cellspacing="0" align="left">
-    <tr>
-        <td>
-            <table cellpadding="0" cellspacing="0" width="640" align="left">
-                <tr>
-                    <td><p style="margin-top: 3px; margin-bottom: 3px;"><strong>From:</strong> {{ $data['name'] }}</p>
-                    </td>
-                </tr>
+@section('content')
+    <div class="mx-4 flex justify-center py-8">
+        <div class=" shadow overflow-hidden rounded border-b border-gray-200">
+            <table class=" bg-white">
+                <thead class="bg-blue-900 text-white">
+                <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Your Ordered Books</th>
+                <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Ordered At</th>
+                <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Expiration Date</th>
+                </thead>
+                <tbody>
+                @foreach($loan->bookCopies as $book_copy)
+                    <tr>
+                        <td class=" py-3 px-3">
+                            {{ $book_copy->book->title }}
+                        </td>
+                        <td class=" py-3 px-3">
+                            {{ $loan->created_at->diffForHumans()}}
+                        </td>
+                        <td class=" py-3 px-3">
+                            {{ $loan->expired_at }}
+{{--                           @dd($loan->expired_at)--}}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
-            <table cellpadding="0" cellspacing="0" width="640" align="left">
-                <tr>
-                    <td><p style="margin-top: 3px; margin-bottom: 3px;"><strong>E-mail:</strong> {{ $data['email'] }}
-                        </p>
-                    </td>
-                </tr>
-            </table>
-            <table cellpadding="0" cellspacing="0" width="640" align="left">
-                <tr>
-                    <td><p style="margin-top: 3px; margin-bottom: 15px;">
-                            <strong>Subject:</strong> {{ $data['subject'] }}</p></td>
-                </tr>
-            </table>
-            <hr>
-            <table cellpadding="0" cellspacing="0" width="640" align="left">
-                <tr>
-                    <td style="font-size: 20px;">
-                        <p style="margin-top:5px;">
-                            {{ $data['message'] }}
-                        </p>
-                    </td>
-                </tr>
-            </table>
-            <table cellpadding="0" cellspacing="0" align="left" >
-                <tr>
-                    <td>
-                        <h2 style="margin-top: 20px; margin-bottom:10px"><strong>Library</strong></h2>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
-</body>
-</html>
+        </div>
+    </div>
 
+@endsection

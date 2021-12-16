@@ -49,6 +49,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function routeNotificationForMail($notification)
+    {
+        // Return email address only...
+        return $this->email;
+    }
+
     public function role()
     {
         return $this->BelongsTo(Role::class);
@@ -63,6 +69,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Loan::class);
     }
-
-
 }

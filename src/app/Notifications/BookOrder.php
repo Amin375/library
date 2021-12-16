@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Http\Controllers\NotifyController;
 use App\Models\Loan;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -41,14 +42,14 @@ class BookOrder extends Notification
      */
     public function toMail($notifiable)
     {
-        $loans = Loan::all();
+//      $url = url('notify/'. $this->orderData);
 
-        $url = url('notify'. $loans->id);
+//        $url = action([NotifiedRedirectController::class, 'index'], ['id' => 1]);
 
         return (new MailMessage)
-            ->line('You have placed an order on our website')
-            ->action('View Order', $url)
-            ->line('Thank you!');
+            ->line($this->orderData['body'])
+            ->action($this->orderData['actionText'], $this->orderData['actionURL'])
+            ->line($this->orderData['thanks']);
     }
 
     /**

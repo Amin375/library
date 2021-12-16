@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Notifications\BookOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +19,6 @@ class LoanController extends Controller
     {
         $this->middleware('auth');
     }
-
 
     public function store($id)
     {
@@ -33,20 +33,46 @@ class LoanController extends Controller
             $bookCopy->update(['available' => 0]);
         }
 
-        $data = User::first();
+        $user = User::find($id);
 
         $orderData = [
-            'name' => $data->name,
-            'body' => 'You have placed a new order',
-            'thanks' => 'Thank you ',
-            'text' => 'We have received your order.',
+            'greeting' => 'Hello',
+            'body' => 'We have received the books you wish to order',
+            'thanks' => 'Thank you for your order',
+            'actionText' => 'View Order',
+            'actionURL' => route('loans.show', $loan->id),
             'order_id' => 1
         ];
 
-        Notification::send($data, new BookOrder($orderData));
+        Notification::send($user, new BookOrder($orderData));
 
         Session::forget('loansCart');
 
         return redirect()->route('books.index');
     }
+
+    public function show($id)
+    {
+        $loan = Loan::with('bookCopies.book')->whereId($id)->first();
+
+        return view('mail.notify', ['loan' => $loan]);
+    }
+
+//    public function send($id)
+//    {
+//        $data = User::first();
+//
+//        $orderData = [
+//            'greeting' => 'Hello',
+//            'body' => 'We have received the books you wish to order',
+//            'thanks' => 'Thank you for your order',
+//            'actionText' => 'View Order',
+//            'actionURL' => url('notify', $id),
+//            'order_id' => 1
+//        ];
+//
+//        Notification::send($data, new BookOrder($orderData));
+//
+//        return view('mail.notify');
+//    }
 }

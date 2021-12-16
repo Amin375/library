@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Carbon;
 
 class Loan extends Model
 {
@@ -29,6 +30,13 @@ class Loan extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getExpiredAtAttribute()
+    {
+        $date = $this['created_at']->format('d-m-Y');
+
+        return Carbon::parse($date)->addWeeks(6)->format('d-m-Y');
     }
 
 }

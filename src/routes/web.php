@@ -10,7 +10,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LoanCartController;
-use App\Http\Controllers\NotifiedRedirectController;
+use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
@@ -30,16 +30,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::post('search', SearchController::class)->name('search');
+//Route::get('notify/{id}', [NotifiedRedirectController::class, 'index'])->name('notify');
 
-Route::post('search', SearchController::class)->name('search');
+//Route::get('send', 'NotificationController@send');
 
-
-Route::get('notify/{id}', [NotifiedRedirectController::class, 'index'])->name('notify');
-
-
-
+Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
+Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('books', [BookController::class, 'index'])->name('books.index');
@@ -56,7 +53,8 @@ Route::group([
 ], function () {
     Route::get('cart', [LoanCartController::class, 'index'])->name('.cart');
     Route::post('store/{id}', [LoanController::class, 'store'])->name('.store');
-//    Route::post('store/{id}', [OrderController::class, 'send'])->name('.store');
+    Route::get('show/{id}', [LoanController::class, 'show'])->name('.show');
+
     Route::post('cart/store/{id}', [LoanCartController::class, 'store'])->name('.cart.store');
     Route::get('cart/destroy/{id}', [LoanCartController::class, 'destroy'])->name('.cart.destroy');
 });
