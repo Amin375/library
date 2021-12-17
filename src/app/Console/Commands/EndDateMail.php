@@ -11,14 +11,14 @@ use Illuminate\Console\Command;
 //use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 
-class CheckDateMail extends Command
+class EndDateMail extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mail:send';
+    protected $signature = 'mail:check';
 
     /**
      * The console command description.

@@ -38,4 +38,13 @@ class Loan extends Model
 
         return Carbon::parse($date)->addMinute()->format('d-m-Y');
     }
+
+    public function getWeekBeforeAtAttribute()
+    {
+        $date = $this['created_at']->format('d-m-Y');
+
+        $expiredDate = Carbon::parse($date)->addDay()->format('d-m-Y');
+
+        return Carbon::parse($expiredDate)->subDay()->format('d-m-Y');
+    }
 }
