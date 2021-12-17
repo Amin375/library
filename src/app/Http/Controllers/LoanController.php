@@ -57,22 +57,4 @@ class LoanController extends Controller
 
         return view('mail.notify', ['loan' => $loan]);
     }
-
-//    public function send($id)
-//    {
-//        $data = User::first();
-//
-//        $orderData = [
-//            'greeting' => 'Hello',
-//            'body' => 'We have received the books you wish to order',
-//            'thanks' => 'Thank you for your order',
-//            'actionText' => 'View Order',
-//            'actionURL' => url('notify', $id),
-//            'order_id' => 1
-//        ];
-//
-//        Notification::send($data, new BookOrder($orderData));
-//
-//        return view('mail.notify');
-//    }
 }

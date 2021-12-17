@@ -31,6 +31,6 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('amin@teaminova.nl')->view('mail.expired');
+        return $this->view('mail.expired');
     }
 }

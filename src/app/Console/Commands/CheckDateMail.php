@@ -41,18 +41,20 @@ class CheckDateMail extends Command
      *
      * @return int
      */
-    public function handle(Loan $loan)
+    public function handle()
     {
+        $loan = Loan::findOrFail(61);
+
         $now = Carbon::now();
 
         $loanDate = $loan['created_at'];
-//        $loanDate = Carbon::create($loan['created_at']->format('d-m-Y'));
         $expiredDate = Carbon::parse($loanDate)->addMinute()->format('d-m-Y');
 
+
         if($now->greaterThanOrEqualTo($expiredDate)){
-            Mail::to($loan->user)->send(new SendMail($loan));
+            Mail::to($loan->user->email)->send(new SendMail($loan));
         }
-//        $first->greaterThanOrEqualTo($second)
-//        return Command::SUCCESS;
+
+        return Command::SUCCESS;
     }
 }

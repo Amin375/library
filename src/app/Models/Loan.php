@@ -36,7 +36,7 @@ class Loan extends Model
     {
         $date = $this['created_at']->format('d-m-Y');
 
-        return Carbon::parse($date)->addWeeks(6)->format('d-m-Y');
+        return Carbon::parse($date)->addMinute()->format('d-m-Y');
     }
 
 }
