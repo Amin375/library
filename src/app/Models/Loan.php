@@ -38,5 +38,4 @@ class Loan extends Model
 
         return Carbon::parse($date)->addMinute()->format('d-m-Y');
     }
-
 }

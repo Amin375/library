@@ -7,6 +7,7 @@ use App\Models\Loan;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+
 //use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 
@@ -43,17 +44,19 @@ class CheckDateMail extends Command
      */
     public function handle()
     {
-        $loan = Loan::findOrFail(61);
+        $loans = Loan::query()->whereHandedIn(0)->get();
 
-        $now = Carbon::now();
+        $this->output->progressStart($loans->count());
 
-        $loanDate = $loan['created_at'];
-        $expiredDate = Carbon::parse($loanDate)->addMinute()->format('d-m-Y');
-
-
-        if($now->greaterThanOrEqualTo($expiredDate)){
-            Mail::to($loan->user->email)->send(new SendMail($loan));
+        foreach ($loans as $loan) {
+            if (now()->greaterThanOrEqualTo($loan->created_at->addMinute())) {
+                Mail::to($loan->user->email)->send(new SendMail($loan));
+            }
+            sleep(1);
+            $this->output->progressAdvance();
         }
+
+        $this->output->progressFinish();
 
         return Command::SUCCESS;
     }
