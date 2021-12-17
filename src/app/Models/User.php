@@ -69,4 +69,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Loan::class);
     }
+
+    public function isBlackListed()
+    {
+        $loan = $this->whereHas('loans', function ($q) {
+            $q->whereHandedIn(0);
+        })->first();
+
+        return $loan->created_at->addMinute()->lessThan(now());
+    }
 }

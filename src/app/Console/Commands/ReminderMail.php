@@ -47,7 +47,7 @@ class ReminderMail extends Command
         $this->output->progressStart($loans->count());
 
         foreach ($loans as $loan) {
-            if ($loan->created_at->addDay()->isNextDay()) {
+            if ($loan->created_at->addWeeks(6)->isNextWeek()) {
                 Mail::to($loan->user->email)->send(new WarningMail($loan));
             }
             sleep(1);

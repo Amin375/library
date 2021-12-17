@@ -13,12 +13,13 @@ class LoanCartController extends Controller
 {
     public function index()
     {
-        if(Session::has('loansCart')) {
+        if (Session::has('loansCart')) {
             $books = Book::query()->whereHas('bookCopies', function ($q) {
                 $q->whereIn('id', Arr::flatten(Session::get('loansCart')));
             })->get();
 //            $books = Book::query()->whereIn('id', Arr::flatten(Session::get('loansCart')))->get();
         }
+
 
         return view('member.cart', ['books' => $books ?? []]);
     }
@@ -27,7 +28,7 @@ class LoanCartController extends Controller
     {
         Session::push('loansCart', $id);
 
-        $book = Book::query()->whereHas('bookCopies', function ($q) use($id) {
+        $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
         })->first();
 

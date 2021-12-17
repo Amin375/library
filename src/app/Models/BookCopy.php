@@ -25,4 +25,6 @@ class BookCopy extends Model
     {
         return $this->BelongsToMany(Loan::class, 'book_copy_loan')->withTimestamps();
     }
+
+
 }

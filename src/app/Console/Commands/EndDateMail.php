@@ -49,7 +49,7 @@ class EndDateMail extends Command
         $this->output->progressStart($loans->count());
 
         foreach ($loans as $loan) {
-            if (now()->greaterThanOrEqualTo($loan->created_at->addMinute())) {
+            if (now()->greaterThanOrEqualTo($loan->created_at->addWeeks(6))) {
                 Mail::to($loan->user->email)->send(new SendMail($loan));
             }
             sleep(1);

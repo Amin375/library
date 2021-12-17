@@ -13,18 +13,18 @@ class Loan extends Model
     use HasFactory;
 
     protected $fillable = [
-      'user_id',
-      'handed_in'
+        'user_id',
+        'handed_in'
     ];
 
-    public function bookCopies() : BelongsToMany
+    public function bookCopies(): BelongsToMany
     {
         return $this->belongsToMany(BookCopy::class, 'book_copy_loan')->withTimestamps();
     }
 
     public function loansCart(): BelongsTo
     {
-        return $this->belongsTo(User::class,'sessions');
+        return $this->belongsTo(User::class, 'sessions');
     }
 
     public function user()
@@ -34,9 +34,7 @@ class Loan extends Model
 
     public function getExpiredAtAttribute()
     {
-        $date = $this['created_at']->format('d-m-Y');
-
-        return Carbon::parse($date)->addMinute()->format('d-m-Y');
+        return $this->created_at->addMinute()->format('d-m-Y');
     }
 
     public function getWeekBeforeAtAttribute()
@@ -47,4 +45,9 @@ class Loan extends Model
 
         return Carbon::parse($expiredDate)->subDay()->format('d-m-Y');
     }
+//
+//    public function isHandedIn()
+//    {
+//        return $this->where('handed_in', 1) ?? false;
+//    }
 }

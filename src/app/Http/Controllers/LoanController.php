@@ -33,7 +33,7 @@ class LoanController extends Controller
             $bookCopy->update(['available' => 0]);
         }
 
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
         $orderData = [
             'greeting' => 'Hello',
