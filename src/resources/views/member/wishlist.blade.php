@@ -36,7 +36,7 @@
                                 <form action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}"
                                       method="post">
                                     @csrf
-                                    <button class="text-lg hover:bg-gray-200  active:bg-gray-300 rounded-xl p-2" type="submit">
+                                    <button class="text-lg hover:bg-gray-200  active:bg-gray-300  rounded-xl p-2" type="submit">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                              viewBox="0 0 24 24">
                                             <path

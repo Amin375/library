@@ -25,7 +25,7 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
 <div id="app">
-    div
+
     <div class="relative min-h-screen md:flex">
 
         <!-- mobile menu bar -->
@@ -43,6 +43,7 @@
         </div>
 
         <!-- sidebar -->
+
         <div
             class="sidebar bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
             <!-- logo -->
