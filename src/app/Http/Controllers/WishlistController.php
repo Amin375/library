@@ -18,8 +18,6 @@ class WishlistController extends Controller
     {
 //        dd(Cookie::get('wishlist'));
 
-
-
         if (Cookie::has('wishlist')) {
 
             $cookie = Cookie::get('wishlist');
@@ -61,7 +59,7 @@ class WishlistController extends Controller
         $cookieValue .= json_decode($request->cookie('wishlist'));
         $cookieValue .= $id . ',';
 
-        Cookie::queue('wishlist', json_encode($cookieValue), 20);
+        Cookie::queue('wishlist', json_encode($cookieValue), 20000);
 
         return redirect()->route('books.index', ['id' => $book->id]);
 

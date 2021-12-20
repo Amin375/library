@@ -25,6 +25,7 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
 <div id="app">
+    div
     <div class="relative min-h-screen md:flex">
 
         <!-- mobile menu bar -->
