@@ -7,9 +7,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{--    <title>{{ config('app.name', 'Library') }}</title>--}}
+    <title>Library</title>
 
-    <!-- Scripts -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+{{--    <link rel="stylesheet" href="/css/bootstrap.css">--}}
+{{--    <link rel="stylesheet" href="/css/style.css">--}}
+
+<!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
@@ -38,8 +45,9 @@
         <div
             class="sidebar bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
             <!-- logo -->
-            <a href="#" class="text-white flex items-center space-x-2 px-4">
-                <span class="text-2xl">Library</span>
+            <a href="#" class="text-white flex flex-row items-center space-x-2 px-4">
+                <span class="text-2xl pr-0.5">Library</span>
+{{--                <img class="w-7 h-7 mt-1" src="/img/book.ico" alt="book icon">--}}
             </a>
 
             <!-- nav -->
@@ -54,7 +62,8 @@
                 @else
                     <form action="{{ route('search') }}" method="post">
                         @csrf
-                        <input name="search" type="text" class="ml-2.5 mb-4 py-1 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
+                        <input name="search" type="text"
+                               class="ml-2.5 mb-4 py-1 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
 
                     </form>
 
@@ -85,6 +94,10 @@
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
                         Cart
                     </a>
+                    <a href="{{ route('wishlist.index') }}"
+                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                        Wishlist
+                    </a>
                     <a href="{{ route('books.index') }}"
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
                         Books
@@ -113,77 +126,16 @@
             <main>
                 @yield('content')
             </main>
+{{--            <div class="mt-68">--}}
+{{--                <footer class="border border-black bg-gray-900 w-full ">--}}
+{{--                    hallo--}}
+{{--                </footer>--}}
+{{--            </div>--}}
+
         </div>
 
-    </div>
 
-    {{--    <div class="">--}}
-    {{--        <header class="bg-blue-900 py-6">--}}
-    {{--            <div class="container mx-auto flex justify-between items-center px-6">--}}
-    {{--                <div>--}}
-    {{--                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">--}}
-    {{--                        Library--}}
-    {{--                    </a>--}}
-    {{--                </div>--}}
-    {{--                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">--}}
-    {{--                    @guest--}}
-    {{--                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-    {{--                        @if (Route::has('register'))--}}
-    {{--                            <a class="no-underline hover:underline"--}}
-    {{--                               href="{{ route('register') }}">{{ __('Register') }}</a>--}}
-    {{--                        @endif--}}
-    {{--                    @else--}}
-    {{--                        <div class="flex flex-row gap-5">--}}
-    {{--                            <div>--}}
-    {{--                                <a href="{{ route('dashboard') }}">Dashboard</a>--}}
-    {{--                            </div>--}}
-    {{--                            @if(auth()->user()->isAdmin())--}}
-    {{--                                <div>--}}
-    {{--                                    <a href="{{ route('admin.book_copies.index') }}">View Book Copies</a>--}}
-    {{--                                </div>--}}
-    {{--                                <div>--}}
-    {{--                                    <a href="{{ route('admin.book.create') }}">Create Book</a>--}}
-    {{--                                </div>--}}
-    {{--                                <div>--}}
-    {{--                                    <a href="{{ route('admin.author.create') }}">Create Author</a>--}}
-    {{--                                </div>--}}
-    {{--                                <div>--}}
-    {{--                                    <a href="{{ route('admin.genre.create') }}">Create Genre</a>--}}
-    {{--                                </div>--}}
-    {{--                            @endif--}}
-    {{--                            <div>--}}
-    {{--                                <a href="{{ route('loans.cart') }}">Cart</a>--}}
-    {{--                            </div>--}}
-    {{--                            <div>--}}
-    {{--                                <a href="{{ route('books.index') }}">Books</a>--}}
-    {{--                            </div>--}}
-    {{--                            <div>--}}
-    {{--                                <a href="{{ route('authors.index') }}">Authors</a>--}}
-    {{--                            </div>--}}
-    {{--                            <div>--}}
-    {{--                                <a href="{{ route('genres.index') }}">Genres</a>--}}
-    {{--                            </div>--}}
-    {{--                            <div>--}}
-    {{--                                <a href="">{{ auth()->user()->name }}</a>--}}
-    {{--                            </div>--}}
-    {{--                            <div>--}}
-    {{--                                <a href="{{ route('logout') }}"--}}
-    {{--                                   class="no-underline hover:underline"--}}
-    {{--                                   onclick="event.preventDefault();--}}
-    {{--                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>--}}
-    {{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">--}}
-    {{--                                    {{ csrf_field() }}--}}
-    {{--                                </form>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    @endguest--}}
-    {{--                </nav>--}}
-    {{--            </div>--}}
-    {{--        </header>--}}
-    {{--    </div>--}}
-    {{--    <main>--}}
-    {{--        @yield('content')--}}
-    {{--    </main>--}}
+    </div>
 </div>
 <script>
     const btn = document.querySelector(".mobile-menu-button");

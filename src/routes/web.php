@@ -13,6 +13,7 @@ use App\Http\Controllers\LoanCartController;
 use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,9 +32,6 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('search', SearchController::class)->name('search');
-//Route::get('notify/{id}', [NotifiedRedirectController::class, 'index'])->name('notify');
-
-//Route::get('send', 'NotificationController@send');
 
 Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
 Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
@@ -46,6 +44,17 @@ Route::get('authors', [AuthorController::class, 'index'])->name('authors.index')
 Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre');
 Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author');
+
+
+Route::group([
+    'prefix' => 'wishlist',
+    'as' => 'wishlist'
+], function () {
+
+    Route::get('index', [WishlistController::class, 'index'])->name('.index');
+    Route::post('store/{id}', [WishlistController::class, 'store'])->name('.store');
+
+});
 
 Route::group([
     'prefix' => 'loans',
@@ -99,7 +108,7 @@ Route::group([
     });
 
     Route::group([
-       'prefix' => 'book_copies',
+        'prefix' => 'book_copies',
         'as' => '.book_copies'
     ], function () {
         Route::get('/', [BookCopyController::class, 'index'])->name('.index');

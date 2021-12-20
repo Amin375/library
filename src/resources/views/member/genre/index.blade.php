@@ -2,11 +2,10 @@
 
 @section('content')
     @if(auth()->user()->isAdmin())
-        <div class="flex flex-col px-64 py-10">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-96">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
+        <div class="hidden md:px-10 lg:px-52 md:flex lg:flex justify-center py-8">
+            <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                <table class="bg-white">
+                    <thead class=" bg-blue-900 text-white">
                             <thead class="bg-blue-900 text-white">
                             <tr>
                                 <th class="w-3/4 text-left py-3 px-4 uppercase font-semibold text-sm">Genres</th>
@@ -82,8 +81,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
 
     @else
         <div class="flex flex-col px-96 py-10">

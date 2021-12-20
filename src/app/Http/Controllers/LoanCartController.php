@@ -17,9 +17,7 @@ class LoanCartController extends Controller
             $books = Book::query()->whereHas('bookCopies', function ($q) {
                 $q->whereIn('id', Arr::flatten(Session::get('loansCart')));
             })->get();
-//            $books = Book::query()->whereIn('id', Arr::flatten(Session::get('loansCart')))->get();
         }
-
 
         return view('member.cart', ['books' => $books ?? []]);
     }
