@@ -19,9 +19,14 @@ class WishlistController extends Controller
 //        dd(Cookie::get('wishlist'));
 
 
+
         if (Cookie::has('wishlist')) {
-            $books = Book::query()->whereHas('bookCopies', function ($q) {
-                $q->whereIn('id', [Cookie::get('wishlist')]);
+
+            $cookie = Cookie::get('wishlist');
+            $cookieArray = explode(',', json_decode($cookie));
+
+            $books = Book::query()->whereHas('bookCopies', function ($q) use ($cookieArray) {
+                $q->whereIn('id', $cookieArray);
             })->get();
 
         }
@@ -45,17 +50,21 @@ class WishlistController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store($id)
+    public function store(Request $request, $id)
     {
-
-        Cookie::queue(Cookie::make('wishlist', $id, 10));
 
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
         })->first();
 
+        $cookieValue = "";
+        $cookieValue .= json_decode($request->cookie('wishlist'));
+        $cookieValue .= $id . ',';
+
+        Cookie::queue('wishlist', json_encode($cookieValue), 20);
 
         return redirect()->route('books.index', ['id' => $book->id]);
+
     }
 
     /**
