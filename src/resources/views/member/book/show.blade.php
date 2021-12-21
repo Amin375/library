@@ -14,7 +14,6 @@
                 <p class="text-xl pb-8">{{ $book->blurb }}</p>
                 <div class="flex gap-5 justify-start">
                     @if($book->firstAvailableBookCopyId())
-
                         <form action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}" method="post">
                             @csrf
                             <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" type="submit">
@@ -28,8 +27,7 @@
                         Niet op voorraad
                     @endif
                     @if($book->firstAvailableBookCopyId())
-
-                            <form action="{{ route('wishlist.store', $book->firstAvailableBookCopyId()) }}" method="post">
+                        <form action="{{ route('wishlist.store', $book->firstAvailableBookCopyId()) }}" method="post">
                             @csrf
                             <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 cursor-pointer" type="submit" >
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 30.000000 30.000000" preserveAspectRatio="xMidYMid meet">

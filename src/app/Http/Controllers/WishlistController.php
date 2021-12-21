@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\BookCopy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cookie;
@@ -62,41 +63,33 @@ class WishlistController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-        $books = Book::findOrFail($id);
+
+        $book = Book::findOrFail($id);
+
+
+        $bookCopy = BookCopy::query()->where('book_id', $id)->first();
+
+        $bookCopyId = $bookCopy->id;
+
 
         $cookie = Cookie::get('wishlist');
         $cookieArray = explode(',', json_decode($cookie));
 
-//        dd($cookieArray);
         $newArray = array_filter($cookieArray);
 
-        $pluckId = array_diff();
+        $arrayId = array_search($bookCopyId, $newArray);
 
-
-
-//        $arrayId = array_search($id, $newArray);
-//
-//        unset($newArray[$arrayId]);
-//        if (($arrayId = array_search($id, $newArray)) !== false) {
-//            unset($messages[$arrayId]);
-//        }
-
-
+        unset($newArray[$arrayId]);
         Cookie::forget('wishlist');
+
         $stringArray = implode(',', $newArray);
-//        dd($stringArray);
-//        dd(json_encode($stringArray));
 
 
         Cookie::queue('wishlist', json_encode($stringArray, 20000));
-//        dd(Cookie::get('wishlist'));
-//        dd($newArray);
 
-//        $newCookie = Cookie::get('wishlist');
-
-        return redirect()->route('wishlist.index', ['books' => $books])->withCookie(Cookie::forget('wishlist'));
+        return redirect()->route('wishlist.index', ['book' => $book])->withCookie(Cookie::forget('wishlist'));
 
     }
 }
