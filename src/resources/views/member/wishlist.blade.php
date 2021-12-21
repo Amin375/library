@@ -15,8 +15,8 @@
                 </tr>
                 </thead>
                 <tbody class="text-gray-700">
-                {{--                @dd($books)--}}
-                {{--{{ ddd($books) }}--}}
+{{--                                @dd($books)--}}
+{{--                {{ ddd($books) }}--}}
                 @forelse($books as $book)
                     <tr>
                         <td class="w-2/3 text-left py-3 px-3">{{ $book->title }}</td>
@@ -33,6 +33,7 @@
                         </td>
                         <td class="pl-2">
                             @if($book->firstAvailableBookCopyId())
+
                                 <form action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}"
                                       method="post">
                                     @csrf
@@ -49,7 +50,8 @@
                             @endif
                         </td>
                         <td class="flex pl-2">
-                            <a class="text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2" href="{{ route('loans.cart.destroy', $book->id )}}">
+
+                            <a class="text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2" href="{{ route('wishlist.destroy', $book->id )}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                      width="25" height="25"
                                      viewBox="0 0 100 100"

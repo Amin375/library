@@ -17,29 +17,18 @@ class WishlistController extends Controller
     public function index()
     {
 //        dd(Cookie::get('wishlist'));
-
         if (Cookie::has('wishlist')) {
-
             $cookie = Cookie::get('wishlist');
             $cookieArray = explode(',', json_decode($cookie));
+            $newArray = array_filter($cookieArray);
+//            dd($newArray);
 
-            $books = Book::query()->whereHas('bookCopies', function ($q) use ($cookieArray) {
-                $q->whereIn('id', $cookieArray);
+            $books = Book::query()->whereHas('bookCopies', function ($q) use ($newArray) {
+                $q->whereIn('id', Arr::flatten($newArray));
             })->get();
-
         }
 
         return response(view('member.wishlist', ['books' => $books ?? []]));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -50,7 +39,6 @@ class WishlistController extends Controller
      */
     public function store(Request $request, $id)
     {
-
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
         })->first();
@@ -61,52 +49,54 @@ class WishlistController extends Controller
 
         Cookie::queue('wishlist', json_encode($cookieValue), 20000);
 
+
+//        dd(Cookie::get('wishlist'));
+
         return redirect()->route('books.index', ['id' => $book->id]);
 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $books = Book::findOrFail($id);
+
+        $cookie = Cookie::get('wishlist');
+        $cookieArray = explode(',', json_decode($cookie));
+
+//        dd($cookieArray);
+        $newArray = array_filter($cookieArray);
+
+        $pluckId = array_diff();
+
+
+
+//        $arrayId = array_search($id, $newArray);
+//
+//        unset($newArray[$arrayId]);
+//        if (($arrayId = array_search($id, $newArray)) !== false) {
+//            unset($messages[$arrayId]);
+//        }
+
+
+        Cookie::forget('wishlist');
+        $stringArray = implode(',', $newArray);
+//        dd($stringArray);
+//        dd(json_encode($stringArray));
+
+
+        Cookie::queue('wishlist', json_encode($stringArray, 20000));
+//        dd(Cookie::get('wishlist'));
+//        dd($newArray);
+
+//        $newCookie = Cookie::get('wishlist');
+
+        return redirect()->route('wishlist.index', ['books' => $books])->withCookie(Cookie::forget('wishlist'));
+
     }
 }

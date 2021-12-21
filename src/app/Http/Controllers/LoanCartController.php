@@ -30,6 +30,7 @@ class LoanCartController extends Controller
             $q->whereId($id);
         })->first();
 
+
         return redirect()->route('book.show', ['id' => $book->id]);
     }
 
