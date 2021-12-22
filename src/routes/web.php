@@ -50,11 +50,9 @@ Route::group([
     'prefix' => 'wishlist',
     'as' => 'wishlist'
 ], function () {
-
     Route::get('index', [WishlistController::class, 'index'])->name('.index');
     Route::post('store/{id}', [WishlistController::class, 'store'])->name('.store');
     Route::get('destroy/{id}', [WishlistController::class, 'destroy'])->name('.destroy');
-
 });
 
 Route::group([

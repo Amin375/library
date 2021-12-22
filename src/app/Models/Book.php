@@ -25,19 +25,19 @@ class Book extends Model
 //    protected $touches = ['author', 'genre'];
 
 
-    public function author() : BelongsTo
+    public function author(): BelongsTo
     {
         return $this->BelongsTo(Author::class);
     }
 
-    public function genre() : BelongsTo
+    public function genre(): BelongsTo
     {
         return $this->BelongsTo(Genre::class);
     }
 
     public function image()
     {
-        return 'assets/'. $this->image;
+        return 'assets/' . $this->image;
     }
 
     public function bookCopies()
@@ -64,5 +64,15 @@ class Book extends Model
         $array['author'] = $this->author->name;
 
         return $array;
+    }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['alphabetSearch'] ?? false, fn($query, $alphabetSearch) =>
+            $query->where(fn($query) => $query->where('title', 'like',  $alphabetSearch . '%')
+            ->orWhere('author', 'like',  $alphabetSearch . '%')
+            ->orWhere('genre', 'like',  $alphabetSearch . '%')
+        )
+        );
     }
 }

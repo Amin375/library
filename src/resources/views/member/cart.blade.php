@@ -53,7 +53,7 @@
                 @endforelse
                 </tbody>
                 <tr>
-                    @if(auth()->user()->isBlackListed())
+{{--                    @if(auth()->user()->isBlackListed())--}}
                     <td>
                         <form action="{{ route('loans.store', auth()->id() )}}" method="post">
                             @csrf
@@ -61,7 +61,7 @@
                             </button>
                         </form>
                     </td>
-                        @endif
+{{--                        @endif--}}
                 </tr>
 
             </table>

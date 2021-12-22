@@ -78,10 +78,13 @@ class WishlistController extends Controller
         $cookieArray = explode(',', json_decode($cookie));
 
         $newArray = array_filter($cookieArray);
-
         $arrayId = array_search($bookCopyId, $newArray);
+//        dd($newArray,$arrayId);
 
-        unset($newArray[$arrayId]);
+        if ($arrayId !== false) {
+            unset($newArray[$arrayId]);
+        }
+
         Cookie::forget('wishlist');
 
         $stringArray = implode(',', $newArray);
