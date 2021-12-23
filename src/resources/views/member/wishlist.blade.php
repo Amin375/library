@@ -51,7 +51,8 @@
                         </td>
                         <td class="flex pl-2">
 
-                            <a class="text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2" href="{{ route('wishlist.destroy', $book->id )}}">
+                            <a class="text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
+                               href="{{ route('wishlist.destroy', $book->id )}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                      width="25" height="25"
                                      viewBox="0 0 100 100"
@@ -82,4 +83,13 @@
             </table>
         </div>
     </div>
+    <script>
+        $.ajax({
+            url:'wishlist.list.destroy',
+            method:'get',
+            success: function(){
+                console.log("cookie deleted");
+            }
+        });
+    </script>
 @endsection

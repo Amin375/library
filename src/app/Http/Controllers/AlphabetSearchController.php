@@ -10,11 +10,10 @@ class AlphabetSearchController extends Controller
 {
     public function __invoke(Request $request, $letter)
     {
-        $books = Book::query()->where('title', 'like', $letter . '%')->get();
+        $books = Book::query()->where('title', 'like', $letter . '%')->with(['author', 'genre'])->get();
 
         return view('member.book.index', [
             'books' => $books ?? [],
-            'authors' => $authors ?? [],
         ]);
     }
 }

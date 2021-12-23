@@ -65,21 +65,15 @@ class WishlistController extends Controller
      */
     public function destroy($id)
     {
-
         $book = Book::findOrFail($id);
-
-
         $bookCopy = BookCopy::query()->where('book_id', $id)->first();
-
         $bookCopyId = $bookCopy->id;
-
 
         $cookie = Cookie::get('wishlist');
         $cookieArray = explode(',', json_decode($cookie));
 
         $newArray = array_filter($cookieArray);
         $arrayId = array_search($bookCopyId, $newArray);
-//        dd($newArray,$arrayId);
 
         if ($arrayId !== false) {
             unset($newArray[$arrayId]);
@@ -89,10 +83,8 @@ class WishlistController extends Controller
 
         $stringArray = implode(',', $newArray);
 
-
         Cookie::queue('wishlist', json_encode($stringArray, 20000));
 
         return redirect()->route('wishlist.index', ['book' => $book])->withCookie(Cookie::forget('wishlist'));
-
     }
 }

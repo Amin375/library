@@ -8,3 +8,12 @@ const sidebar = document.querySelector(".sidebar");
 btn.addEventListener("click", () => {
     sidebar.classList.toggle("-translate-x-full");
 });
+
+
+$.ajax({
+    url:'wishlist.list.destroy/{id}',
+    method:'get',
+    success: function(){
+        console.log("cookie deleted");
+    }
+});
