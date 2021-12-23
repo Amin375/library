@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="flex flex-row justify-center mt-2.5">
+        <div class="flex flex-row justify-center mt-2.5 gap-x-4">
             <ul class="px-3 py-1 bg-gray-200 rounded-xl border">
                 @foreach($alphabetArray as $letter)
                     <form class="inline-flex" action="{{ route('alphabetsearch', $letter) }}" method="get">
@@ -12,7 +12,7 @@
                     </form>
                 @endforeach
             </ul>
-            <button id="switch-button">Switch View</button>
+            <button class="bg-gray-200 border transform transition focus:outline-none duration-75 hover:scale-110 rounded-xl" id="switch-button">Switch View</button>
         </div>
         <div id="table-view" class="hidden md:px-10 lg:px-24 md:flex lg:flex justify-center py-5">
             <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
