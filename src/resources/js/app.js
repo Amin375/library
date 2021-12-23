@@ -12,23 +12,20 @@ btn.addEventListener("click", () => {
 
 var $tableView = $('#table-view');
 var $imageView = $('#image-view');
+
 var $switchButton = $('#switch-button');
 
-$switchButton.on('click', function () {
+$switchButton.on('click','#btn-switch-images','#btn-switch-table', function () {
     console.log('click');
-    if($tableView.hasClass('md:flex lg:flex') && $imageView.hasClass('hidden')) {
-        $tableView.removeClass('md:flex lg:flex')
-            .addClass('hidden');
-        $imageView.removeClass('hidden')
-            .addClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
+    if ($tableView.hasClass('md:flex lg:flex') &&
+        $imageView.hasClass('hidden')) {
+        $tableView.removeClass('md:flex lg:flex').addClass('hidden');
+        $imageView.removeClass('hidden').addClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
     } else {
-        $tableView.addClass('md:flex lg:flex')
-            .removeClass('hidden');
-        $imageView.addClass('hidden')
-            .removeClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
+        $tableView.addClass('md:flex lg:flex').removeClass('hidden');
+        $imageView.addClass('hidden').removeClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
     }
 });
-
 
 
 // const tableView = document.getElementById("table-view");
@@ -44,9 +41,9 @@ $switchButton.on('click', function () {
 
 
 $.ajax({
-    url:'wishlist.list.destroy/{id}',
-    method:'get',
-    success: function(){
+    url: 'wishlist.list.destroy/{id}',
+    method: 'get',
+    success: function () {
         console.log("cookie deleted");
     }
 });

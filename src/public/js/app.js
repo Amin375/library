@@ -996,7 +996,7 @@ module.exports = function transformData(data, headers, fns) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 
 
 var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
@@ -2072,7 +2072,7 @@ btn.addEventListener("click", function () {
 var $tableView = $('#table-view');
 var $imageView = $('#image-view');
 var $switchButton = $('#switch-button');
-$switchButton.on('click', function () {
+$switchButton.on('click', '#btn-switch-images', '#btn-switch-table', function () {
   console.log('click');
 
   if ($tableView.hasClass('md:flex lg:flex') && $imageView.hasClass('hidden')) {
