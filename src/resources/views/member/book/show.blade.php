@@ -5,7 +5,7 @@
         <div class="grid grid-cols-12 grid-rows-1 gap-3 md:w-4/6 lg:w-4/6 py-10">
             <div class="col-span-4 h-auto pr-7">
                 <img class="rounded-md shadow-lg" src="{{ secure_asset($book->image()) }}"
-                     alt="Harry Potter and the Sorcerer's Stone image">
+                     alt="{{ $book->title }}">
             </div>
             <div class="col-span-8">
                 <h1 class="text-2xl pb-1">{{ $book->title }}</h1>
