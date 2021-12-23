@@ -172,19 +172,6 @@ class DatabaseSeeder extends Seeder
         Book::create([
             'author_id' => 6,
             'genre_id' => 4,
-            'title' => 'Harry Potter and the Deathly Hallows',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/1ji48sefIbNLkpX9R17OmQYu82I0fKwxkn657Xmp.jpg',
-        ]);
-
-        Book::create([
-            'author_id' => 6,
-            'genre_id' => 4,
             'title' => 'Alice in Wonderland',
             'blurb' => 'The Hunting of the Snark, subtitled An Agony in 8 Fits, is a poem by the English writer Lewis Carroll.
             It is typically categorised as a nonsense poem. Written between 1874 and 1876, it borrows the setting, some creatures,

@@ -11,7 +11,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-row ">
+                <div class="table-row">
                     @forelse($books as $book)
                         <a href="{{ route('book.show', ['id' => $book->id] )}}">
                             <div class="table-cell w-1/3 text-left py-3 px-3 hover:bg-gray-300">

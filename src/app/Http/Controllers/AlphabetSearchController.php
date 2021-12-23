@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
 class AlphabetSearchController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $letter)
     {
+        $books = Book::query()->where('title', 'like', $letter . '%')->get();
 
-        $books = Book::where('title', 'like', $title . '%');
-
-
-
-        return view('member.search',[
-            'searchRequest' => $request->get('search'),
+        return view('member.book.index', [
             'books' => $books ?? [],
-            'authors' => $authors ?? []
+            'authors' => $authors ?? [],
         ]);
     }
 }

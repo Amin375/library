@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlphabetSearchController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookAuthorController;
 use App\Http\Controllers\BookController;
@@ -32,6 +33,8 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('search', SearchController::class)->name('search');
+
+Route::get('alphabetsearch/{letter}', AlphabetSearchController::class)->name('alphabetsearch');
 
 Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
 Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
