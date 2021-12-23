@@ -2061,13 +2061,21 @@ module.exports = {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // grab everything we need
+// const btn = document.querySelector(".mobile-menu-button");
+// const sidebar = document.querySelector(".sidebar");
+//
+// // add our event listener for the click
+// btn.addEventListener("click", () => {
+//     sidebar.classList.toggle("-translate-x-full");
+// });
 
 
-var btn = document.querySelector(".mobile-menu-button");
-var sidebar = document.querySelector(".sidebar"); // add our event listener for the click
-
-btn.addEventListener("click", function () {
-  sidebar.classList.toggle("-translate-x-full");
+$.ajax({
+  url: 'wishlist.list.destroy/{id}',
+  method: 'get',
+  success: function success() {
+    console.log("cookie deleted");
+  }
 });
 
 /***/ }),

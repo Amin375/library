@@ -56,23 +56,13 @@ class Book extends Model
         return 'books_index';
     }
 
-//    public function toSearchableArray()
-//    {
-//        $array = $this->toArray();
-//
-//        $array['genre'] = $this->genre->title;
-//        $array['author'] = $this->author->name;
-//
-//        return $array;
-//    }
-
-    public function scopeFilter($query, array $filters)
+    public function toSearchableArray()
     {
-        $query->when($filters['alphabetSearch'] ?? false, fn($query, $alphabetSearch) =>
-            $query->where(fn($query) => $query->where('title', 'like',  $alphabetSearch . '%')
-            ->orWhere('author', 'like',  $alphabetSearch . '%')
-            ->orWhere('genre', 'like',  $alphabetSearch . '%')
-        )
-        );
+        $array = $this->toArray();
+
+        $array['genre'] = $this->genre->title;
+        $array['author'] = $this->author->name;
+
+        return $array;
     }
 }

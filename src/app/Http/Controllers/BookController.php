@@ -16,14 +16,20 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
         //Eager loading to solve N+1 problem
         $books = Book::with(['author', 'genre'])->get();
 
-        return view('member.book.index', ['books' => $books]);
+        $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $alphabetArray = str_split($alphabet);
+
+        return view('member.book.index', [
+            'books' => $books,
+            'alphabetArray' => $alphabetArray,
+        ]);
     }
 
     /**

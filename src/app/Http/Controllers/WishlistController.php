@@ -22,7 +22,6 @@ class WishlistController extends Controller
             $cookie = Cookie::get('wishlist');
             $cookieArray = explode(',', json_decode($cookie));
             $newArray = array_filter($cookieArray);
-//            dd($newArray);
 
             $books = Book::query()->whereHas('bookCopies', function ($q) use ($newArray) {
                 $q->whereIn('id', Arr::flatten($newArray));
@@ -50,11 +49,7 @@ class WishlistController extends Controller
 
         Cookie::queue('wishlist', json_encode($cookieValue), 20000);
 
-
-//        dd(Cookie::get('wishlist'));
-
         return redirect()->route('books.index', ['id' => $book->id]);
-
     }
 
     /**

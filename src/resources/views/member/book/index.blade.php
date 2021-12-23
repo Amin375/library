@@ -1,141 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-full flex flex-row justify-center mt-1">
-        <ul class="">
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'A') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">A</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'B') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">B</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'C') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">C</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'D') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">D</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'E') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">E</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'F') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">F</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'G') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">G</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'H') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">H</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'I') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">I</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'J') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">J</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'K') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">K</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'L') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">L</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'M') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">M</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'N') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">N</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'O') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">O</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'P') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">P</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'Q') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">Q</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'R') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">R</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'S') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">S</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'T') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">T</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'U') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">U</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'V') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">V</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'W') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">W</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'X') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">X</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'Y') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">Y</button>
-                </li>
-            </form>
-            <form class="inline-flex" action="{{ route('alphabetsearch', 'Z') }}" method="get">
-                <li>
-                    <button type="submit" class="text-xl px-2">Z</button>
-                </li>
-            </form>
+    <div class="flex flex-row justify-center mt-2.5">
+        <ul class="px-3 py-1 bg-gray-200 rounded-xl border">
+            @foreach($alphabetArray as $letter)
+                <form class="inline-flex" action="{{ route('alphabetsearch', $letter) }}" method="get">
+                    <li>
+                        <button type="submit"
+                                class="transform transition focus:outline-none duration-150 hover:scale-150 text-xl text-black px-2">{{ $letter }}</button>
+                    </li>
+                </form>
+            @endforeach
         </ul>
     </div>
-    <div class="hidden md:px-10 lg:px-64 md:flex lg:flex justify-center py-8">
+    <div class="hidden md:px-10 lg:px-24 md:flex lg:flex justify-center py-5">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
                 <thead class="bg-blue-900 text-white">
@@ -304,5 +182,9 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <div class="hidden">
+
     </div>
 @endsection

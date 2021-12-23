@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $alphabetArray = str_split($alphabet);
+        view()->share(['alphabetArray' => $alphabetArray]);
     }
 }
