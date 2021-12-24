@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-// grab everything we need
 const btn = document.querySelector(".mobile-menu-button");
 const sidebar = document.querySelector(".sidebar");
 
@@ -12,33 +11,24 @@ btn.addEventListener("click", () => {
 
 var $tableView = $('#table-view');
 var $imageView = $('#image-view');
+var $bookImage = $('#book-cover-image');
 
 var $switchButton = $('#switch-button');
 
 $switchButton.on('click','#btn-switch-images','#btn-switch-table', function () {
     console.log('click');
-    if ($tableView.hasClass('md:flex lg:flex') &&
+    if ($tableView.hasClass('md:flex lg:flex xl:flex 2xl:flex') &&
         $imageView.hasClass('hidden')) {
-        $tableView.removeClass('md:flex lg:flex').addClass('hidden');
-        $imageView.removeClass('hidden').addClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
+        $tableView.removeClass('md:flex lg:flex xl:flex 2xl:flex').addClass('hidden');
+        $imageView.removeClass('hidden').addClass('grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6');
+        // $bookImage.removeClass('h-48 w-40').addClass('h-72 w-36');
     } else {
-        $tableView.addClass('md:flex lg:flex').removeClass('hidden');
-        $imageView.addClass('hidden').removeClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
+        $tableView.addClass('md:flex lg:flex xl:flex 2xl:flex').removeClass('hidden');
+        $imageView.addClass('hidden').removeClass('grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6');
+        // $bookImage.removeClass('h-48 w-40').addClass('h-72 sm:w-36');
+
     }
 });
-
-
-// const tableView = document.getElementById("table-view");
-// const imageView = document.getElementById("image-view");
-// const switchButton = document.getElementById("switch-button");
-// btn.onclick = function () {
-//     if (targetDiv.style.display !== "none") {
-//         targetDiv.style.display = "none";
-//     } else {
-//         targetDiv.style.display = "block";
-//     }
-// };
-
 
 $.ajax({
     url: 'wishlist.list.destroy/{id}',

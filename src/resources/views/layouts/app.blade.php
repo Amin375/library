@@ -17,7 +17,7 @@
 {{--    <link rel="stylesheet" href="/css/style.css">--}}
 
 <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/app.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -25,15 +25,15 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class="bg-gray-100  h-screen antialiased leading-none font-sans">
 <div id="app">
 
-    <div class="relative min-h-screen md:flex">
+    <div class="relative min-h-screen md:flex lg:flex xl:flex 2xl:flex">
 
         <!-- mobile menu bar -->
-        <div class="bg-blue-900 text-gray-100 flex justify-between md:hidden">
+        <div class="bg-blue-900 text-gray-100 flex justify-between md:hidden lg:hidden xl:hidden 2xl:hidden">
             <!-- logo -->
-            <a href="#" class="block p-4 text-white ">Library</a>
+            <a href="#" class="block p-4 text-white">Library</a>
 
             <!-- mobile menu button -->
             <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
@@ -46,7 +46,10 @@
 
         <!-- sidebar -->
         <div
-            class="sidebar z-50 bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+            class="sidebar z-50 bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform
+            -translate-x-full md:relative md:translate-x-0 lg:relative lg:translate-x-0 xl:relative
+            xl:translate-x-0 2xl:relative 2xl:translate-x-0
+            transition duration-200 ease-in-out">
             <!-- logo -->
             <a href="#" class="text-white flex flex-row items-center space-x-2 px-4">
                 <span class="text-2xl pr-0.5">Library</span>
@@ -70,14 +73,14 @@
                     </form>
 
 
-                    <a href=""
+                    <a href="{{ route('dashboard') }}"
                        class="block py-2.5 px-4 rounded font-bold transition duration-200 hover:bg-blue-700 hover:text-white">
                         {{ auth()->user()->name }}
                     </a>
 
                     @if(auth()->user()->isAdmin())
                         <a href="{{ route('admin.book_copies.index') }}"
-                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-800 hover:text-white">
+                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
                             Book Copies
                         </a>
                         <a href="{{ route('admin.book.create') }}"
@@ -136,32 +139,15 @@
     </div>
 </div>
 <script>
-    const btn = document.querySelector(".mobile-menu-button");
-    const sidebar = document.querySelector(".sidebar");
+    // const btn = document.querySelector(".mobile-menu-button");
+    // const sidebar = document.querySelector(".sidebar");
+    //
+    // // add our event listener for the click
+    // btn.addEventListener("click", () => {
+    //     sidebar.classList.toggle("-translate-x-full");
+    // });
 
-    // add our event listener for the click
-    btn.addEventListener("click", () => {
-        sidebar.classList.toggle("-translate-x-full");
-    });
 
-    var $tableView = $('#table-view');
-    var $imageView = $('#image-view');
-    var $switchButton = $('#switch-button');
-
-    $switchButton.on('click', function () {
-        console.log('click');
-        if($tableView.hasClass('md:flex lg:flex') && $imageView.hasClass('hidden')) {
-            $tableView.removeClass('md:flex lg:flex')
-                .addClass('hidden');
-            $imageView.removeClass('hidden')
-                .addClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
-        } else {
-            $tableView.addClass('md:flex lg:flex')
-                .removeClass('hidden');
-            $imageView.addClass('hidden')
-                .removeClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
-        }
-    });
 </script>
 </body>
 </html>

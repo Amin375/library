@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="grid justify-items-center h-full">
-        <div class="grid grid-cols-12 grid-rows-1 gap-3 md:w-4/6 lg:w-4/6 py-10">
-            <div class="col-span-4 h-auto pr-7">
-                <img class="rounded-md shadow-lg" src="{{ secure_asset($book->image()) }}"
+        <div class="grid grid-cols-8 grid-rows-1 gap-3 md:w-4/6 lg:w-4/6 py-10 px-36">
+            <div class="col-span-2 h-auto pr-7">
+                <img class="rounded-md shadow-lg h-96 " src="{{ secure_asset($book->image()) }}"
                      alt="{{ $book->title }}">
             </div>
-            <div class="col-span-8">
+            <div class="col-span-6">
                 <h1 class="text-2xl pb-1">{{ $book->title }}</h1>
                 <h2 class="text-xl italic pb-5">{{ $book->author->name }}</h2>
                 <p class="text-xl rounded-2xl pb-5">{{ $book->genre->title }}</p>

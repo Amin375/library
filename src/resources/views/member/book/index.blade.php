@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="flex flex-row justify-center mt-2.5 gap-x-4">
-            <ul class="px-3 py-1 bg-gray-200 rounded-xl border">
+        <div class="flex flex-no-wrap  justify-center mt-2.5 gap-x-4 ">
+            <ul class="px-3 py-1 bg-gray-200 rounded-xl border ">
                 @foreach($alphabetArray as $letter)
                     <form class="inline-flex" action="{{ route('alphabetsearch', $letter) }}" method="get">
                         <li>
@@ -28,7 +28,7 @@
 </svg></span>
             </button>
         </div>
-        <div id="table-view" class="hidden md:px-10 lg:px-24 md:flex lg:flex justify-center py-5">
+        <div id="table-view" class="hidden md:px-10 lg:px-24 xl:px-24 2xl:px-24 md:flex lg:flex xl:flex 2xl:flex justify-center py-5">
             <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
                 <table class="min-w-full bg-white">
                     <thead class="bg-blue-900 text-white">
@@ -103,7 +103,6 @@
                                         </svg>
                                     </a></td>
                             </div>
-
                         </tr>
                     @empty
                         <tr>
@@ -117,14 +116,15 @@
             </div>
         </div>
 
-    <div id="image-view" class="hidden  justify-items-center py-12 gap-y-14">
+    <div id="image-view" class="hidden grid-cols-2 justify-items-center gap-3 py-12 p-2">
         @forelse($books as $book)
-            <div class=" flex flex-col flex-wrap justify-center h-auto">
-                <div class="w-52">
-                        <a href="{{ route('book.show', ['id' => $book->id]) }}">
-                            <img class="transition duration-150 ease-in-out transform hover:scale-110 rounded-md shadow-lg h-80 w-52 mb-3" src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">
-                        </a>
-                    <span class="text-2xl"><h1>{{ $book->title }}</h1></span>
+            <div class="">
+                <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52">
+                    <a href="{{ route('book.show', ['id' => $book->id]) }}">
+                        <img id="book-cover-image" class="flex flex-shrink-0 transition duration-150 ease-in-out transform hover:scale-110
+                        rounded-md shadow-lg h-48 w-32 xxs:h-52 xxs:w-32 md:h-60 md:w-40 lg:h-60 lg:w-40 xl:h-72 xl:w-48 2xl:h-80 2xl:w-56 mb-3" src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">
+                    </a>
+                    <span class="mx-2 mb-5 sm:mx-6 md:px-6 lg:px-6 xl:px-5 2xl:px-5 md:text-lg lg:text-xl xl:text-xl 2xl:text-xl"><h1>{{ $book->title }}</h1></span>
                 </div>
             </div>
         @empty

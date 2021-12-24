@@ -996,7 +996,7 @@ module.exports = function transformData(data, headers, fns) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
 
 
 var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
@@ -2060,8 +2060,7 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // grab everything we need
-
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var btn = document.querySelector(".mobile-menu-button");
 var sidebar = document.querySelector(".sidebar"); // add our event listener for the click
@@ -2071,28 +2070,19 @@ btn.addEventListener("click", function () {
 });
 var $tableView = $('#table-view');
 var $imageView = $('#image-view');
+var $bookImage = $('#book-cover-image');
 var $switchButton = $('#switch-button');
 $switchButton.on('click', '#btn-switch-images', '#btn-switch-table', function () {
   console.log('click');
 
-  if ($tableView.hasClass('md:flex lg:flex') && $imageView.hasClass('hidden')) {
-    $tableView.removeClass('md:flex lg:flex').addClass('hidden');
-    $imageView.removeClass('hidden').addClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
+  if ($tableView.hasClass('md:flex lg:flex xl:flex 2xl:flex') && $imageView.hasClass('hidden')) {
+    $tableView.removeClass('md:flex lg:flex xl:flex 2xl:flex').addClass('hidden');
+    $imageView.removeClass('hidden').addClass('grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'); // $bookImage.removeClass('h-48 w-40').addClass('h-72 w-36');
   } else {
-    $tableView.addClass('md:flex lg:flex').removeClass('hidden');
-    $imageView.addClass('hidden').removeClass('md:grid lg:grid md:grid-cols-5 lg:grid-cols-5');
+    $tableView.addClass('md:flex lg:flex xl:flex 2xl:flex').removeClass('hidden');
+    $imageView.addClass('hidden').removeClass('grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'); // $bookImage.removeClass('h-48 w-40').addClass('h-72 sm:w-36');
   }
-}); // const tableView = document.getElementById("table-view");
-// const imageView = document.getElementById("image-view");
-// const switchButton = document.getElementById("switch-button");
-// btn.onclick = function () {
-//     if (targetDiv.style.display !== "none") {
-//         targetDiv.style.display = "none";
-//     } else {
-//         targetDiv.style.display = "block";
-//     }
-// };
-
+});
 $.ajax({
   url: 'wishlist.list.destroy/{id}',
   method: 'get',
