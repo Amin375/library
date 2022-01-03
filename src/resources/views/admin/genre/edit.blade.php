@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex justify-center my-10">
-        <div class="flex justify-center rounded-md border-2 border-gray-300 shadow-md flex-col p-5 lg:w-1/5 ">
+        <div class="flex justify-center rounded-md border-2 border-gray-300 shadow-md flex-col p-5 xs:w-4/6 sm:w-4/6 md:w-4/6 lg:w-4/6  xl:w-3/6 2xl:w-2/6">
             <div class="flex flex-col justify-center gap-2">
                 <form action="{{ route('admin.genre.update', $genre->id) }}" method="post">
                     @csrf

@@ -39,7 +39,13 @@ Route::get('alphabetsearch/{letter}', AlphabetSearchController::class)->name('al
 Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
 Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//Route::get('/dashboard/{name}', [DashboardController::class, 'update'])->name('dashboard.update');
+
+Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('dashboard/edit/{user}', [DashboardController::class, 'edit'])->name('dashboard.edit');
+Route::post('dashboard/update/{user}', [DashboardController::class, 'update'])->name('dashboard.update');
+
 Route::get('books', [BookController::class, 'index'])->name('books.index');
 Route::get('genres', [GenreController::class, 'index'])->name('genres.index');
 Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
@@ -47,6 +53,16 @@ Route::get('authors', [AuthorController::class, 'index'])->name('authors.index')
 Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre');
 Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author');
+
+
+//Route::group([
+//    'prefix' => 'dashboard',
+//    'as' => 'dashboard'
+//], function () {
+//    Route::get('', [DashboardController::class, 'index'])->name('.index');
+//    Route::get('edit', [DashboardController::class, 'edit'])->name('.edit');
+////    Route::post('update/{user}', [DashboardController::class, 'update'])->name('.update');
+//});
 
 
 Route::group([

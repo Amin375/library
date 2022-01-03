@@ -21,7 +21,6 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
@@ -46,9 +45,9 @@
 
         <!-- sidebar -->
         <div
-            class="sidebar z-50 bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform
-            -translate-x-full md:relative md:translate-x-0 lg:relative lg:translate-x-0 xl:relative
-            xl:translate-x-0 2xl:relative 2xl:translate-x-0
+            class="sidebar z-50 bg-blue-900 text-blue-100 w-56 space-y-6 py-7 px-2 inset-y-0 left-0 transform
+            -translate-x-full  md:translate-x-0 lg:translate-x-0 absolute md:fixed lg:fixed xl:fixed 2xl:fixed
+            xl:translate-x-0 2xl:translate-x-0
             transition duration-200 ease-in-out">
             <!-- logo -->
             <a href="#" class="text-white flex flex-row items-center space-x-2 px-4">
@@ -73,7 +72,7 @@
                     </form>
 
 
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('dashboard.index', auth()->user()) }}"
                        class="block py-2.5 px-4 rounded font-bold transition duration-200 hover:bg-blue-700 hover:text-white">
                         {{ auth()->user()->name }}
                     </a>
@@ -116,6 +115,10 @@
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
                         Genres
                     </a>
+{{--                    <a href="{{ route('dashboard.account', auth()->user()->name) }}"--}}
+{{--                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">--}}
+{{--                        Change Settings--}}
+{{--                    </a>--}}
                     <a href="{{ route('logout') }}"
                        class="block py-2.5 mt-3.5 px-4 rounded italic transition duration-200 hover:bg-blue-700 hover:text-white"
                        onclick="event.preventDefault();
@@ -128,7 +131,7 @@
         </div>
 
         <!-- content -->
-        <div class="flex-1">
+        <div class="flex-1 md:ml-56 lg:ml-56 xl:ml-56 2xl:ml-56">
             <main>
 
                 @yield('content')
@@ -146,7 +149,6 @@
     // btn.addEventListener("click", () => {
     //     sidebar.classList.toggle("-translate-x-full");
     // });
-
 
 </script>
 </body>

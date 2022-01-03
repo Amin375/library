@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class AlphabetSearchController extends Controller
 {
-    public function __invoke(Request $request, $letter)
+    public function __invoke($letter)
     {
         $books = Book::query()->where('title', 'like', $letter . '%')->with(['author', 'genre'])->get();
 

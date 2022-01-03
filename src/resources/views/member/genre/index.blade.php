@@ -2,10 +2,10 @@
 
 @section('content')
     @if(auth()->user()->isAdmin())
-        <div class="hidden md:px-10 lg:px-52 md:flex lg:flex justify-center py-8">
-            <div class="shadow overflow-hidden rounded border-b border-gray-200">
+        <div class="flex justify-center sm:justify-start md:justify-start lg:justify-start xl:justify-start 2xl:justify-start
+        mx-5 md:mx-10 lg:mx-10 xl:ml-10 2xl:ml-10 py-8">
+            <div class="shadow overflow-hidden rounded border-b border-gray-200 w-full lg:w-5/6 xl:w-4/6 2xl:w-3/6">
                 <table class="bg-white">
-                    <thead class=" bg-blue-900 text-white">
                             <thead class="bg-blue-900 text-white">
                             <tr>
                                 <th class="w-3/4 text-left py-3 px-4 uppercase font-semibold text-sm">Genres</th>
@@ -83,21 +83,19 @@
                 </div>
 
     @else
-        <div class="flex flex-col px-96 py-10">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-96">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-blue-900 text-white">
+        <div class="flex justify-center sm:justify-start md:justify-start lg:justify-start xl:justify-start 2xl:justify-start
+        mx-5 md:mx-10 lg:mx-10 xl:ml-10 2xl:ml-10 py-8">
+            <div class="shadow overflow-hidden rounded border-b border-gray-200 w-full lg:w-5/6 xl:w-4/6 2xl:w-3/6">
+                <table class="bg-white w-full">
+                    <thead class="bg-blue-900 text-white">
                             <tr>
-                                <th class="w-3/4 text-left py-3 px-4 uppercase font-semibold text-sm">Genres</th>
-                                <th class="w-3/4 text-left py-3 pl-4 uppercase font-semibold text-sm">View Books</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Genres</th>
                             </tr>
                             </thead>
                             <tbody class="text-gray-700 ">
                             @forelse($genres as $genre)
                                 <tr>
-                                    <td class="w-3/5 text-left py-3 px-4"><a
+                                    <td class="w-full text-left py-3 px-4 transition hover:bg-blue-200 cursor-pointer"><a
                                             href="{{ route('book.genre', $genre->id) }}">{{ $genre->title }}</a></td>
                                 </tr>
                             @empty
