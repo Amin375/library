@@ -1,18 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="grid justify-items-center h-full">
-        <div class="grid grid-cols-8 grid-rows-1 gap-3 md:w-4/6 lg:w-4/6 py-10 px-36">
-            <div class="col-span-2 h-auto pr-7">
-                <img class="rounded-md shadow-lg h-96 " src="{{ secure_asset($book->image()) }}"
+    <div class="grid justify-items-center">
+        <div class="flex flex-col justify-center
+        lg:grid lg:grid-cols-16 lg:grid-rows-1 lg:gap-3
+        xl:grid xl:grid-cols-16 xl:grid-rows-1 xl:gap-3
+        2xl:grid 2xl:grid-cols-12 2xl:grid-rows-1 2xl:gap-3
+        md:w-5/6 lg:w-11/12 lg:px-4 xl:w-4/6 2xl:w-4/6 py-10 md:py-3
+        md:border lg:border xl:border 2xl:border md:mt-10 lg:mt-10 xl:mt-10 rounded-xl shadow">
+            <div class="flex justify-center lg:grid lg:justify-items-center lg:col-span-6 xl:col-span-6 2xl:col-span-5
+              sm:pb-3 md:p-3 2xl:pr-7">
+                <img class="rounded-md shadow-lg h-80 md:h-96 lg:h-10/12 xl:h-9/12" src="{{ secure_asset($book->image()) }}"
                      alt="{{ $book->title }}">
             </div>
-            <div class="col-span-6">
-                <h1 class="text-2xl pb-1">{{ $book->title }}</h1>
-                <h2 class="text-xl italic pb-5">{{ $book->author->name }}</h2>
-                <p class="text-xl rounded-2xl pb-5">{{ $book->genre->title }}</p>
-                <p class="text-xl pb-8">{{ $book->blurb }}</p>
-                <div class="flex gap-5 justify-start">
+            <div class="flex flex-col justify-center  lg:col-span-10 xl:col-span-10 2xl:col-span-7">
+                <h1 class="text-2xl text-center pb-2.5 pt-1.5">{{ $book->title }}</h1>
+                <h2 class="text-xl text-center italic pb-5"><a class="px-2.5 py-0.5 rounded-2xl" href="{{ route('book.author', $book->author->id) }}">{{ $book->author->name }}</a></h2>
+                <p class="text-xl pb-8 p-3 px-5 md:px-3">{{ $book->blurb }}</p>
+                <p class="text-xl rounded-2xl pb-5 p-3 italic"><a class="border px-2.5 py-0.5 rounded-2xl" href="{{ route('book.genre', $book->genre->id) }}">{{ $book->genre->title }}</a></p>
+                <div class="flex gap-5 justify-end -mt-12 pr-4">
                     @if($book->firstAvailableBookCopyId())
                         <form action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}" method="post">
                             @csrf

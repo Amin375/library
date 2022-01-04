@@ -12,7 +12,12 @@ module.exports = {
             'xl': {'min': '1280px', 'max': '1535px'},
             '2xl': {'min': '1536px'},
         },
-        extend: {}
+
+        gridTemplateColumns: {
+            // Simple 16 column grid
+            '16': 'repeat(16, minmax(0, 1fr))',
+
+        }
     },
     variants: {
         extend: {

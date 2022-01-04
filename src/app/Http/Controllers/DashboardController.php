@@ -38,8 +38,8 @@ class DashboardController extends Controller
 
         return view('member.dashboard.index', [
             'loans' => $loans,
-            'cookieBooks' => $cookieBooks,
-            'sessionBooks' => $sessionBooks,
+            'cookieBooks' => $cookieBooks ?? [],
+            'sessionBooks' => $sessionBooks ?? [],
             'user' => $user
         ]);
     }

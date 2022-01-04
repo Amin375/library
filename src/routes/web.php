@@ -54,17 +54,6 @@ Route::get('book/{id}', [BookController::class, 'show'])->name('book.show');
 Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre');
 Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author');
 
-
-//Route::group([
-//    'prefix' => 'dashboard',
-//    'as' => 'dashboard'
-//], function () {
-//    Route::get('', [DashboardController::class, 'index'])->name('.index');
-//    Route::get('edit', [DashboardController::class, 'edit'])->name('.edit');
-////    Route::post('update/{user}', [DashboardController::class, 'update'])->name('.update');
-//});
-
-
 Route::group([
     'prefix' => 'wishlist',
     'as' => 'wishlist'

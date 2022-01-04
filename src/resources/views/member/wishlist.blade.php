@@ -15,8 +15,6 @@
                 </tr>
                 </thead>
                 <tbody class="text-gray-700">
-{{--                                @dd($books)--}}
-{{--                {{ ddd($books) }}--}}
                 @forelse($books as $book)
                     <tr>
                         <td class="w-2/3 text-left py-3 px-3">{{ $book->title }}</td>
@@ -50,7 +48,6 @@
                             @endif
                         </td>
                         <td class="flex pl-2">
-
                             <a class="text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
                                href="{{ route('wishlist.destroy', $book->id )}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
