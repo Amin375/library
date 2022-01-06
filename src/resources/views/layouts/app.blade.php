@@ -35,7 +35,7 @@
             <a href="#" class="block p-4 text-white">Library</a>
 
             <!-- mobile menu button -->
-            <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-700">
+            <button class="mobile-menu-button p-4 focus:outline-none">
                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -136,24 +136,24 @@
                 @yield('content')
 
             </main>
-            <footer class="w-full bg-gray-200 bottom-0 h-28">
-                <div class="grid justify-items-center content-center h-full gap-y-2">
-                    <h1 class="text-lg italic text-end">Sign up to our newsletter</h1>
-                        <input type="text" class="w-5/6 sm:w-3/6 md:w-2/6 lg:w-2/6 xl:w-3/12 2xl:w-3/12 border border-gray-500 focus:outline-none py-1 px-2 rounded-md" placeholder="Your e-mail">
-                </div>
-            </footer>
         </div>
+        @auth
+            @if(auth()->user()->isAdmin() == false)
+
+                <footer
+                    class="min-w-full bg-gray-200 absolute overflow-hidden bottom-0 h-28
+                     -mb-28 xs:-mb-28 sm:-mb-28 md:-mb-28 lg:mb-0 xl:mb-0 2xl:mb-0
+                     md:pl-56 lg:pl-56 xl:pl-56 2xl:pl-56 ">
+                    <div class="grid justify-items-center content-center h-full gap-y-2">
+                        <h1 class="text-lg italic text-end">Sign up to our newsletter</h1>
+                        <input type="text"
+                               class="w-5/6 sm:w-3/6 md:w-3/6 lg:w-2/6 xl:w-3/12 2xl:w-3/12 border border-gray-500 focus:outline-none py-1 px-2 rounded-md"
+                               placeholder="Your e-mail">
+                    </div>
+                </footer>
+        @endif
+        @endauth
     </div>
 </div>
-<script>
-    // const btn = document.querySelector(".mobile-menu-button");
-    // const sidebar = document.querySelector(".sidebar");
-    //
-    // // add our event listener for the click
-    // btn.addEventListener("click", () => {
-    //     sidebar.classList.toggle("-translate-x-full");
-    // });
-
-</script>
 </body>
 </html>

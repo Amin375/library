@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex justify-center my-10">
-        <div class="flex justify-center rounded-md border-2 border-gray-300 shadow-md flex-col p-5 lg:w-1/7">
+        <div class="flex justify-center rounded-md border-2 border-gray-300 shadow-md flex-col p-5 sm:w-4/6 md:w-4/6 lg:w-4/6  xl:w-3/6 2xl:w-5/12">
             <div class="w-full mb-5">
                 <h1 class="text-2xl text-left">Edit Book</h1>
             </div>
@@ -15,7 +15,7 @@
                 </div>
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label class="rounded" for="blurb">Blurb</label>
-                    <textarea class="border border-gray-300 rounded" name="blurb" cols="18"
+                    <textarea class="border border-gray-300 rounded" name="blurb"
                               rows="10">{{ isset($book) ? $book->blurb : null }}</textarea>
                 </div>
                 <div class="flex gap-x-3 mb-3">

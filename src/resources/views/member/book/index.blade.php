@@ -212,47 +212,27 @@
             </div>
         </div>
     @else
-        <div id="table-view"
-             class="hidden md:px-10 lg:px-24 xl:px-24 2xl:px-24 md:flex lg:flex xl:flex 2xl:flex justify-center py-5">
-            <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
-                <table class="min-w-full bg-white">
-                    <thead class="bg-blue-900 text-white">
-                    <tr>
-                        <th class="w-1/3 text-left py-3 px-3 uppercase font-semibold text-sm">Book Title</th>
-                        <th class="w-1/3 text-left py-3 px-3 uppercase font-semibold text-sm">Author</th>
-                        <th class="text-left py-3 px-3 uppercase font-semibold text-sm">Genre</th>
-                        <th class="text-left py-3 px-3 uppercase font-semibold text-sm">View</th>
-                    </tr>
-                    </thead>
-                    <tbody class="text-gray-700">
-                    @forelse($books as $book)
-                        <tr>
-                            <td class="w-1/3 text-left py-3 px-3">{{ $book->title }}</td>
-                            <td class="w-1/3 text-left py-3 px-3">{{ $book->author->name }}</td>
-                            <td class="text-left py-3 px-3">{{ $book->genre->title }}</td>
-                            <div class="w-2/3">
-                                <td class="text-left py-3 px-3"><a href="{{ route('book.show', ['id' => $book->id] )}}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                             viewBox="0 0 24 24">
-                                            <path
-                                                d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/>
-                                        </svg>
-                                    </a></td>
-                            </div>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td>
-                                <p>Nothing to show...</p>
-                            </td>
-                        </tr>
-                    @endforelse
-                    </tbody>
-                </table>
-            </div>
+        <div id="image-view" class="grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 grid-cols-2 justify-items-center gap-3 py-12 p-2">
+            @forelse($books as $book)
+                <div class="">
+                    <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52">
+                        <a href="{{ route('book.show', ['id' => $book->id]) }}">
+                            <img id="book-cover-image" class="flex flex-shrink-0 transition duration-150 ease-in-out transform hover:scale-110
+                        rounded-md shadow-lg h-48 w-32 md:h-60 md:w-40 lg:h-60 lg:w-40 xl:h-72 xl:w-48 2xl:h-80 2xl:w-56 mb-3"
+                                 src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">
+                        </a>
+                        <span
+                            class="mx-2 mb-5 sm:mx-2 md:mx-5 lg:mx-5 xl:mx-5 2xl:mx-5 text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"><h1>{{ $book->title }}</h1></span>
+                    </div>
+                </div>
+            @empty
+                <div>
+                    <h1>There was nothing to find...</h1>
+                </div>
+            @endforelse
         </div>
     @endif
-
+    @if(auth()->user()->isAdmin())
     <div id="image-view" class="hidden grid-cols-2 justify-items-center gap-3 py-12 p-2">
         @forelse($books as $book)
             <div class="">
@@ -272,4 +252,79 @@
             </div>
         @endforelse
     </div>
+    @endif
+
+    @if(auth()->user()->isAdmin() == false)
+
+    <div id="table-view"
+         class="hidden mx-0.5 xs:mx-5 sm:mx-10 justify-center py-5 relative">
+        <div
+            class="md:w-11/12 lg:w-10/12 xl:w-10/12 2xl:w-10/12  shadow overflow-hidden rounded border-b border-gray-200">
+            <table class="min-w-full bg-white">
+                <thead class="bg-blue-900 text-white">
+                <tr>
+                    <th class="text-left md:w-5/12 lg:w-5/12 xl:w-5/12 2xl:w-5/12 py-3 px-3 uppercase font-semibold text-sm">
+                        Book Title
+                    </th>
+                    <th class="hidden md:w-3/12 lg:w-3/12 xl:w-3/12 2xl:w-3/12  md:inline-flex lg:inline-flex xl:inline-flex 2xl:inline-flex text-left py-3 px-3 uppercase font-semibold text-sm">
+                        Author
+                    </th>
+                    <th class="hidden md:w-3/12 lg:w-3/12 xl:w-3/12 2xl:w-3/12 md:inline-flex lg:inline-flex xl:inline-flex 2xl:inline-flex text-left py-3 px-3 uppercase font-semibold text-sm">
+                        Genre
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                @forelse($books as $book)
+                    <tr>
+                        <td class="md:w-5/12 lg:w-5/12 xl:w-5/12 2xl:w-5/12 text-left py-3 px-3">
+                            <div class="flex justify-between">
+                                <div>
+                                    <p>{{ $book->title }}</p>
+                                </div>
+                                <div class="inline-flex md:hidden lg:hidden xl:hidden 2xl:hidden">
+                                    <div class="px-3"><a href="{{ route('book.show', ['id' => $book->id] )}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                 viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/>
+                                            </svg>
+                                        </a></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="hidden md:inline-flex lg:inline-flex xl:inline-flex 2xl:inline-flex md:w-3/12 lg:w-3/12 xl:w-3/12 2xl:w-3/12 py-3 px-3 ">
+                            {{ $book->author->name }}
+                        </td>
+                        <td class="hidden md:inline-flex lg:inline-flex xl:inline-flex 2xl:inline-flex md:w-3/12 lg:w-3/12 xl:w-3/12 2xl:w-3/12  py-3 px-3 ">
+                            {{ $book->genre->title }}
+                        </td>
+                        <td class="hidden md:inline-flex lg:inline-flex xl:inline-flex 2xl:inline-flex justify-end  md:w-6/12 lg:w-6/12 xl:w-6/12 2xl:w-6/12  p-3 pr-10">
+                            <div class="flex justify-evenly gap-x-9">
+                                <div class=""><a href="{{ route('book.show', ['id' => $book->id] )}}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path
+                                                d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/>
+                                        </svg>
+                                    </a></div>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+                @empty
+                    <tr>
+                        <td>
+                            <p>Nothing to show...</p>
+                        </td>
+                    </tr>
+                @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @endif
 @endsection
+

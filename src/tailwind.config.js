@@ -1,5 +1,5 @@
 module.exports = {
-    purge: [
+    content: [
         './resources/views/**/*.blade.php',
         './resources/css/**/*.css',
     ],
@@ -19,7 +19,4 @@ module.exports = {
         },
         textColor: ['responsive', 'hover', 'focus', 'group-hover'],
     },
-    plugins: [
-        require('@tailwindcss/ui'),
-    ]
 }

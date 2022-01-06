@@ -9,6 +9,7 @@ btn.addEventListener("click", () => {
 });
 
 
+
 var $tableView = $('#table-view');
 var $imageView = $('#image-view');
 var $bookImage = $('#book-cover-image');

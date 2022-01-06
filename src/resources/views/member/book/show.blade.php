@@ -18,7 +18,7 @@
                 <h2 class="text-xl text-center italic pb-5"><a class="px-2.5 py-0.5 rounded-2xl hover:underline" href="{{ route('book.author', $book->author->id) }}">{{ $book->author->name }}</a></h2>
                 <p class="text-xl pb-8 p-3 px-5 md:px-3">{{ $book->blurb }}</p>
                 <div class="flex justify-between pr-7">
-                <p class="text-xl rounded-2xl pb-5 p-3 italic z-50"><a class="border px-2.5 py-0.5 rounded-2xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50" href="{{ route('book.genre', $book->genre->id) }}">{{ $book->genre->title }}</a></p>
+                <p class="text-xl rounded-2xl pb-5 p-3 italic"><a class="border px-2.5 py-0.5 rounded-2xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50" href="{{ route('book.genre', $book->genre->id) }}">{{ $book->genre->title }}</a></p>
                 <div class="flex gap-5">
 
                     @if($book->firstAvailableBookCopyId())

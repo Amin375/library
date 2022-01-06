@@ -14,7 +14,7 @@
                 </div>
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label class="rounded" for="blurb">Blurb</label>
-                    <textarea class="border border-gray-300 rounded" name="blurb" id="" cols="18" rows="10"></textarea>
+                    <textarea class="border border-gray-300 rounded" name="blurb" id="textbox" onblur="document.getElementById('textbox').innerHTML=this.value.replace('\n','<br/>')" rows="10"></textarea>
                 </div>
                 <div class="flex gap-x-3 mb-3">
                     <label class="pt-1" for="author">Author</label>

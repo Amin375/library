@@ -19,6 +19,7 @@ class LoanCartController extends Controller
             })->get();
         }
 
+
         return view('member.cart', ['books' => $books ?? []]);
     }
 
@@ -40,12 +41,14 @@ class LoanCartController extends Controller
 
         $bookCopies = Arr::flatten(Session::get('loansCart'));
 
+
         $arrayId = array_search($id, $bookCopies);
+
 
         unset($bookCopies[$arrayId]);
         Session::forget('loansCart');
         Session::push('loansCart', $bookCopies);
 
-        return redirect()->route('loans.cart', ['books' => $books]);
+        return redirect()->route('loans.cart', ['books' => $books ?? []]);
     }
 }
