@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    {{--    @dd($books)--}}
     <div class="sm:px-12 md:px-12 lg:px-24 xl:px-32 2xl:px-32 flex justify-center py-8 w-full">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
@@ -26,7 +27,9 @@
                         <td class="text-left py-3 px-3"><a
                                 href="{{ route('book.show', ['id' => $book->id] )}}">Open</a>
                         </td>
-                        <td class="text-left py-3 pl-6"><a href="{{ route('loans.cart.destroy', $book->id )}}">
+                        <td class="flex pl-2">
+                            <a class="text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
+                               href="{{ route('loans.cart.destroy', $book->id )}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                      width="25" height="25"
                                      viewBox="0 0 100 100"
@@ -46,17 +49,21 @@
                                 </svg>
                             </a>
                         </td>
-
                     </tr>
                 @empty
                     <tr>
-                        <td class="w-full">
-                            <p>Nothing to show...</p>
+                        <td class="w-full ">
+                            <div class=" pl-4 py-1.5">
+                                <h1 class="italic text-lg text-gray-500">Your cart is empty. Go to the <a
+                                        href="{{ route('books.index') }}"><span
+                                            class="text-blue-500 hover:text-blue-600 hover:underline">Books</span></a>
+                                    page for more books.</h1>
+                            </div>
                         </td>
                     </tr>
                 @endforelse
-{{--                                                 @dd(Arr::flatten(Session::get('loansCart')))--}}
-                @if(array_unique(Arr::flatten(Session::get('loansCart'))))
+
+                @if(count($books))
                     <tr class="w-full">
                         <td>
                             <form action="{{ route('loans.store', auth()->id() )}}" method="post">
@@ -65,10 +72,11 @@
                                 </button>
                             </form>
                         </td>
-                </tr>
+                    </tr>
                 @endif
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
+

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="lg:px-52 flex justify-center py-8 ">
+    <div class="sm:px-12 md:px-12 lg:px-24 xl:px-32 2xl:px-32 flex justify-center py-8 w-full">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
                 <thead class="bg-blue-900 text-white">
@@ -72,8 +72,10 @@
                     </tr>
                 @empty
                     <tr>
-                        <td>
-                            <p>Nothing to show...</p>
+                        <td class="w-full ">
+                            <div class=" pl-4 py-1.5">
+                                <h1 class="italic text-lg text-gray-500">Your cart is empty</h1>
+                            </div>
                         </td>
                     </tr>
                 @endforelse
