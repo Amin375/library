@@ -44,7 +44,7 @@
     </div>
     @if(auth()->user()->isAdmin())
         <div id="table-view"
-             class="mx-0.5 xs:mx-5 sm:mx-10  md:flex lg:flex xl:flex 2xl:flex justify-center py-5">
+             class="mx-0.5 xs:mx-5 sm:mx-10  md:flex lg:flex xl:flex 2xl:flex justify-center py-5 relative">
             <div
                 class="md:w-11/12 lg:w-10/12 xl:w-10/12 2xl:w-10/12  shadow overflow-hidden rounded border-b border-gray-200">
                 <table class="min-w-full bg-white">

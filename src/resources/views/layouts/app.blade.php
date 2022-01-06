@@ -52,7 +52,7 @@
             <!-- logo -->
             <a href="#" class="text-white flex flex-row items-center space-x-2 px-4">
                 <span class="text-2xl pr-0.5">Library</span>
-{{--                <img class="w-7 h-7 mt-1" src="/img/book.ico" alt="book icon">--}}
+                {{--                <img class="w-7 h-7 mt-1" src="/img/book.ico" alt="book icon">--}}
             </a>
 
             <!-- nav -->
@@ -115,10 +115,10 @@
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
                         Genres
                     </a>
-{{--                    <a href="{{ route('dashboard.account', auth()->user()->name) }}"--}}
-{{--                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">--}}
-{{--                        Change Settings--}}
-{{--                    </a>--}}
+                    {{--                    <a href="{{ route('dashboard.account', auth()->user()->name) }}"--}}
+                    {{--                       class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">--}}
+                    {{--                        Change Settings--}}
+                    {{--                    </a>--}}
                     <a href="{{ route('logout') }}"
                        class="block py-2.5 mt-3.5 px-4 rounded italic transition duration-200 hover:bg-blue-700 hover:text-white"
                        onclick="event.preventDefault();
@@ -133,12 +133,16 @@
         <!-- content -->
         <div class="flex-1 md:ml-56 lg:ml-56 xl:ml-56 2xl:ml-56">
             <main>
-
                 @yield('content')
+
             </main>
+            <footer class="w-full bg-gray-200 bottom-0 h-28">
+                <div class="grid justify-items-center content-center h-full gap-y-2">
+                    <h1 class="text-lg italic text-end">Sign up to our newsletter</h1>
+                        <input type="text" class="w-5/6 sm:w-3/6 md:w-2/6 lg:w-2/6 xl:w-3/12 2xl:w-3/12 border border-gray-500 focus:outline-none py-1 px-2 rounded-md" placeholder="Your e-mail">
+                </div>
+            </footer>
         </div>
-
-
     </div>
 </div>
 <script>
