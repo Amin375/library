@@ -56,7 +56,7 @@
                     </tr>
                 @endforelse
 {{--                                                 @dd(Arr::flatten(Session::get('loansCart')))--}}
-                @if(Arr::flatten(Session::get('loansCart')))
+                @if(array_unique(Arr::flatten(Session::get('loansCart'))))
                     <tr class="w-full">
                         <td>
                             <form action="{{ route('loans.store', auth()->id() )}}" method="post">
