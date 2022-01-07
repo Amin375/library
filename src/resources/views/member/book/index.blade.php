@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="flex justify-center mt-2.5 gap-x-4 px-2">
-        <ul class="inline-flex px-3 py-1 bg-gray-200 rounded-xl border overflow-y-hidden">
-            @foreach($alphabetArray as $letter)
+        <div class="inline lg:hidden xl:hidden 2xl:hidden bg-gray-200  rounded-xl  overflow-y-hidden" style="box-shadow: inset 12px 0 15px -4px rgb(184 184 184 / 80%), inset -12px 0 8px -4px rgb(184 184 184 / 80%)">
+            <ul class="inline-flex py-1	">
+        @foreach($alphabetArray as $letter)
                 <form class="inline" action="{{ route('alphabetsearch', $letter) }}" method="get">
                     <li>
                         <button type="submit"
@@ -11,8 +12,23 @@
                     </li>
                 </form>
             @endforeach
-        </ul>
-        @if(auth()->user()->isAdmin())
+
+            </ul>
+        </div>
+        <div class="hidden lg:inline xl:inline 2xl:inline bg-gray-200  rounded-xl  overflow-y-hidden">
+            <ul class="inline-flex py-1	">
+        @foreach($alphabetArray as $letter)
+                <form class="inline" action="{{ route('alphabetsearch', $letter) }}" method="get">
+                    <li>
+                        <button type="submit"
+                                class="transform transition focus:outline-none duration-150 hover:scale-150 text-xl text-black px-2">{{ $letter }}</button>
+                    </li>
+                </form>
+            @endforeach
+
+            </ul>
+        </div>
+    @if(auth()->user()->isAdmin())
         <div class="flex justify-center align-center shrink-0">
             <button
                 class="p-1 bg-gray-200 border transform transition focus:outline-none duration-75 hover:scale-110 rounded-xl "
@@ -210,7 +226,7 @@
             </div>
         </div>
         <div id="image-view"
-             class="grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 grid-cols-2 justify-items-center gap-3 py-12 p-2">
+             class="hidden grid-cols-2 justify-items-center gap-3 py-12 p-2">
             @forelse($books as $book)
                 <div class="">
                     <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52">

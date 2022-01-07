@@ -82,7 +82,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                          width="25" height="25"
                                          viewBox="0 0 100 100"
-                                         style=" fill:#000000;">
+                                         class="fill-black">
                                         <path fill="#f37e98"
                                               d="M25,30l3.645,47.383C28.845,79.988,31.017,82,33.63,82h32.74c2.613,0,4.785-2.012,4.985-4.617L75,30"></path>
                                         <path fill="#f15b6c"
