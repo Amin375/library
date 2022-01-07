@@ -12,13 +12,27 @@
                 </form>
             @endforeach
         </ul>
-        <button
-            class="p-1 bg-gray-200 border transform transition focus:outline-none duration-75 hover:scale-110 rounded-xl"
-            id="switch-button">
-            <span id="image-icon"><img src="/icons/image-icon.svg"></span>
-            <span class="hidden" id="table-icon"><img src="/icons/table-icon.svg"></span>
+        @if(auth()->user()->isAdmin())
+        <div class="flex justify-center align-center shrink-0">
+            <button
+                class="p-1 bg-gray-200 border transform transition focus:outline-none duration-75 hover:scale-110 rounded-xl "
+                id="switch-button">
+                <span id="image-icon"><img class="w-full" src="/icons/image-icon.svg"></span>
+                <span class="hidden" id="table-icon"><img class="w-full" src="/icons/table-icon.svg"></span>
 
-        </button>
+            </button>
+        </div>
+        @else
+            <div class="flex justify-center align-center shrink-0">
+                <button
+                    class="p-1 bg-gray-200 border transform transition focus:outline-none duration-75 hover:scale-110 rounded-xl "
+                    id="switch-button">
+                    <span class="hidden"  id="image-icon"><img class="w-full" src="/icons/image-icon.svg"></span>
+                    <span id="table-icon"><img class="w-full" src="/icons/table-icon.svg"></span>
+                </button>
+            </div>
+        @endif
+
     </div>
     @if(auth()->user()->isAdmin())
         <div id="table-view"
@@ -195,7 +209,6 @@
                 </table>
             </div>
         </div>
-    @else
         <div id="image-view"
              class="grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 grid-cols-2 justify-items-center gap-3 py-12 p-2">
             @forelse($books as $book)
@@ -216,27 +229,7 @@
                 </div>
             @endforelse
         </div>
-    @endif
-    @if(auth()->user()->isAdmin())
-        <div id="image-view" class="hidden grid-cols-2 justify-items-center gap-3 py-12 p-2">
-            @forelse($books as $book)
-                <div class="">
-                    <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52">
-                        <a href="{{ route('book.show', ['id' => $book->id]) }}">
-                            <img id="book-cover-image" class="flex flex-shrink-0 transition duration-150 ease-in-out transform hover:scale-110
-                        rounded-md shadow-lg h-48 w-32 md:h-60 md:w-40 lg:h-60 lg:w-40 xl:h-72 xl:w-48 2xl:h-80 2xl:w-56 mb-3"
-                                 src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">
-                        </a>
-                        <span
-                            class="mx-2 mb-5 sm:mx-2 md:mx-5 lg:mx-5 xl:mx-5 2xl:mx-5 text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"><h1>{{ $book->title }}</h1></span>
-                    </div>
-                </div>
-            @empty
-                <div>
-                    <h1>There was nothing to find...</h1>
-                </div>
-            @endforelse
-        </div>
+
     @endif
 
     @if(auth()->user()->isAdmin() == false)
@@ -310,6 +303,26 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+
+        <div id="image-view" class="grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 grid-cols-2 justify-items-center gap-3 py-12 p-2">
+            @forelse($books as $book)
+                <div class="">
+                    <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52">
+                        <a href="{{ route('book.show', ['id' => $book->id]) }}">
+                            <img id="book-cover-image" class="flex flex-shrink-0 transition duration-150 ease-in-out transform hover:scale-110
+                        rounded-md shadow-lg h-48 w-32 md:h-60 md:w-40 lg:h-60 lg:w-40 xl:h-72 xl:w-48 2xl:h-80 2xl:w-56 mb-3"
+                                 src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">
+                        </a>
+                        <span
+                            class="mx-2 mb-5 sm:mx-2 md:mx-5 lg:mx-5 xl:mx-5 2xl:mx-5 text-base md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"><h1>{{ $book->title }}</h1></span>
+                    </div>
+                </div>
+            @empty
+                <div>
+                    <h1>There was nothing to find...</h1>
+                </div>
+            @endforelse
         </div>
     @endif
 @endsection

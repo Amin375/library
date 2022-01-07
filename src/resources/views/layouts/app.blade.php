@@ -17,9 +17,7 @@
 {{--    <link rel="stylesheet" href="/css/style.css">--}}
 
 <!-- Scripts -->
-    <script src="/js/app.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -154,8 +152,8 @@
         @endauth
     </div>
 </div>
-<script>
-
-</script>
+<script src="/js/app.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
