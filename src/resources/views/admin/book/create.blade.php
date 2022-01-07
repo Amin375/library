@@ -10,7 +10,7 @@
                 @csrf
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label for="title">Title</label>
-                    <input name="title" class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text">
+                    <input name="title" class="border border-gray-300 w-full py-1 px-2 rounded" type="text">
                 </div>
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label class="rounded" for="blurb">Blurb</label>

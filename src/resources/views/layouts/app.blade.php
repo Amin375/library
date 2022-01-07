@@ -67,10 +67,9 @@
                 @else
                     <form action="{{ route('search') }}" method="post">
                         @csrf
-                        <input name="search" type="text"
-                               class="ml-2.5 mb-4 py-1 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
+                        <input name="search" type="text" placeholder="Search"
+                               class="ml-2.5 mb-4 py-1 px-2 w-48 flex text-black flex-col border-2 border-blue-800 rounded-md shadow-md">
                     </form>
-
 
                     <a href="{{ route('dashboard.index', auth()->user()) }}"
                        class="block py-2.5 px-4 rounded font-bold transition duration-200 hover:bg-blue-700 hover:text-white">
@@ -155,5 +154,8 @@
         @endauth
     </div>
 </div>
+<script>
+
+</script>
 </body>
 </html>
