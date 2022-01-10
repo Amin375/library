@@ -11,7 +11,12 @@
                     </div>
                     <div class="flex flex-col gap-y-2 mb-3">
                         <label for="author">Author</label>
-                        <input name="name" class="border border-gray-300 w-full py-2 px-2 rounded" type="text">
+                        <input name="name" class="border border-gray-300 w-full py-2 px-2 rounded @error('name') border-red-500 @enderror" type="text">
+                        @error('name')
+                        <p class="text-red-500 text-lg italic">
+                            {{ $message }}
+                        </p>
+                        @enderror
                     </div>
                     <div>
                         <button class="py-2 px-10 text-base rounded-md bg-blue-800 hover:bg-blue-900 text-white" type="submit">Save</button>

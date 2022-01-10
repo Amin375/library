@@ -8,9 +8,9 @@
              2xl:container 2xl:mx-auto 2xl:max-w-lg 2xl:mt-10 ">
         <div class="flex">
             <div class="w-full">
-                <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+                <section class="flex flex-col break-words bg-white border-1 rounded-md shadow-sm shadow-lg">
 
-                    <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                    <header class="font-semibold bg-gray-200 text-gray-700 py-5 py-6 px-8 rounded-t-md">
                         {{ __('Login') }}
                     </header>
 
@@ -24,7 +24,7 @@
                             </label>
 
                             <input id="email" type="email"
-                                   class="form-input w-full @error('email') border-red-500 @enderror" name="email"
+                                   class="border border-gray-300 w-full py-2 px-2 rounded @error('email') border-red-500 @enderror" name="email"
                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
@@ -40,7 +40,7 @@
                             </label>
 
                             <input id="password" type="password"
-                                   class="form-input w-full @error('password') border-red-500 @enderror" name="password"
+                                   class="border border-gray-300 w-full py-2 px-2 rounded @error('password') border-red-500 @enderror" name="password"
                                    required>
 
                             @error('password')
@@ -72,7 +72,7 @@
                             </button>
 
                             @if (Route::has('register'))
-                                <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
+                                <p class="w-full text-md text-center text-gray-700 my-6 sm:text-sm sm:my-8">
                                     {{ __("Don't have an account?") }}
                                     <a class="text-blue-500 hover:text-blue-700 no-underline hover:underline"
                                        href="{{ route('register') }}">
@@ -82,7 +82,6 @@
                             @endif
                         </div>
                     </form>
-
                 </section>
             </div>
         </div>

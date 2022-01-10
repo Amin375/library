@@ -10,11 +10,21 @@
                 @csrf
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label for="title">Title</label>
-                    <input name="title" class="border border-gray-300 w-full py-1 px-2 rounded" type="text">
+                    <input name="title" class="border border-gray-300 w-full py-1 px-2 rounded @error('title') border-red-500 @enderror" type="text">
+                    @error('title')
+                    <p class="text-red-500 text-lg italic">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="flex flex-col gap-y-2 mb-5">
                     <label class="rounded" for="blurb">Blurb</label>
-                    <textarea class="border border-gray-300 rounded" name="blurb" id="textbox" onblur="document.getElementById('textbox').innerHTML=this.value.replace('\n','<br/>')" rows="10"></textarea>
+                    <textarea class="border border-gray-300 rounded @error('blurb') border-red-500 @enderror" name="blurb" id="textbox" rows="10"></textarea>
+                    @error('blurb')
+                    <p class="text-red-500 text-lg italic">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="flex gap-x-3 mb-3">
                     <label class="pt-1" for="author">Author</label>
@@ -35,6 +45,11 @@
                 <div class="mb-5 bg-gray-200 rounded p-2">
                     <label for="image">Image Cover</label>
                     <input type="file" name="image">
+                    @error('image')
+                    <p class="text-red-500 text-lg italic mt-1">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div>
                     <button class="py-2 px-10 text-lg rounded-md bg-blue-800 hover:bg-blue-900 text-white"

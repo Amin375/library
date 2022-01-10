@@ -20,7 +20,6 @@ $(document).ready(function (){
             $tableView.removeClass('md:flex lg:flex xl:flex 2xl:flex').addClass('hidden');
             $imageView.removeClass('hidden').addClass('grid xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6');
         } else {
-
             $tableIcon.addClass('hidden');
             $imageIcon.removeClass('hidden');
             $tableView.addClass('md:flex lg:flex xl:flex 2xl:flex').removeClass('hidden');
