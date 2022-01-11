@@ -69,70 +69,63 @@ class DatabaseSeeder extends Seeder
             'phone' => '0639173377'
         ]);
 
-
         Book::create([
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Sorcerer\'s Stone',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/HQzJh6iYABAdt9XLEd1aWQwviRj7NDHH7DHE0J5V.jpg',
+            'blurb' => 'Harry Potter\'s life is miserable. His parents are dead and he\'s stuck with his heartless relatives,
+             who force him to live in a tiny closet under the stairs. But his fortune changes when he receives a letter that
+              tells him the truth about himself: he\'s a wizard. A mysterious visitor rescues him from his relatives and
+               takes him to his new home, Hogwarts School of Witchcraft and Wizardry.',
+            'image' => 'images/Ko5TxSkeYyZyRFZxezsvJ2daOiVwVp2F3SbB2jli.jpg',
         ]);
 
         Book::create([
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Chamber of Secrets',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/8Ze0c0cxuApGFEgHi5lclOid7LYO9ewiNH2Qj8Tj.jpg',
+            'blurb' => 'Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that
+             all Harry wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he’s packing
+             his bags, Harry receives a warning from a strange impish creature who says that if Harry returns to Hogwarts, disaster will strike.',
+            'image' => 'images/5CjY0kfsVVNE4gWqGxaQG0Fg33UrtpBtqCfBlOee.jpg',
         ]);
 
         Book::create([
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Prisoner of Azkaban',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/5ujtNCrvlVbTT5Cuvw1PBt5HssAfisSniVn7OKN9.jpg',
+            'blurb' => 'For twelve long years, the dread fortress of Azkaban held an infamous prisoner named Sirius Black.
+             Convicted of killing thirteen people with a single curse, he was said to be the heir apparent to the Dark Lord,
+              Voldemort. Now he has escaped, leaving only two clues as to where he might be headed: Harry Potter\'s defeat
+               of You-Know-Who was Black\'s downfall as well. And the Azkaban guards heard Black muttering in his sleep,
+               "He\'s at Hogwarts . . . he\'s at Hogwarts."',
+            'image' => 'images/DMJfl1EGYP7fpLrrKNCL5bd15uRLM7TPleLjrWMk.jpg',
         ]);
 
         Book::create([
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Goblet of Fire',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa. ',
-            'image' => 'images/u4Szf3dVqImM7U1sQ0UKdWYxeeDt3GyP1T4pFemj.jpg',
+            'blurb' => 'Harry Potter is midway through his training as a wizard and his coming of age. Harry wants to
+             get away from the pernicious Dursleys and go to the International Quidditch Cup with Hermione, Ron, and the
+              Weasleys. He wants to dream about Cho Chang, his crush (and maybe do more than dream). He wants to find out
+               about the mysterious event that\'s supposed to take place at Hogwarts this year, an event involving two other
+                rival schools of magic, and a competition that hasn\'t happened for hundreds of years. He wants to be a normal,
+                 fourteen-year-old wizard. But unfortunately for Harry Potter, he\'s not normal - even by wizarding standards.',
+            'image' => 'images/bLZgYPFk2zCQ5J8rOyG4UvWPo8S5pVVnp5pZsLUI.jpg',
         ]);
 
         Book::create([
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Order of the Phoenix',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/AUvspWgAqKDzWmnrqLY0y2Nne7IQFtcdAOMGGD6G.jpg',
+            'blurb' => 'There is a door at the end of a silent corridor. And it’s haunting Harry Pottter’s dreams.
+            Why else would he be waking in the middle of the night, screaming in terror? Harry has a lot on his mind for
+            this, his fifth year at Hogwarts: a Defense Against the Dark Arts teacher with a personality like poisoned honey;
+             a big surprise on the Gryffindor Quidditch team; and the looming terror of the Ordinary Wizarding Level exams.
+              But all these things pale next to the growing threat of He-Who-Must-Not-Be-Named - a threat that neither the
+               magical government nor the authorities at Hogwarts can stop.',
+            'image' => 'images/EZIP7bTT5DCC1e5xi6piRFFGhbwwJMc0pr6mRqb3.jpg',
         ]);
 
 
@@ -140,18 +133,12 @@ class DatabaseSeeder extends Seeder
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Half-Blood Prince',
-            'blurb' => 'Cornelis Droebel brengt een bezoek aan de Britse Dreuzelpremier. Het blijkt dat Droebel als Minister van
-            Toverkunst werd opgevolgd door Rufus Schobbejak, de voormalige nummer één op het schouwershoofdkwatier. Droebel fungeert
-            nog wel als woordvoerder en hij bespreekt met de Dreuzelpremier de rampspoed die de Dreuzelwereld de voorgaande weken is overkomen.
-            Het blijkt dat een aantal Dooddoeners (volgelingen van de herrezen Voldemort) verantwoordelijk is voor rampen als wervelstormen, plotseling
-            instortende bruggen en diverse onverklaarbare moorden, en dus niet de regering, zoals de tegenstander van de dreuzelpremier had gezegd.
-            De premier was zeer verontwaardigd door de bericht - hij kon namelijk niet vertellen dat de dooddoeners verantwoordelijk waren voor de rampen,
-            omdat niemand hem zou geloven. Het weten dat het niet zijn fout was maar het niet kunnen vertellen was voor hem veel
-            erger dan dat als het wel echt zijn fout was. De Dooddoeners zijn dus weer volop actief, zowel in de Dreuzelwereld als in de tovenaarswereld.
-            Severus Sneep, toverdrankleraar van Zweinstein en (mogelijk) dubbelspion,
-            legt een Onbreekbare Eed af aan Narcissa Malfidus, waarin hij belooft dat hij haar zoon,
-            Draco Malfidus, zal helpen bij het uitvoeren van de op dat moment voor de lezer nog onbekende
-            taak waarmee Voldemort hem heeft belast.',
+            'blurb' => 'The war against Voldemort is not going well; even Muggle governments are noticing. Ron scans the
+             obituary pages of the Daily Prophet, looking for familiar names. Dumbledore is absent from Hogwarts for long
+              stretches of time, and the Order of the Phoenix has already suffered losses. And yet . . . As in all wars,
+               life goes on. The Weasley twins expand their business. Sixth-year students learn to Apparate - and lose a
+                few eyebrows in the process. Teenagers flirt and fight and fall in love. Classes are never straightforward,
+                 through Harry receives some extraordinary help from the mysterious Half-Blood Prince.',
             'image' => 'images/Jv1OdQgSRWIKRVZB7ceX4GHuOCg95vvezCEu5GCm.jpg',
         ]);
 
@@ -160,13 +147,18 @@ class DatabaseSeeder extends Seeder
             'author_id' => 1,
             'genre_id' => 4,
             'title' => 'Harry Potter and the Deathly Hallows',
-            'blurb' => 'I\'m baby xOXO cray health goth blog chia portland forage air plant craft beer .
-                        Fingerstache disrupt 8 - bit kinfolk, enamel pin lomo pickled bicycle rights you probably haven\'t
-                        heard of them iceland pinterest drinking vinegar sartorial direct trade chia. Unicorn irony freegan,
-                        etsy master cleanse you probably haven\'t heard of them williamsburg vinyl PBR & B health goth pork belly
-                        food truck small batch biodiesel . Kickstarter salvia tilde kogi . Tote bag flexitarian chartreuse,
-                        PBR & B VHS art party skateboard taiyaki beard keffiyeh letterpress food truck direct trade quinoa . ',
-            'image' => 'images/ZPGFu4KiOifZ1hRgatkly44FRstbsvqqTi7mu942.jpg',
+            'blurb' => 'It\'s no longer safe for Harry at Hogwarts, so he and his best friends, Ron and Hermione, are on
+            the run. Professor Dumbledore has given them clues about what they need to do to defeat the dark wizard,
+             Lord Voldemort, once and for all, but it\'s up to them to figure out what these hints and suggestions really
+              mean. Their cross-country odyssey has them searching desperately for the answers, while evading capture or
+              death at every turn. At the same time, their friendship, fortitude, and sense of right and wrong are tested
+              in ways they never could have imagined. The ultimate battle between good and evil that closes out this final
+               chapter of the epic series takes place where Harry\'s Wizarding life began: at Hogwarts. The satisfying
+               conclusion offers shocking last-minute twists, incredible acts of courage, powerful new forms of magic,
+                and the resolution of many mysteries. Above all, this intense, cathartic book serves as a clear statement
+                of the message at the heart of the Harry Potter series: that choice matters much more than destiny,
+                and that love will always triumph over death.',
+            'image' => 'images/Ft57HaFI7HktrLsHKb4SfQuFMIaT44JI2JHdpaZz.jpg',
         ]);
 
         Book::create([

@@ -9,46 +9,46 @@
                 <div class="flex flex-col p-4 shadow-md">
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="name">Name</label>
-                        <input name="name"  class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->name : null }}">
+                        <input name="name" class="border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->name : null }}">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="email">Email</label>
-                        <input name="email"   class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->email : null }}">
+                        <input name="email" class="border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->email : null }}">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="password">Password</label>
-                        <input name="password"   class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="password" value="">
+                        <input name="password" class="border border-gray-300 w-full py-1 px-2 rounded" type="password" value="">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="street">Street</label>
-                        <input name="street"   class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->street : null }}">
+                        <input name="street" class="border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->street : null }}">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="house_number">House Number</label>
-                        <input name="house_number"   class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="number" value="{{ isset($user) ? $user->house_number : null }}">
+                        <input name="house_number" class="border border-gray-300 w-full py-1 px-2 rounded" type="number" value="{{ isset($user) ? $user->house_number : null }}">
                     </div>
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="postal_code">Postal Code</label>
-                        <input name="postal_code"  class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->postal_code : null }}">
+                        <input name="postal_code" class="border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->postal_code : null }}">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="city">City</label>
-                        <input name="city"  class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->city : null }}">
+                        <input name="city"  class="border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->city : null }}">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="country">Country</label>
-                        <input name="country"  class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->country : null }}">
+                        <input name="country"  class="border border-gray-300 w-full py-1 px-2 rounded" type="text" value="{{ isset($user) ? $user->country : null }}">
                     </div>
 
                     <div class="flex flex-col gap-y-2 mb-5">
                         <label for="phone">Phone</label>
-                        <input name="phone" class="w-10 border border-gray-300 w-full py-1 px-2 rounded" type="number" value="{{ isset($user) ? $user->phone : null }}">
+                        <input name="phone" class="border border-gray-300 w-full py-1 px-2 rounded" type="number" value="{{ isset($user) ? $user->phone : null }}">
                     </div>
 
                     <div>

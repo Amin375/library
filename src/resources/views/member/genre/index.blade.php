@@ -20,11 +20,13 @@
                             </td>
                             <td class="table-cell">
                                 <div class="flex justify-evenly gap-x-7 px-4 shrink-0">
-                                    <a href="{{ route('admin.genre.edit', $genre->id )}}" class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 my-1">
+                                    <a href="{{ route('admin.genre.edit', $genre->id )}}"
+                                       class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 my-1">
                                         <img class="flex shrink-0" src="icons/edit.svg" alt="Edit Icon">
                                     </a>
-                                    <a href="{{ route('admin.genre.destroy', $genre->id )}}" class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 my-1">
-                                     <img class="flex shrink-0" src="icons/bin.svg" alt="Delete Icon">
+                                    <a href="{{ route('admin.genre.destroy', $genre->id )}}"
+                                       class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 my-1">
+                                        <img class="flex shrink-0" src="icons/bin.svg" alt="Delete Icon">
                                     </a>
                                 </div>
                             </td>
@@ -68,8 +70,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        </div>
         </div>
     @endif
 @endsection

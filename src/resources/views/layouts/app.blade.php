@@ -94,7 +94,15 @@
                     @endif
                     <a href="{{ route('loans.cart') }}"
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
-                        Cart
+                        <div class="flex justify-between">
+                            <p>Cart</p>
+                            <p>
+                               @if(!empty(Session::get('loansCart')))
+                                {{ count(Session::get('loansCart')) }}
+                                   @endif
+
+                            </p>
+                        </div>
                     </a>
                     <a href="{{ route('wishlist.index') }}"
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
@@ -134,22 +142,22 @@
 
             </main>
         </div>
-        @auth
-            @if(auth()->user()->isAdmin() == false)
+        {{--        @auth--}}
+        {{--            @if(auth()->user()->isAdmin() == false)--}}
 
-                <footer
-                    class="min-w-full bg-gray-200 absolute overflow-hidden bottom-0 h-28
-                     -mb-28 xs:-mb-28 sm:-mb-28 md:-mb-28 lg:mb-0 xl:mb-0 2xl:mb-0
-                     md:pl-56 lg:pl-56 xl:pl-56 2xl:pl-56 ">
-                    <div class="grid justify-items-center content-center h-full gap-y-2">
-                        <h1 class="text-lg italic text-end">Sign up to our newsletter</h1>
-                        <input type="text"
-                               class="w-5/6 sm:w-3/6 md:w-3/6 lg:w-2/6 xl:w-3/12 2xl:w-3/12 border border-gray-500 focus:outline-none py-1 px-2 rounded-md"
-                               placeholder="Your e-mail">
-                    </div>
-                </footer>
-        @endif
-        @endauth
+        {{--                <footer--}}
+        {{--                    class="min-w-full bg-gray-200 absolute overflow-hidden bottom-0 h-28--}}
+        {{--                     -mb-28 xs:-mb-28 sm:-mb-28 md:-mb-28 lg:mb-0 xl:mb-0 2xl:mb-0--}}
+        {{--                     md:pl-56 lg:pl-56 xl:pl-56 2xl:pl-56 ">--}}
+        {{--                    <div class="grid justify-items-center content-center h-full gap-y-2">--}}
+        {{--                        <h1 class="text-lg italic text-end">Sign up to our newsletter</h1>--}}
+        {{--                        <input type="text"--}}
+        {{--                               class="w-5/6 sm:w-3/6 md:w-3/6 lg:w-2/6 xl:w-3/12 2xl:w-3/12 border border-gray-500 focus:outline-none py-1 px-2 rounded-md"--}}
+        {{--                               placeholder="Your e-mail">--}}
+        {{--                    </div>--}}
+        {{--                </footer>--}}
+        {{--        @endif--}}
+        {{--        @endauth--}}
     </div>
 </div>
 <script src="/js/app.js" defer></script>

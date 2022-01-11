@@ -27,6 +27,8 @@ class WishlistController extends Controller
                 $q->whereIn('id', Arr::flatten($newArray));
             })->get();
         }
+//        Cookie::forget('wishlist');
+//        dd(Cookie::get('wishlist'));
 
         return response(view('member.wishlist', ['books' => $books ?? []]));
     }
@@ -49,7 +51,7 @@ class WishlistController extends Controller
 
         Cookie::queue('wishlist', json_encode($cookieValue), 20000);
 
-        return redirect()->route('books.index', ['id' => $book->id]);
+        return redirect()->route('book.show', ['id' => $book->id]);
     }
 
     /**
@@ -61,8 +63,10 @@ class WishlistController extends Controller
     public function destroy($id)
     {
         $book = Book::findOrFail($id);
-        $bookCopy = BookCopy::query()->where('book_id', $id)->first();
-        $bookCopyId = $bookCopy->id;
+//        $bookCopy = BookCopy::query()->where('book_id', $id)->first();
+        $bookCopyId = $book->firstAvailableBookCopyId();;
+
+//        dd($bookCopyId);
 
         $cookie = Cookie::get('wishlist');
         $cookieArray = explode(',', json_decode($cookie));
@@ -70,16 +74,17 @@ class WishlistController extends Controller
         $newArray = array_filter($cookieArray);
         $arrayId = array_search($bookCopyId, $newArray);
 
+
+
         if ($arrayId !== false) {
             unset($newArray[$arrayId]);
         }
-
         Cookie::forget('wishlist');
 
         $stringArray = implode(',', $newArray);
 
         Cookie::queue('wishlist', json_encode($stringArray, 20000));
 
-        return redirect()->route('wishlist.index', ['book' => $book])->withCookie(Cookie::forget('wishlist'));
+        return redirect()->route('wishlist.index', ['book' => $book ?? []])->withCookie(Cookie::forget('wishlist'));
     }
 }

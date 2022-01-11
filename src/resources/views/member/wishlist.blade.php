@@ -31,16 +31,14 @@
                                 <div>
                                     <p>{{ $book->title }}</p>
                                 </div>
-                                <div class="flex md:hidden lg:hidden xl:hidden 2xl:hidden justify-evenly shrink-0 gap-x-3 ">
-
+                                <div
+                                    class="flex md:hidden lg:hidden xl:hidden 2xl:hidden justify-evenly shrink-0 gap-x-3 ">
                                     <a class="flex shrink-0 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 "
                                        href="{{ route('book.show', ['id' => $book->id] )}}">
-                                    <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}"
-                                                                     alt=""></span>
-
+                                        <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}"
+                                                                         alt="View Icon"></span>
                                     </a>
                                     @if($book->firstAvailableBookCopyId())
-
                                         <form class="flex shrink-0"
                                               action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}"
                                               method="post">
@@ -49,14 +47,13 @@
                                                 class="flex shrink-0  text-lg hover:bg-gray-200  active:bg-gray-300  rounded-xl p-2"
                                                 type="submit">
                                                 <img src="{{URL::asset('/icons/cart.svg')}}" alt="Delete Icon">
-
                                             </button>
                                         </form>
                                     @else
                                         Niet op voorraad
                                     @endif
                                     <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                       href="{{ route('wishlist.destroy', $book->id )}}">
+                                       href="{{ route('wishlist.destroy', $book->firstAvailableBookCopyId() )}}">
                                         <img src="{{URL::asset('/icons/bin.svg')}}" alt="Delete Icon">
                                     </a>
                                 </div>
@@ -69,15 +66,12 @@
                         </td>
                         <td class=" hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell ">
                             <div class="flex justify-evenly gap-x-3 px-4 shrink-0">
-
-                                <a class="flex shrink-0 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 "
+                                <a class="flex shrink-0 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
                                    href="{{ route('book.show', ['id' => $book->id] )}}">
                                     <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}"
                                                                      alt=""></span>
-
                                 </a>
                                 @if($book->firstAvailableBookCopyId())
-
                                     <form class="flex shrink-0"
                                           action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}"
                                           method="post">
@@ -86,7 +80,6 @@
                                             class="flex shrink-0  text-lg hover:bg-gray-200  active:bg-gray-300  rounded-xl p-2"
                                             type="submit">
                                             <img src="{{URL::asset('/icons/cart.svg')}}" alt="Delete Icon">
-
                                         </button>
                                     </form>
                                 @else

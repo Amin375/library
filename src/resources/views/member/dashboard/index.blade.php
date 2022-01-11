@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-start pl-16 py-8">
-        <div class="w-3/6 rounded  shadow-md">
+    <div class="flex justify-start md:pl-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+        <div class="w-full md:w-5/6 xl:w-3/6 2xl:w-3/6 rounded shadow-md">
             <h1 class="w-full bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">Current Loan
                 Information</h1>
             <table>
                 <tbody>
                 @forelse($loans as $loan)
-                    <tr>
+                    <tr class="even:bg-gray-400">
                         <td>
                             <div class="py-3 px-3 text-base italic">Order from: {{ $loan->created_at }}</div>
                             @foreach($loan->bookCopies as $book_copy)
@@ -26,14 +26,14 @@
         </div>
     </div>
 
-    <div class="flex justify-start pl-16 py-8">
-        <div class="w-3/6 rounded  shadow-md">
+    <div class="flex justify-start md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+        <div class="w-full md:w-4/6 xl:w-3/6 2xl:w-3/6 rounded  shadow-md">
             <div
                 class="w-full flex justify-between bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">
 
-                    <h1>Wishlist</h1>
-                    <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
-                       href="{{ route('wishlist.index') }}"> Go to Wishlist ></a>
+                <h1>Wishlist</h1>
+                <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
+                   href="{{ route('wishlist.index') }}"> Go to Wishlist ></a>
 
             </div>
             <table>
@@ -53,13 +53,13 @@
             </table>
         </div>
     </div>
-    <div class="flex justify-start pl-16 py-8">
-        <div class="w-3/6 rounded  shadow-md">
+    <div class="flex justify-start md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+        <div class="w-full md:w-3/6 xl:w-3/6 2xl:w-3/6 rounded  shadow-md">
             <div
                 class="w-full flex justify-between bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">
                 <h1>Shopping Cart </h1>
-                    <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
-                       href="{{ route('loans.cart') }}"> Go to Shopping Cart ></a>
+                <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
+                   href="{{ route('loans.cart') }}"> Go to Shopping Cart ></a>
             </div>
             <table>
                 <tbody>
@@ -78,8 +78,8 @@
             </table>
         </div>
     </div>
-    <div class="flex justify-start pl-16 py-8">
-        <div class="w-3/6 rounded">
+    <div class="flex justify-start md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+        <div class="w-full md:w-3/6 xl:w-3/6 2xl:w-3/6 rounded">
             <h1 class="w-full bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">Account
                 Information</h1>
             <ul class="flex flex-col gap-y-6 shadow-md py-4 px-3 text-lg">

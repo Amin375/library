@@ -120,6 +120,11 @@ class BookController extends Controller
         if(isset($validatedData['image'])){
             $validatedData['image'] = request()->file('image')->store('images');
         }
+//        if(isset($attributes['image'])){
+//            $image = $attributes['image']->storeAs("images/$dirName/main-images",
+//                Str::slug($imageName) . '.' . $attributes['image']->extension());
+//            $attributes = array_merge($attributes, ['image' => $image]);
+//        }
 
         $book->update($validatedData);
 
