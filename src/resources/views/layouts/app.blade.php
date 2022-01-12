@@ -24,6 +24,12 @@
 </head>
 <body class=" bg-gray-100  h-screen antialiased leading-none font-sans">
 <div id="app">
+    @php
+        $cookie = Cookie::get('wishlist');
+        $cookieArray = explode(',', json_decode($cookie));
+        $newArray = array_filter($cookieArray);
+
+    @endphp
 
     <div class="relative min-h-screen md:flex lg:flex xl:flex 2xl:flex">
 
@@ -97,16 +103,22 @@
                         <div class="flex justify-between">
                             <p>Cart</p>
                             <p>
-                               @if(!empty(Session::get('loansCart')))
-                                {{ count(Session::get('loansCart')) }}
-                                   @endif
-
+                                @if(!empty(Session::get('loansCart')))
+                                    {{ count(Session::get('loansCart')) }}
+                                @endif
                             </p>
                         </div>
                     </a>
                     <a href="{{ route('wishlist.index') }}"
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
-                        Wishlist
+                        <div class="flex justify-between">
+                            <p>Wishlist</p>
+                            <p>
+                                @if(!empty($newArray))
+                                    {{ count($newArray) }}
+                                @endif
+                            </p>
+                        </div>
                     </a>
                     <a href="{{ route('books.index') }}"
                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">

@@ -17,6 +17,7 @@ class WishlistController extends Controller
      */
     public function index()
     {
+//        Cookie::forget('wishlist');
 //        dd(Cookie::get('wishlist'));
         if (Cookie::has('wishlist')) {
             $cookie = Cookie::get('wishlist');
@@ -27,7 +28,6 @@ class WishlistController extends Controller
                 $q->whereIn('id', Arr::flatten($newArray));
             })->get();
         }
-//        Cookie::forget('wishlist');
 //        dd(Cookie::get('wishlist'));
 
         return response(view('member.wishlist', ['books' => $books ?? []]));
@@ -41,15 +41,29 @@ class WishlistController extends Controller
      */
     public function store(Request $request, $id)
     {
+//        dd(Cookie::get('wishlist'));
+//        $cookieValue = "";
+//        $cookieValue .= json_decode($request->cookie('wishlist'));
+//        $cookieValue .= $id . ',';
+//
+//        Cookie::queue('wishlist', json_encode($cookieValue), 20000);
+//dd(json_decode($request->cookie('wishlist')));
+        $cookieArray = explode(',', json_decode($request->cookie('wishlist')));
+        $index = array_search($id, $cookieArray);
+//        dd($index);
+        if ($index !== false) {
+            array_splice($cookieArray, $index, 1);
+        } else {
+            $cookieValue = "";
+            $cookieValue .= json_decode($request->cookie('wishlist'));
+            $cookieValue .= $id . ',';
+
+            Cookie::queue('wishlist', json_encode($cookieValue), 20000);
+        }
+
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
         })->first();
-
-        $cookieValue = "";
-        $cookieValue .= json_decode($request->cookie('wishlist'));
-        $cookieValue .= $id . ',';
-
-        Cookie::queue('wishlist', json_encode($cookieValue), 20000);
 
         return redirect()->route('book.show', ['id' => $book->id]);
     }
