@@ -34,13 +34,13 @@
                                 <div
                                     class="flex md:hidden lg:hidden xl:hidden 2xl:hidden justify-evenly shrink-0 gap-x-3 ">
                                     <a class="flex shrink-0 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 "
-                                       href="{{ route('book.show', ['id' => $book->id] )}}">
+                                       href="{{ route('book.show', ['slug' => $book->slug]  )}}">
                                         <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}"
                                                                          alt="View Icon"></span>
                                     </a>
                                     @if($book->firstAvailableBookCopyId())
                                         <form class="flex shrink-0"
-                                              action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}"
+                                              action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
                                               method="post">
                                             @csrf
                                             <button
@@ -67,13 +67,13 @@
                         <td class=" hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell ">
                             <div class="flex justify-evenly gap-x-3 px-4 shrink-0">
                                 <a class="flex shrink-0 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                   href="{{ route('book.show', ['id' => $book->id] )}}">
+                                   href="{{ route('book.show', ['slug' => $book->slug]  )}}">
                                     <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}"
                                                                      alt=""></span>
                                 </a>
                                 @if($book->firstAvailableBookCopyId())
                                     <form class="flex shrink-0"
-                                          action="{{ route('loans.cart.store', $book->firstAvailableBookCopyId()) }}"
+                                          action="{{ route('loans.cart.store',[$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
                                           method="post">
                                         @csrf
                                         <button
@@ -86,7 +86,7 @@
                                     Niet op voorraad
                                 @endif
                                 <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                   href="{{ route('wishlist.destroy', $book->id )}}">
+                                   href="{{ route('wishlist.destroy', $book->id)}}">
                                     <img src="{{URL::asset('/icons/bin.svg')}}" alt="Delete Icon">
                                 </a>
                             </div>

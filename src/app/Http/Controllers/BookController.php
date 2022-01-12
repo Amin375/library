@@ -72,13 +72,14 @@ class BookController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show($id)
+    public function show($slug)
     {
-        $book = Book::query()->whereId($id)->first();
+        $book = Book::query()->whereSlug($slug)->first();
+        $slug = $book->slug;
 
-        return view('member.book.show', ['book' => $book]);
+        return view('member.book.show', ['book' => $book, 'slug' => $slug]);
     }
 
     /**
@@ -117,18 +118,9 @@ class BookController extends Controller
 
         $imageName = Str::slug($book->title);
 
-//        if($request->hasFile('image')){
-//            $validatedData['image'] = request()->file('image')->store('images');
-//        }
-
         if(isset($validatedData['image'])){
             $validatedData['image'] = request()->file('image')->storeAs('images', $imageName . '.jpg');
         }
-//        if(isset($attributes['image'])){
-//            $image = $attributes['image']->storeAs("images/$dirName/main-images",
-//                Str::slug($imageName) . '.' . $attributes['image']->extension());
-//            $attributes = array_merge($attributes, ['image' => $image]);
-//        }
 
         $book->update($validatedData);
 

@@ -44,12 +44,12 @@
                                 <div
                                     class="flex justify-evenly gap-x-3 shrink-0 md:hidden lg:hidden xl:hidden 2xl:hidden">
                                     <a class="flex shrink-0 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-3 -mt-1.5"
-                                       href="{{ route('book.show', ['id' => $book->id] )}}">
+                                       href="{{ route('book.show', ['slug' => $book->slug] )}}">
                                         <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}" alt=""></span>
 
                                     </a>
                                     <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-3 -mt-1.5"
-                                       href="{{ route('loans.cart.destroy', $book->id )}}">
+                                       href="{{ route('loans.cart.destroy', $book->id)}}">
                                         <img src="{{URL::asset('/icons/bin.svg')}}" alt="Delete Icon">
 
                                     </a>
@@ -65,12 +65,12 @@
                         <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell ">
                             <div class="flex justify-evenly gap-x-3 shrink-0">
                                 <a class="flex shrink-0 mt-1 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                   href="{{ route('book.show', ['id' => $book->id] )}}">
+                                   href="{{ route('book.show', ['slug' => $book->slug] )}}">
                                     <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}"
                                                                      alt=""></span>
                                 </a>
                                 <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 mt-1"
-                                   href="{{ route('loans.cart.destroy', $book->id )}}">
+                                   href="{{ route('loans.cart.destroy', $book->id)}}">
                                     <img src="{{URL::asset('/icons/bin.svg')}}" alt="Delete Icon">
                                 </a>
                             </div>

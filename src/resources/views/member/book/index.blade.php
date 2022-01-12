@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="flex md:hidden lg:hidden xl:hidden 2xl:hidden justify-evenly gap-x-3 px-4 shrink-0">
                                         <a class="flex shrink-0 my-1 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                           href="{{ route('book.show', ['id' => $book->id] )}}">
+                                           href="{{ route('book.show', ['slug' => $book->slug] )}}">
                                             <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}" alt="View Icon"></span>
                                         </a>
                                         <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 my-1"
@@ -102,7 +102,7 @@
                             <td class=" hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell ">
                                 <div class="flex justify-evenly gap-x-3 px-4 shrink-0">
                                     <a class="flex shrink-0 my-1 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                       href="{{ route('book.show', ['id' => $book->id] )}}">
+                                       href="{{ route('book.show', ['slug' => $book->slug] )}}">
                                         <span class="flex shrink-0"><img src="{{URL::asset('/icons/view.svg')}}" alt=""></span>
                                     </a>
                                     <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2 my-1"
@@ -135,7 +135,7 @@
             @forelse($books as $book)
                 <div class="">
                     <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52">
-                        <a href="{{ route('book.show', ['id' => $book->id]) }}">
+                        <a href="{{ route('book.show', ['slug' => $book->slug]) }}">
                             <img id="book-cover-image" class="flex flex-shrink-0 transition duration-150 ease-in-out transform hover:scale-110
                         rounded-md shadow-lg h-48 w-32 md:h-60 md:w-40 lg:h-60 lg:w-40 xl:h-72 xl:w-48 2xl:h-80 2xl:w-52 mb-3"
                                  src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">
@@ -184,7 +184,7 @@
                                         <p>{{ $book->title }}</p>
                                     </div>
                                     <div class="inline-flex md:hidden lg:hidden xl:hidden 2xl:hidden">
-                                        <div class="px-3"><a href="{{ route('book.show', ['id' => $book->id] )}}">
+                                        <div class="px-3"><a href="{{ route('book.show', ['slug' => $book->slug] )}}">
                                                 <img src="{{URL::asset('/icons/view.svg')}}" alt="View Icon">
 
                                             </a></div>
@@ -200,7 +200,7 @@
                             <td class="hidden md:table-cell lg:table-cell xl:table-cell 2xl:table-cell">
                                 <div class="flex justify-evenly gap-x-7 px-4">
                                     <a class="mt-1 hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                       href="{{ route('book.show', ['id' => $book->id] )}}">
+                                       href="{{ route('book.show', ['slug' => $book->slug] )}}">
                                         <img src="{{URL::asset('/icons/view.svg')}}" alt="View Icon">
 
                                     </a>
@@ -224,7 +224,7 @@
             @forelse($books as $book)
                 <div class="">
                     <div class="grid justify-items-center sm:w-32 md:w-52 lg:w-52 xl:w-52 2xl:w-52">
-                        <a href="{{ route('book.show', ['id' => $book->id]) }}">
+                        <a href="{{ route('book.show', ['slug' => $book->slug]) }}">
                             <img id="book-cover-image" class="flex flex-shrink-0 transition duration-150 ease-in-out transform hover:scale-110
                         rounded-md shadow-lg h-48 w-32 md:h-60 md:w-40 lg:h-60 lg:w-40 xl:h-72 xl:w-48 2xl:h-80 2xl:w-56 mb-3"
                                  src="{{ secure_asset($book->image()) }}" alt="{{ $book->title }}">

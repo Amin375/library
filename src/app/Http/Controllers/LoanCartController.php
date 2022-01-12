@@ -14,7 +14,9 @@ class LoanCartController extends Controller
     public function index()
     {
 
+//        dd(Session::get('loansCart'));
 
+//        Session::forget('loansCart');
         if (Session::has('loansCart')) {
             $books = Book::query()->whereHas('bookCopies', function ($q) {
                 $q->whereIn('id', array_filter(array_unique(Arr::flatten(Session::get('loansCart')), SORT_REGULAR)));
@@ -23,15 +25,13 @@ class LoanCartController extends Controller
         }
 
 //        dd(array_filter($books));
-//        dd(Session::get('loansCart'));
-//        Session::forget('loansCart');
 //        dd(Session::forget('loansCart'));
 //        dd(array_filter(array_unique(Arr::flatten(Session::get('loansCart')))));
 
         return view('member.cart', ['books' => $books ?? []]);
     }
 
-    public function store($id)
+    public function store($id, $slug)
     {
 //        $book = Book::findOrFail($id);
 
@@ -46,12 +46,15 @@ class LoanCartController extends Controller
 
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
-        })->first();
+        })->whereSlug($slug)->first();
+
+//        $book = Book::query()->whereSlug($slug)->first();
+        $slug = $book->slug;
 
         Session::flash('success', ' has been added to your Cart!');
 
 
-        return redirect()->route('book.show', ['id' => $book->id]);
+        return redirect()->route('book.show', ['book' => $book, 'slug' => $slug]);
     }
 
     public function destroy($id)

@@ -16,7 +16,7 @@
                     @forelse($authors as $author)
                         <tr>
                             <td class="w-3/5 text-left py-3 px-4"><a
-                                    href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a>
+                                    href="{{ route('book.author', $author->slug) }}">{{ $author->name }}</a>
                             </td>
                             {{--Edit--}}
                             <td class="table-cell">

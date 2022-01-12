@@ -104,7 +104,7 @@
                             <p>Cart</p>
                             <p>
                                 @if(!empty(Session::get('loansCart')))
-                                    <span class="animate-ping absolute inline-flex mt-0.5 pr-1 h-3.5 w-3.5 rounded-full bg-sky-400 opacity-75"></span>
+                                    <span class="animate-ping absolute inline-flex mt-0.5 pr-1.5 h-3.5 w-3.5 rounded-full bg-sky-400 opacity-75"></span>
                                     <span class="pl-0.5">{{ count(Session::get('loansCart')) }}</span>
 
                                 @endif
@@ -117,7 +117,7 @@
                             <p>Wishlist</p>
                             <p class="flex ">
                             @if(!empty($newArray))
-                                    <span class="animate-ping absolute inline-flex mt-0.5 pr-1 h-3.5 w-3.5 rounded-full bg-blue-400 opacity-75"></span>
+                                    <span class="animate-ping absolute inline-flex mt-0.5 pr-1.5 h-3.5 w-3.5 rounded-full bg-blue-400 opacity-75"></span>
                                     <span class="pl-0.5">{{ count($newArray) }}</span>
                                 @endif
                             </p>

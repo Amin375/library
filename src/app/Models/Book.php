@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +11,7 @@ use Laravel\Scout\Searchable;
 
 class Book extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory, Searchable, Sluggable;
 
 //    protected $with = ['author', 'genre'];
 
@@ -24,6 +25,14 @@ class Book extends Model
 
 //    protected $touches = ['author', 'genre'];
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
     public function author(): BelongsTo
     {

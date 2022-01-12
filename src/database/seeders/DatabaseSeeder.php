@@ -907,8 +907,6 @@ class DatabaseSeeder extends Seeder
             'book_id' => 53,
         ]);
 
-
-
         Genre::create([
             'title' => 'Sci - Fi'
         ]);

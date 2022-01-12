@@ -31,49 +31,47 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::post('search', SearchController::class)->name('search')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('search', SearchController::class)->name('search');
 
-Route::get('alphabetsearch/{letter}', AlphabetSearchController::class)->name('alphabetsearch')->middleware('auth');
+Route::get('alphabetsearch/{letter}', AlphabetSearchController::class)->name('alphabetsearch');
 
-Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify')->middleware('auth');
-//Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify')->middleware('auth');
+Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
+//Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
 
 //Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 //Route::get('/dashboard/{name}', [DashboardController::class, 'update'])->name('dashboard.update');
 
-Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
-Route::get('dashboard/edit/{user}', [DashboardController::class, 'edit'])->name('dashboard.edit')->middleware('auth');
-Route::post('dashboard/update/{user}', [DashboardController::class, 'update'])->name('dashboard.update')->middleware('auth');
+Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('dashboard/edit/{user}', [DashboardController::class, 'edit'])->name('dashboard.edit');
+Route::post('dashboard/update/{user}', [DashboardController::class, 'update'])->name('dashboard.update');
 
-Route::get('books', [BookController::class, 'index'])->name('books.index')->middleware('auth');
-Route::get('genres', [GenreController::class, 'index'])->name('genres.index')->middleware('auth');
-Route::get('authors', [AuthorController::class, 'index'])->name('authors.index')->middleware('auth');
+Route::get('books', [BookController::class, 'index'])->name('books.index');
+Route::get('genres', [GenreController::class, 'index'])->name('genres.index');
+Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
 
-Route::get('book/{id}', [BookController::class, 'show'])->name('book.show')->middleware('auth');
-Route::get('books/genre/{id}', [BookGenreController::class, 'index'])->name('book.genre')->middleware('auth');
-Route::get('books/author/{id}', [BookAuthorController::class, 'index'])->name('book.author')->middleware('auth');
+Route::get('book/{slug}', [BookController::class, 'show'])->name('book.show');
+Route::get('books/genre/{slug}', [BookGenreController::class, 'index'])->name('book.genre');
+Route::get('books/author/{slug}', [BookAuthorController::class, 'index'])->name('book.author');
 
 Route::group([
-    'middleware' => 'auth',
     'prefix' => 'wishlist',
-    'as' => 'wishlist'
+    'as' => 'wishlist',
 ], function () {
     Route::get('index', [WishlistController::class, 'index'])->name('.index');
-    Route::post('store/{id}', [WishlistController::class, 'store'])->name('.store');
+    Route::post('store/{id}/{slug}', [WishlistController::class, 'store'])->name('.store');
     Route::get('destroy/{id}', [WishlistController::class, 'destroy'])->name('.destroy');
 });
 
 Route::group([
-    'middleware' => 'auth',
     'prefix' => 'loans',
-    'as' => 'loans'
+    'as' => 'loans',
 ], function () {
     Route::get('cart', [LoanCartController::class, 'index'])->name('.cart');
     Route::post('store/{id}', [LoanController::class, 'store'])->name('.store');
     Route::get('show/{id}', [LoanController::class, 'show'])->name('.show');
 
-    Route::post('cart/store/{id}', [LoanCartController::class, 'store'])->name('.cart.store');
+    Route::post('cart/store/{id}/{slug}', [LoanCartController::class, 'store'])->name('.cart.store');
     Route::get('cart/destroy/{id}', [LoanCartController::class, 'destroy'])->name('.cart.destroy');
 });
 

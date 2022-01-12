@@ -40,7 +40,7 @@ class WishlistController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, $id, $slug)
     {
 //        dd(Cookie::get('wishlist'));
 //        $cookieValue = "";
@@ -64,12 +64,15 @@ class WishlistController extends Controller
 
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
-        })->first();
+        })->whereSlug($slug)->first();
+
+        $slug = $book->slug;
+
 
         Session::flash('successWishlist', ' has been added to your Wishlist!');
 
 
-        return redirect()->route('book.show', ['id' => $book->id]);
+        return redirect()->route('book.show', ['book' => $book, 'slug' => $slug]);
     }
 
     /**
@@ -83,7 +86,6 @@ class WishlistController extends Controller
         $book = Book::findOrFail($id);
 //        $bookCopy = BookCopy::query()->where('book_id', $id)->first();
         $bookCopyId = $book->firstAvailableBookCopyId();;
-
 //        dd($bookCopyId);
 
         $cookie = Cookie::get('wishlist');
@@ -91,8 +93,6 @@ class WishlistController extends Controller
 
         $newArray = array_filter($cookieArray);
         $arrayId = array_search($bookCopyId, $newArray);
-
-
 
         if ($arrayId !== false) {
             unset($newArray[$arrayId]);

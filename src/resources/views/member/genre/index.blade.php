@@ -16,7 +16,7 @@
                     @forelse($genres as $genre)
                         <tr>
                             <td class="table-cell text-left py-3 px-4"><a
-                                    href="{{ route('book.genre', $genre->id) }}">{{ $genre->title }}</a>
+                                    href="{{ route('book.genre', $genre->slug) }}">{{ $genre->title }}</a>
                             </td>
                             <td class="table-cell">
                                 <div class="flex justify-evenly gap-x-7 px-4 shrink-0">
