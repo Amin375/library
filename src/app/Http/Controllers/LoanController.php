@@ -48,7 +48,10 @@ class LoanController extends Controller
 
         Session::forget('loansCart');
 
-        return redirect()->route('books.index');
+        Session::flash('successLoan', 'Thank you for your order, an email has been sent with your order details');
+
+
+        return redirect()->route('loans.cart');
     }
 
     public function show($id)

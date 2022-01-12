@@ -7,6 +7,7 @@ use App\Models\BookCopy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Session;
 
 class WishlistController extends Controller
 {
@@ -28,7 +29,7 @@ class WishlistController extends Controller
                 $q->whereIn('id', Arr::flatten($newArray));
             })->get();
         }
-//        dd(Cookie::get('wishlist'));
+////        dd(Cookie::get('wishlist'));
 
         return response(view('member.wishlist', ['books' => $books ?? []]));
     }
@@ -64,6 +65,9 @@ class WishlistController extends Controller
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
         })->first();
+
+        Session::flash('successWishlist', ' has been added to your Wishlist!');
+
 
         return redirect()->route('book.show', ['id' => $book->id]);
     }

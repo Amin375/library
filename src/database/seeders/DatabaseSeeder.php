@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
              who force him to live in a tiny closet under the stairs. But his fortune changes when he receives a letter that
               tells him the truth about himself: he\'s a wizard. A mysterious visitor rescues him from his relatives and
                takes him to his new home, Hogwarts School of Witchcraft and Wizardry.',
-            'image' => 'images/Ko5TxSkeYyZyRFZxezsvJ2daOiVwVp2F3SbB2jli.jpg',
+            'image' => 'images/harry-potter-and-the-sorcerers-stone.jpg',
         ]);
 
         Book::create([
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'Ever since Harry Potter had come home for the summer, the Dursleys had been so mean and hideous that
              all Harry wanted was to get back to the Hogwarts School for Witchcraft and Wizardry. But just as he’s packing
              his bags, Harry receives a warning from a strange impish creature who says that if Harry returns to Hogwarts, disaster will strike.',
-            'image' => 'images/5CjY0kfsVVNE4gWqGxaQG0Fg33UrtpBtqCfBlOee.jpg',
+            'image' => 'images/harry-potter-and-the-chamber-of-secrets.jpg',
         ]);
 
         Book::create([
@@ -99,7 +99,7 @@ class DatabaseSeeder extends Seeder
               Voldemort. Now he has escaped, leaving only two clues as to where he might be headed: Harry Potter\'s defeat
                of You-Know-Who was Black\'s downfall as well. And the Azkaban guards heard Black muttering in his sleep,
                "He\'s at Hogwarts . . . he\'s at Hogwarts."',
-            'image' => 'images/DMJfl1EGYP7fpLrrKNCL5bd15uRLM7TPleLjrWMk.jpg',
+            'image' => 'images/harry-potter-and-the-prisoner-of-azkaban.jpg',
         ]);
 
         Book::create([
@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
                about the mysterious event that\'s supposed to take place at Hogwarts this year, an event involving two other
                 rival schools of magic, and a competition that hasn\'t happened for hundreds of years. He wants to be a normal,
                  fourteen-year-old wizard. But unfortunately for Harry Potter, he\'s not normal - even by wizarding standards.',
-            'image' => 'images/bLZgYPFk2zCQ5J8rOyG4UvWPo8S5pVVnp5pZsLUI.jpg',
+            'image' => 'images/harry-potter-and-the-goblet-of-fire.jpg',
         ]);
 
         Book::create([
@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
              a big surprise on the Gryffindor Quidditch team; and the looming terror of the Ordinary Wizarding Level exams.
               But all these things pale next to the growing threat of He-Who-Must-Not-Be-Named - a threat that neither the
                magical government nor the authorities at Hogwarts can stop.',
-            'image' => 'images/EZIP7bTT5DCC1e5xi6piRFFGhbwwJMc0pr6mRqb3.jpg',
+            'image' => 'images/harry-potter-and-the-order-of-the-phoenix.jpg',
         ]);
 
 
@@ -139,7 +139,7 @@ class DatabaseSeeder extends Seeder
                life goes on. The Weasley twins expand their business. Sixth-year students learn to Apparate - and lose a
                 few eyebrows in the process. Teenagers flirt and fight and fall in love. Classes are never straightforward,
                  through Harry receives some extraordinary help from the mysterious Half-Blood Prince.',
-            'image' => 'images/Jv1OdQgSRWIKRVZB7ceX4GHuOCg95vvezCEu5GCm.jpg',
+            'image' => 'images/harry-potter-and-the-half-blood-prince.jpg',
         ]);
 
 
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
                 and the resolution of many mysteries. Above all, this intense, cathartic book serves as a clear statement
                 of the message at the heart of the Harry Potter series: that choice matters much more than destiny,
                 and that love will always triumph over death.',
-            'image' => 'images/Ft57HaFI7HktrLsHKb4SfQuFMIaT44JI2JHdpaZz.jpg',
+            'image' => 'images/harry-potter-and-the-deathly-hallows.jpg',
         ]);
 
         Book::create([
@@ -172,7 +172,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/jMmk35PPt6If3PJvIDUm7sNwCOFaoUj7loQoIWk7.jpg',
+            'image' => 'images/alice-in-wonderland.jpg',
         ]);
 
         Book::create([
@@ -186,7 +186,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/EKfKUimsxjFMBdlGkS1moBbDAXKMlsuSVQnpDdSK.jpg',
+            'image' => 'images/the-nursery-alice.jpg',
         ]);
 
         Book::create([
@@ -200,7 +200,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/X3R6jIYpUnW6eK8vN5RwBytABsTOlwoOECePE0CG.jpg',
+            'image' => 'images/sylvie-and-bruno.jpg',
         ]);
 
         Book::create([
@@ -214,7 +214,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/rMb32XLB9WOwLRhZGBT7OflISqrzJUwr8eQHCFgM.jpg',
+            'image' => 'images/through-the-looking-glass.jpg',
         ]);
 
         Book::create([
@@ -228,7 +228,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/kVmJEYjrdw9lKABgVE493Pt45al411IyUuTU6bR3.jpg',
+            'image' => 'images/the-walrus-and-the-carpenter.jpg',
         ]);
 
         Book::create([
@@ -242,7 +242,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/o9TOeY1QI0JHyadqf3DqbTKeRvdHmBfloKvgQUPO.jpg',
+            'image' => 'images/the-adventures-of-tom-sawyer.jpg',
         ]);
 
         Book::create([
@@ -256,7 +256,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/vW6yNtqTmB1KnBadSh7IQL82daBJCwahNSc43sY9.jpg',
+            'image' => 'images/the-adventures-of-huckleberry-finn.jpg',
         ]);
 
         Book::create([
@@ -270,7 +270,7 @@ class DatabaseSeeder extends Seeder
             The only crewmember to find the Snark quietly vanishes, leading the narrator to explain that the Snark was a Boojum after all.
             The poem is dedicated to young Gertrude Chataway, whom Carroll met at the English seaside town Sandown in the Isle of Wight in 1875.
             Included with many copies of the first edition of the poem was Carroll\'s religious tract, An Easter Greeting to Every Child Who Loves "Alice".',
-            'image' => 'images/Y6UHiMgg6VxYC5rUOp5uT7jpNNKPW2z0NK4N5viU.jpg',
+            'image' => 'images/a-connecticut-yankee-in-king-arthurs-court.jpg',
         ]);
 
         Book::create([
@@ -283,7 +283,7 @@ class DatabaseSeeder extends Seeder
             memorable characters - the Artful Dodger, vicious burglar Bill Sikes, his dog Bull\'s Eye, and prostitute Nancy, all watched over by cunning
             master-thief Fagin. Combining elements of Gothic Romance, the Newgate Novel and popular melodrama, Dickens created an entirely new kind of fiction,
             scathing in its indictment of a cruel society, and pervaded by an unforgettable sense of threat and mystery.',
-            'image' => 'images/i084xxJlT9rdLJWvFu0QF7yy74JkmIPo1N6q7S8h.jpg',
+            'image' => 'images/oliver-twist.jpg',
         ]);
 
         Book::create([
@@ -294,7 +294,7 @@ class DatabaseSeeder extends Seeder
             Though it is mostly called a romantic novel, it is also a satire.This is not an exhaustive
             list (that list would be hundreds of editions long because wow do people love their Pride and Prejudice),
             but it is a round up of some of the editions I found most lovely or interesting. So enjoy—and try not to buy them all!',
-            'image' => 'images/nP4Yhs8qBUDCuu5wuiI3zNYkKNvm6C8xy7RdAWyc.jpg',
+            'image' => 'images/pride-and-prejudice.jpg',
         ]);
 
         Book::create([
@@ -309,12 +309,8 @@ class DatabaseSeeder extends Seeder
              with events following Dickens\'s own life. Of the books he wrote, it was his favourite. Called "the triumph of the art of Dickens",
              it marks a turning point in his work, separating the novels of youth and those of maturity.
             At first glance, the work is modelled on 18th-century "personal histories" that were very popular, like Henry Fielding\'s J
-            oseph Andrews or Tom Jones, but David Copperfield is a more carefully structured work. It begins, like other novels by Dickens,
-            with a bleak picture of childhood in Victorian England, followed by young Copperfield\'s slow social ascent, as he painfully provides
-            for his aunt, while continuing his studies.
-            Dickens wrote without an outline, unlike his previous novel,
-            Dombey and Son. Some aspects of the story were fixed in his mind from the start, but others were undecided until the serial publications were underway. The novel has a primary theme of growth and change, but Dickens also satirises many aspects of Victorian life. These include the plight of prostitutes, the status of women in marriage, class structure, the criminal justice system, the quality of schools and the employment of children in factories.',
-            'image' => 'images/r7LvmaQ190petxmuqhtYFcVmmn6ni02tV1XdTaUR.jpg',
+            oseph Andrews or Tom Jones, but David Copperfield is a more carefully structured work.',
+            'image' => 'images/david-copperfield.jpg',
         ]);
 
         Book::create([
@@ -326,7 +322,7 @@ class DatabaseSeeder extends Seeder
              himself in possession of "great expectations." In this gripping tale of crime and guilt, revenge and reward,
              the compelling characters include Magwitch, the fearful and fearsome convict; Estella, whose beauty is excelled only by her haughtiness;
              and the embittered Miss Havisham, an eccentric jilted bride',
-            'image' => 'images/lV3Jh7ct0IsWsRfUioEDTUyqhuJRO7k2f06qu7VK.jpg',
+            'image' => 'images/great-expectations.jpg',
         ]);
 
         Book::create([
@@ -338,7 +334,7 @@ class DatabaseSeeder extends Seeder
              complexity to the scale of a family history, with a cast of characters that includes a bloodthirsty ogress and an antihero
              as believably flawed as any in modern fiction. Though the least typical of the author’s novels, A Tale of Two Cities still
              underscores many of his enduring themes—imprisonment, injustice, social anarchy, resurrection, and the renunciation that fosters renewal.',
-            'image' => 'images/hTVPaySEwkhTC7KfFXjXTLaX7CMzjIwK1CDWWiW7.jpg',
+            'image' => 'images/a-tale-of-two-cities.jpg',
         ]);
 
         Book::create([
@@ -352,7 +348,7 @@ class DatabaseSeeder extends Seeder
              Part of the Focus on the Family Great Stories collection, this abridged edition features an in-depth introduction
               and discussion questions by Joe Wheeler to provide greater understanding for today\'s reader .
               "A Christmas Carol" captures the heart of the holidays like no other novel .,',
-            'image' => 'images/tPa3UtkexcxMoRId9W0DnKvJ2OuOCgA924dvoYvJ.jpg',
+            'image' => 'images/a-christmas-carol.jpg',
         ]);
 
         Book::create([
@@ -366,7 +362,7 @@ class DatabaseSeeder extends Seeder
              background of Coketown, a wretched community shadowed by an industrial behemoth. Louisa falls into a loveless marriage with Josiah Bouderby,
              a vulgar banker, while the unscrupulous Tom, totally lacking in principle, becomes a thief who frames an innocent man for his crime.
              Witnessing the degradation and downfall of his children, Gradgrind realizes that his own misguided principles have ruined their lives.',
-            'image' => 'images/c5uANnO5uBNcMZ25S3YHREwdQSJ2Mo8joos3RTC0.jpg',
+            'image' => 'images/hard-times.jpg',
         ]);
 
         Book::create([
@@ -379,7 +375,7 @@ class DatabaseSeeder extends Seeder
               these are some of the lives Dickens invokes to portray London society, rich and poor, as no other novelist has done. Bleak House,
                in its atmosphere, symbolism and magnificent bleak comedy, is often regarded as the best of Dickens. A \'great Victorian novel
             \', it is so inventive in its competing plots and styles that it eludes interpretation.',
-            'image' => 'images/W7FeqEV8B3ZtkRYwJS1KdEzX3pvbuCPChk2pQUTB.jpg',
+            'image' => 'images/bleak-house.jpg',
         ]);
 
         Book::create([
@@ -393,7 +389,7 @@ class DatabaseSeeder extends Seeder
               Corrupted Hadleyburg,” to the delightful hilarity of “Is He Living or Is He Dead?” Surging with Twain’s ebullient wit and penetrating
                insight into the follies of human nature, this volume is a vibrant summation of the career of–in the words of H. L. Mencken–“the father
                 of our national literature.',
-            'image' => 'images/xWRkOfzAXOyl31LTIvy2w5cTKdEuTxDfKLaXw3XU.jpg',
+            'image' => 'images/the-complete-short-stories-of-mark-twain.jpg',
         ]);
 
         Book::create([
@@ -407,7 +403,7 @@ class DatabaseSeeder extends Seeder
                 undercurrents of antebellum southern culture, the book is a savage indictment in which the real criminal is society, and racial prejudice
                  and slavery are the crimes.  Written in 1894, Pudd\'nhead Wilson glistens with characteristic Twain humor, with suspense, and with pointed irony:
                    a gem among the author\'s later works.',
-            'image' => 'images/f7Yn1nZo47DHHyJh9PnToFv0rzKFTqEYfcNepL5f.jpg',
+            'image' => 'images/puddnhead-wilson.jpg',
         ]);
 
         Book::create([
@@ -418,7 +414,7 @@ class DatabaseSeeder extends Seeder
              chronicles what Twain called his "Great Pleasure Excursion" on board the chartered vessel Quaker City (formerly USS Quaker City) through Europe and
               the Holy Land with a group of American travelers in 1867. It was the best-selling of Twain\'s works during his lifetime, as well as one of the
                best-selling travel books of all time.',
-            'image' => 'images/W7FeqEV8B3ZtkRYwJS1KdEzX3pvbuCPChk2pQUTB.jpg',
+            'image' => 'images/the-innocents-abroad.jpg',
         ]);
 
         Book::create([
@@ -429,7 +425,7 @@ class DatabaseSeeder extends Seeder
              and fiery Irish poets. Sold into cruel slavery, beaten by a harsh mistress, she escaped into a dazzling world of elegance, wealth and power.
               All London would praise her intelligence and unmatched beauty ...all men would crave to possess her. But nothing could ease the searing pain in her
               heart—nothing but vengeance on the only man she had ever loved!',
-            'image' => 'images/4ToxHq8dx6xB6bNs2xV4iaq8s98JalBUKWTd3D6C.jpg',
+            'image' => 'images/fauna.jpg',
         ]);
 
         Book::create([
@@ -440,7 +436,7 @@ class DatabaseSeeder extends Seeder
             and she did so taking a job as companion to the mother of rich shipping magnate Adrian Ollivent. Lucie finds the island as enchanting as she had hoped
             and Mrs Ollivent a pleasant and kindly old lady but also finds herself falling in love with Adrian. He is not a happy man and displays little affection
             towards her so Lucie determines to discover what has made him this way. She finds much pain and unhappiness has to be endured before the complete truth is finally exposed.',
-            'image' => 'images/miV3i30JkfZa7vYdWkGg6MTftoBYJZ81ahGNIthA.jpg',
+            'image' => 'images/the-cyprus-love-affair.jpg',
         ]);
 
         Book::create([
@@ -453,7 +449,7 @@ class DatabaseSeeder extends Seeder
               love and trust, as she was forbidden to mention their beautiful mother. Worst of all, she was constantly made to feel small in front of her new employer,
                a world-famous symphony director - and for some strange reason that mattered terribly to Shelley. Soon she had fallen desperatly in love with Esmond and
                 she found herself tossed suddenly into a maelstrom of passion and jealousy, and only her commonsense and humour could saved the family from ruin.',
-            'image' => 'images/I5QmzzVm6UFp7Y8Mzvtpq2drC6XeDlFjqrr2RwdS.jpg',
+            'image' => 'images/i-should-have-known.jpg',
         ]);
 
         Book::create([
@@ -467,7 +463,7 @@ class DatabaseSeeder extends Seeder
               mistress, she escaped and rises from the slave block to make men her slaves into a dazzling world of elegance, wealth and power. But nothing could ease
               the searing pain in her heart--nothing but vengeance on the only man she had ever loved, who mistreated her! Which is sweeter--tender, yearned-for love,
                or revenge that has waited a lifetime?',
-            'image' => 'images/klU9XKbI0I1jGqAD05WjLQTFcA7wvS9adDNCxUKc.jpg',
+            'image' => 'images/gold-for-the-gay-masters.jpg',
         ]);
 
         Book::create([
@@ -479,7 +475,7 @@ class DatabaseSeeder extends Seeder
               Peveril, of the darkly-predicted black heir who is born to her, of her fiery attempts to find escape, revenge - and fulfilment, of the restless urges that burn in her
                fated blood... Here at last -- from the hidden annals of history\'s most corrupt and scandalous era -- is the undiluted story of the tomrented loves and hates of the
                 beautiful, long-limbed Fleur ... And the Baron St. Cheviot...',
-            'image' => 'images/r5LIzpd0aZfeTAbgAEOvl8QwWb7k9FrKyxTqoBX7.jpg',
+            'image' => 'images/bride-of-doom.jpg',
         ]);
 
         Book::create([
@@ -490,7 +486,7 @@ class DatabaseSeeder extends Seeder
              Venice is the most romantic city in the world. From a quiet English upbringing, Katherine suddenly finds herself plunged into a gay whirl of fashion, riches and aristocracy.
               Even more thrilling, Katherine was falling in love with Renato, the Marchesa\'s son. Violante, the beautiful millionairess, wanted Renato too - and she had a secret hold
               on him, for Renato\'s mother was gambling the family fortune away. If only Katherine could show him she had something more precious than wealth...',
-            'image' => 'images/DsV2IGVyQ2HJBOHNIU6FRuELgwLLSwMSZSdjbRhm.jpg',
+            'image' => 'images/venetian-rhapsody.jpg',
         ]);
 
         Book::create([
@@ -503,7 +499,7 @@ class DatabaseSeeder extends Seeder
              against her will. When she meets a destitute singer for whom she conceives a violent atraction, she found herself turning to his hated enemy, Julian Marsh for support.
               Her memory may have been shattered, but not her strength nor her ability to love. And now the only solutions to the emotional triangle depended on whether she was really Rune
               le Motte or the girl who impersonate her. Only when she fully recovers her memory that she is able to piece the puzzle.',
-            'image' => 'images/hTDHmngb0cWIGhdw0gj7mNQSDEHqcSioz9dm2ukh.jpg',
+            'image' => 'images/house-of-the-seventh-cross.jpg',
         ]);
 
         Book::create([
@@ -518,7 +514,7 @@ class DatabaseSeeder extends Seeder
                one and then there were five. Five little boys going in for law; One got in Chancery and then there were four. Four little boys going out to sea; A red herring swallowed
                 one and then there were three. Three little boys walking in the zoo; A big bear hugged one and then there were two. Two little boys sitting in the sun; One got frizzled
                 up and then there was one. One little boy left all alone; He went out and hanged himself and then there were none."',
-            'image' => 'images/nN4fEbCPSSjcvlIc5XH3yRIdppMhuCVeBScn6XJu.jpg',
+            'image' => 'images/and-then-there-were-none.jpg',
         ]);
 
         Book::create([
@@ -528,7 +524,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'Just after midnight, a snowdrift stops the Orient Express in its tracks. The luxurious train is surprisingly full for the time of the year, but by the morning
             it is one passenger fewer. An American tycoon lies dead in his compartment, stabbed a dozen times, his door locked from the inside. And with a killer in their midst,
              detective Hercule Poirot must identify the murderer—in case he or she decides to strike again.',
-            'image' => 'images/D3Fl71OBZNsEzrUoimoUfQTHwfUUPgHynlEnYh7O.jpg',
+            'image' => 'images/murder-on-the-orient-express.jpg',
         ]);
 
         Book::create([
@@ -539,7 +535,7 @@ class DatabaseSeeder extends Seeder
              When Emily is poisoned and the authorities are baffled, Poirot puts his prodigious sleuthing skills to work. Suspects are plentiful, including the victim’s much younger
               husband, her resentful stepsons, her longtime hired companion, a young family friend working as a nurse, and a London specialist on poisons who just happens to be visiting
                the nearby village.',
-            'image' => 'images/um5Dce8Z1MKcd1Unu5ErPpfLONfQUgoNTqJfU1KT.jpg',
+            'image' => 'images/the-mysterious-affair-at-styles.jpg',
         ]);
 
         Book::create([
@@ -549,7 +545,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'The peaceful English village of King’s Abbot is stunned. The widow Ferrars dies from an overdose of veronal. Not twenty-four hours later, Roger Ackroyd—the man
             she had planned to marry—is murdered. It is a baffling case involving blackmail and death, that taxes Hercule Poirot’s “grey cells” before he reaches one of the most startling
             conclusions of his career.',
-            'image' => 'images/Qs43TvZ9q0JJJOBsdHRoMl812fazNGfEGse6jJ5H.jpg',
+            'image' => 'images/the-murder-of-roger-ackroyd.jpg',
         ]);
 
         Book::create([
@@ -559,7 +555,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'The tranquillity of a cruise along the Nile is shattered by the discovery that Linnet Ridgeway has been shot through the head. She was young, stylish and beautiful,
              a girl who had everything - until she lost her life. Hercule Poirot recalls an earlier outburst by a fellow passenger: \'I\'d like to put my dear little pistol against her head
              and just press the trigger.\' Yet in this exotic setting, nothing is ever quite what it seems...',
-            'image' => 'images/hI7UPuBNjI3BCbCRWqBGQrTNq5OplJADiuyOfEvk.jpg',
+            'image' => 'images/death-on-the-nile.jpg',
         ]);
         Book::create([
             'author_id' => 5,
@@ -569,7 +565,7 @@ class DatabaseSeeder extends Seeder
             a joint of roast beef, ‘would be doing the world at large a favour!’ It was a careless remark for a man of the
             cloth. And one which was to come back and haunt the clergyman just a few hours later – when the colonel was found
             shot dead in the clergyman’s study. But as Miss Marple soon discovers, the whole village seems to have had a motive to kill Colonel Protheroe.',
-            'image' => 'images/0mcAN6sZi1VVLYzVmLnoGZHJ2N7WOzdCpOx9shjL.jpg',
+            'image' => 'images/murder-at-the-vicarage.jpg',
         ]);
 
         Book::create([
@@ -579,7 +575,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'There\'s a serial killer on the loose. His macabre calling card is to leave the ABC Railway Guide beside each victim\'s body. But if
              A is for Alice Asher, bludgeoned to death in Andover, and B is for Betty Bernard, strangled with her belt on
              the beach at Bexhill, who will then be Victim C? Considered to be one of Agatha Christie\'s best.',
-            'image' => 'images/hwCZ7rPssZTv3YK1a4YQvo6pxfaravD6zxhHicEV.jpg',
+            'image' => 'images/the-abc-murders.jpg',
         ]);
 
         Book::create([
@@ -595,7 +591,7 @@ class DatabaseSeeder extends Seeder
               What are they looking for? Why should they want her dead? Lovely Anne is the last person on earth suited to solve this mystery...
               and the only one who can! Anne\'s journey to unravel the mystery takes her as far afield as Africa and the tension mounts with
                every step... and Anne finds herself struggling to unmask a faceless killer known only as \'The Colonel\'....',
-            'image' => 'images/hnUsrjeSJkjV2PFlwOubEXkZAqqLuVKT4qDJFPwy.jpg',
+            'image' => 'images/the-man-in-the-brown-suit.jpg',
         ]);
 
         Book::create([
@@ -609,7 +605,7 @@ class DatabaseSeeder extends Seeder
              note: this entry is for the novel "The Body in the Library." Collections and other Miss Marple stories are located
              elsewhere on Goodreads. The series includes 12 novels and 20 short stories. Entries for the short stories can be
              found by searching Goodreads for: "a Miss Marple Short Story."',
-            'image' => 'images/83ZyWqvE9UzmIGLIEiDWAnnRbVMtls7oMsCx7clz.jpg',
+            'image' => 'images/the-body-in-the-library.jpg',
         ]);
 
         Book::create([
@@ -623,7 +619,7 @@ class DatabaseSeeder extends Seeder
              neighbor Madame Daubreuil, and the mysterious "Cinderella" of Hasting\'s recent acquaintance--all of whom Poirot
              has reason to suspect. Poirot\'s powers of investigation ultimately triumph over the wiles of an assailant whose
              misdirection and motives are nearly--but not quite--impossible to spot.',
-            'image' => 'images/e4qSBXN8RqYIsitN3J4x4L7HIJLVR1FzolMKhkOk.jpg',
+            'image' => 'images/the-murder-on-the-links.jpg',
         ]);
 
         Book::create([
@@ -636,7 +632,7 @@ class DatabaseSeeder extends Seeder
             individuality. The brilliance of the novel is Orwell\'s prescience of modern life—the ubiquity of television,
         the distortion of the language—and his ability to construct such a thorough version of hell. Required reading for
         students since it was published, it ranks among the most terrifying novels ever written.',
-            'image' => 'images/TnlVEUHmn2INFqcM7oVkDP4m2VATEkPk3W0PraBG.jpg',
+            'image' => 'images/1984.jpg',
         ]);
 
         Book::create([
@@ -649,7 +645,7 @@ class DatabaseSeeder extends Seeder
              against tyranny to a totalitarianism just as terrible. When Animal Farm was first published, Stalinist Russia was
              seen as its target. Today it is devastatingly clear that wherever and whenever freedom is attacked, under whatever
              banner, the cutting clarity and savage comedy of George Orwell’s masterpiece have a meaning and message still ferociously fresh.',
-            'image' => 'images/UWwc9ZcWmkD8dcdZhyNHrMX80ZYW9H2DAsA8MA9M.jpg',
+            'image' => 'images/animal-farm.jpg',
         ]);
 
         Book::create([
@@ -662,7 +658,7 @@ class DatabaseSeeder extends Seeder
               bottom of the culinary echelon as dishwasher, or plongeur. In London, while waiting for a job, he experiences the
               world of tramps, street people, and free lodging houses. In the tales of both cities we learn some sobering Orwellian
               truths about poverty and of society.',
-            'image' => 'images/rwCD29LL4mMOfPD0ivA4klxB5tbDuuCUgTanq36b.jpg',
+            'image' => 'images/down-and-out-in-paris-and-london.jpg',
         ]);
 
         Book::create([
@@ -671,7 +667,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Homage to Catalonia',
             'blurb' => 'In 1936 George Orwell travelled to Spain to report on the Civil War and instead joined the fight
             against the Fascists. This famous account describes the war and Orwell’s own experiences. Introduction by Lionel Trilling.',
-            'image' => 'images/SvklDyA2O14BxQ8TnmBtnLQFh4iKUuzDlNJms2qW.jpg',
+            'image' => 'images/homage-to-catalonia.jpg',
         ]);
 
         Book::create([
@@ -681,7 +677,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'Set in the days of the Empire, with the British ruling in Burma, Orwell\'s book describes corruption
              and imperial bigotry. Flory, a white timber merchant, befriends Dr Veraswami, a black enthusiast for the Empire,
               whose downfall can only be prevented by membership at an all-white club.',
-            'image' => 'images/t6xw0h9Hxuig1gRjIRZOvrPo8yafN6x66MR05br6.jpg',
+            'image' => 'images/burmese-days.jpg',
         ]);
 
         Book::create([
@@ -693,7 +689,7 @@ class DatabaseSeeder extends Seeder
              lost none of its political impact over time. His graphically unforgettable descriptions of social injustice,
               slum housing, mining conditions, squalor, hunger and growing unemployment are written with unblinking honesty,
                fury and great humanity.',
-            'image' => 'images/Yb3kH62W4y6oo82pXm3yCVk1SEjhUEk1ouWgP7U3.jpg',
+            'image' => 'images/the-road-to-wigan-pier.jpg',
         ]);
 
         Book::create([
@@ -707,7 +703,7 @@ class DatabaseSeeder extends Seeder
               because (or so he believes), "If you have no money ... women won\'t love you." On the windowsill of Gordon\'s
                shabby rooming-house room is a sickly but unkillable aspidistra--a plant he abhors as the banner of the sort of
                 "mingy, lower-middle-class decency" he is fleeing in his downward flight.',
-            'image' => 'images/MlvJAt3sww014dhNciGAtWlUitUYiIj2KBs12iJR.jpg',
+            'image' => 'images/keep-the-aspidistra-flying.jpg',
         ]);
         Book::create([
             'author_id' => 10,
@@ -718,7 +714,7 @@ class DatabaseSeeder extends Seeder
               he goes back to the village where he grew up, to fish for carp in a pool he remembers from thirty years before.
               The pool, alas, is gone, the village has changed beyond recognition, and the principal event of his holiday is
               an accidental bombing by the RAF.',
-            'image' => 'images/gp8W2LZSrsw9Mcnm1lLZqLNzB4jqZUQwQgTPjRea.jpg',
+            'image' => 'images/coming-up-for-air.jpg',
         ]);
         Book::create([
             'author_id' => 10,
@@ -727,7 +723,7 @@ class DatabaseSeeder extends Seeder
             'blurb' => 'Whether puncturing the lies of politicians, wittily dissecting the English character or telling
              unpalatable truths about war, Orwell\'s timeless, uncompromising essays are more relevant, entertaining and
              essential than ever in today\'s era of spin.',
-            'image' => 'images/iMBUis70LjZUq6D8BqF0YgDEdIHex2D2smQOvGZk.jpg',
+            'image' => 'images/why-i-write.jpg',
         ]);
 
 

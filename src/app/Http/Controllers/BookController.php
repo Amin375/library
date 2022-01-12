@@ -59,7 +59,9 @@ class BookController extends Controller
             'image' => 'required|image',
         ]);
 
-        $validatedData['image'] = request()->file('image')->store('images');
+        $imageName = Str::slug($validatedData['title']);
+
+        $validatedData['image'] = request()->file('image')->storeAs('images', $imageName . '.jpg');
 
         Book::create($validatedData);
 
@@ -113,12 +115,14 @@ class BookController extends Controller
             'image' => 'image',
         ]);
 
+        $imageName = Str::slug($book->title);
+
 //        if($request->hasFile('image')){
 //            $validatedData['image'] = request()->file('image')->store('images');
 //        }
 
         if(isset($validatedData['image'])){
-            $validatedData['image'] = request()->file('image')->store('images');
+            $validatedData['image'] = request()->file('image')->storeAs('images', $imageName . '.jpg');
         }
 //        if(isset($attributes['image'])){
 //            $image = $attributes['image']->storeAs("images/$dirName/main-images",

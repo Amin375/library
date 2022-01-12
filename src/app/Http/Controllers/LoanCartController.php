@@ -33,6 +33,8 @@ class LoanCartController extends Controller
 
     public function store($id)
     {
+//        $book = Book::findOrFail($id);
+
         $index = array_search($id, $selection = Session::get('loansCart', []));
 
         if ($index !== false) {
@@ -45,6 +47,9 @@ class LoanCartController extends Controller
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
             $q->whereId($id);
         })->first();
+
+        Session::flash('success', ' has been added to your Cart!');
+
 
         return redirect()->route('book.show', ['id' => $book->id]);
     }
@@ -70,6 +75,8 @@ class LoanCartController extends Controller
             Session::forget('loansCart');
             Session::push('loansCart', array_filter($bookCopies));
         }
+
+
 
         return redirect()->route('loans.cart');
     }
