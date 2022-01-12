@@ -40,7 +40,6 @@ class DashboardController extends Controller
             'loans' => $loans,
             'cookieBooks' => $cookieBooks ?? [],
             'sessionBooks' => $sessionBooks ?? [],
-            'user' => $user
         ]);
     }
 
@@ -51,6 +50,7 @@ class DashboardController extends Controller
 
     public function update(Request $request, User $user)
     {
+
 //        dd(request()->all());
         $validatedData = $request->validate([
             'name' => 'required',
@@ -79,6 +79,10 @@ class DashboardController extends Controller
                 : $user->password,
         ]);
 
-        return redirect()->route('dashboard.index');
+        $slug = $user->slug;
+
+        Session::flash('successUpdateAccount', 'Your account settings have been updated!');
+
+        return redirect()->route('dashboard', ['slug' => $slug]);
     }
 }

@@ -1,8 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-start md:pl-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
-        <div class="w-full md:w-5/6 xl:w-3/6 2xl:w-3/6 rounded shadow-md">
+    {{--    @dd(auth()->user()->slug)--}}
+
+
+    <div class="absolute p-5 text-white rounded-lg">
+        <div class=" py-8 bg-blue-500">
+{{--            <p class="text-lg">{{ Session::get('successUpdateAccount') }}</p>--}}
+        </div>
+    </div>
+
+    <div
+        class="flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-start px-6 py-8 sm:px-10 md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16">
+        {{--        @if(Session::has('successUpdateAccount'))--}}
+{{--        @endif--}}
+        <div class="w-full lg:w-4/6 xl:w-3/6 2xl:w-3/6 rounded shadow-md">
             <h1 class="w-full bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">Current Loan
                 Information</h1>
             <table>
@@ -17,8 +29,8 @@
                         </td>
                     </tr>
                 @empty
-                    <div>
-                        <p class="text-lg italic text-gray-300">You have no loans as of now</p>
+                    <div class="h-24">
+                        <p class="px-3 pt-5 text-lg italic text-gray-500">Your cart is empty...</p>
                     </div>
                 @endforelse
                 </tbody>
@@ -26,8 +38,10 @@
         </div>
     </div>
 
-    <div class="flex justify-start md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
-        <div class="w-full md:w-4/6 xl:w-3/6 2xl:w-3/6 rounded  shadow-md">
+    <div
+        class="flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-start px-6 sm:px-10 md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+
+        <div class="w-full lg:w-4/6 xl:w-3/6 2xl:w-3/6 rounded  shadow-md">
             <div
                 class="w-full flex justify-between bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">
 
@@ -53,8 +67,10 @@
             </table>
         </div>
     </div>
-    <div class="flex justify-start md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
-        <div class="w-full md:w-3/6 xl:w-3/6 2xl:w-3/6 rounded  shadow-md">
+    <div
+        class="flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-start px-6 sm:px-10 md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+
+        <div class="w-full lg:w-4/6 xl:w-3/6 2xl:w-3/6 rounded  shadow-md">
             <div
                 class="w-full flex justify-between bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">
                 <h1>Shopping Cart </h1>
@@ -78,8 +94,10 @@
             </table>
         </div>
     </div>
-    <div class="flex justify-start md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
-        <div class="w-full md:w-3/6 xl:w-3/6 2xl:w-3/6 rounded">
+    <div
+        class="flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-start px-6 sm:px-10 md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 py-8">
+
+        <div class="w-full lg:w-4/6 xl:w-3/6 2xl:w-3/6 rounded">
             <h1 class="w-full bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">Account
                 Information</h1>
             <ul class="flex flex-col gap-y-6 shadow-md py-4 px-3 text-lg">
@@ -92,7 +110,7 @@
                 <li>Country: <span class="italic">{{ auth()->user()->country }}</span></li>
                 <li>Phone: <span class="italic">{{ auth()->user()->phone }}</span></li>
                 <li class="mt-2"><a class="py-1 px-8 text-lg rounded-md bg-blue-800 hover:bg-blue-900 text-white"
-                                    href="{{ route('dashboard.edit', auth()->user()) }}">Change Data</a></li>
+                                    href="{{ route('dashboard.edit', auth()->user()->slug) }}">Change Data</a></li>
             </ul>
         </div>
     </div>

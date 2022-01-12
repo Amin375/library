@@ -57,7 +57,7 @@
                                     <td class="w-full text-left py-3 px-4 transition hover:bg-blue-200 cursor-pointer">
                                         <a
                                             class="w-full"
-                                            href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a>
+                                            href="{{ route('book.author', $author->slug) }}">{{ $author->name }}</a>
                                     </td>
                                 </tr>
                             @empty

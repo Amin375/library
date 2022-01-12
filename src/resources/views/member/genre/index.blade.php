@@ -58,7 +58,7 @@
                     @forelse($genres as $genre)
                         <tr>
                             <td class="w-full text-left py-3 px-4 transition hover:bg-blue-200 cursor-pointer"><a
-                                    href="{{ route('book.genre', $genre->id) }}">{{ $genre->title }}</a></td>
+                                    href="{{ route('book.genre', $genre->slug) }}">{{ $genre->title }}</a></td>
                         </tr>
                     @empty
                         <tr>
