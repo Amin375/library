@@ -33,7 +33,7 @@ class LoanController extends Controller
             $bookCopy->update(['available' => 0]);
         }
 
-        $user = User::findOrFail($id);
+        $user = Auth::user();
 
         $orderData = [
             'greeting' => 'Hello',
@@ -49,7 +49,6 @@ class LoanController extends Controller
         Session::forget('loansCart');
 
         Session::flash('successLoan', 'Thank you for your order, an email has been sent with your order details');
-
 
         return redirect()->route('loans.cart');
     }

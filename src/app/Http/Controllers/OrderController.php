@@ -6,6 +6,7 @@ use App\Models\Loan;
 use App\Models\User;
 use App\Notifications\BookOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 
 class OrderController extends Controller
@@ -22,7 +23,7 @@ class OrderController extends Controller
 
     public function send() {
 
-        $data = User::first();
+        $data = Auth::user();
 
         $orderData = [
             'name' => 'Pablo',
