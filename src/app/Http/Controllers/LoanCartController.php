@@ -39,9 +39,13 @@ class LoanCartController extends Controller
 
         if ($index !== false) {
             array_splice($selection, $index, 1);
+            Session::flash('doubleCartStore', ' is already in your Cart!');
+
         } else {
             $selection[] = $id;
             Session::push('loansCart', $id);
+            Session::flash('success', ' has been added to your Cart!');
+
         }
 
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
@@ -51,7 +55,7 @@ class LoanCartController extends Controller
 //        $book = Book::query()->whereSlug($slug)->first();
         $slug = $book->slug;
 
-        Session::flash('success', ' has been added to your Cart!');
+//        Session::flash('success', ' has been added to your Cart!');
 
 
         return redirect()->route('book.show', ['book' => $book, 'slug' => $slug]);

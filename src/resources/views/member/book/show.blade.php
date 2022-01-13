@@ -2,21 +2,38 @@
 
 @section('content')
     <div class="grid justify-items-center">
-            @if(Session::has('success'))
+        @if(Session::has('success'))
             <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-900 text-white rounded-lg">
                 <div>
-                    <p class="text-lg"><span class="italic">{{ $book->title }}</span> {{ Session::get('success') }}</p>
+                    <p class="text-xl"><span class="italic">{{ $book->title }}</span> {{ Session::get('success') }}</p>
                 </div>
             </div>
-            @endif
+        @endif
+        @if(Session::has('doubleCartStore'))
+            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 text-white rounded-lg">
+                <div>
+                    <p class="text-xl"><span
+                            class="italic">{{ $book->title }}</span> {{ Session::get('doubleCartStore') }}</p>
+                </div>
+            </div>
+        @endif
 
-            @if(Session::has('successWishlist'))
+        @if(Session::has('successWishlist'))
             <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-900 text-white rounded-lg">
                 <div>
-                    <p class="text-lg"><span class="italic">{{ $book->title }}</span> {{ Session::get('successWishlist') }}</p>
+                    <p class="text-xl"><span
+                            class="italic">{{ $book->title }}</span> {{ Session::get('successWishlist') }}</p>
                 </div>
             </div>
-            @endif
+        @endif
+        @if(Session::has('doubleWishlistStore'))
+            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 text-white rounded-lg">
+                <div>
+                    <p class="text-xl"><span
+                            class="italic">{{ $book->title }}</span> {{ Session::get('doubleWishlistStore') }}</p>
+                </div>
+            </div>
+        @endif
         <div class="flex flex-col justify-center
         lg:grid lg:grid-cols-6 lg:grid-rows-1 lg:gap-3
         xl:grid xl:grid-cols-6 xl:grid-rows-1 xl:gap-3
@@ -33,16 +50,17 @@
                 <h2 class="text-xl text-center italic pb-5"><a class="px-2.5 py-0.5 rounded-2xl hover:underline"
                                                                href="{{ route('book.author', $book->author->slug) }}">{{ $book->author->name }}</a>
                 </h2>
-                <p class="text-xl pb-8 p-3 h-52 px-5 md:px-3">{{ $book->blurb }}</p>
+                <p class="text-xl pb-8 p-3 px-5 md:px-3">{{ $book->blurb }}</p>
                 <div class="flex justify-between pr-7">
                     <p class="text-xl rounded-2xl pb-5 p-3 italic"><a
                             class="border px-2.5 py-0.5 rounded-2xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
                             href="{{ route('book.genre', $book->genre->slug) }}">{{ $book->genre->title }}</a></p>
                     <div class="flex gap-5">
 
-                    @if($book->firstAvailableBookCopyId())
-                            <form action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
-                                  method="post">
+                        @if($book->firstAvailableBookCopyId())
+                            <form
+                                action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
+                                method="post">
                                 @csrf
                                 <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" type="submit">
                                     <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
@@ -50,33 +68,37 @@
                                 </button>
                             </form>
                         @else
-                        <div>
-                            <button disabled class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed" type="submit">
-                                <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
+                            <div>
+                                <button disabled
+                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"
+                                        type="submit">
+                                    <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
 
-                            </button>
-                        </div>
+                                </button>
+                            </div>
 
                         @endif
                         @if($book->firstAvailableBookCopyId())
-                                <form action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
-                                  method="post">
+                            <form
+                                action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
+                                method="post">
                                 @csrf
                                 <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 cursor-pointer"
                                         type="submit">
                                     <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
                                 </button>
                             </form>
-                            @else
-                        <div>
+                        @else
+                            <div>
 
-                            <button disabled class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"
-                                    type="submit">
+                                <button disabled
+                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"
+                                        type="submit">
 
-                                <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
-                            </button>
-                        </div>
-                            @endif
+                                    <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
+                                </button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

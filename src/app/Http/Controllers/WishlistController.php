@@ -54,12 +54,15 @@ class WishlistController extends Controller
 //        dd($index);
         if ($index !== false) {
             array_splice($cookieArray, $index, 1);
+            Session::flash('doubleWishlistStore', ' is already in your Wishlist!');
+
         } else {
             $cookieValue = "";
             $cookieValue .= json_decode($request->cookie('wishlist'));
             $cookieValue .= $id . ',';
 
             Cookie::queue('wishlist', json_encode($cookieValue), 20000);
+            Session::flash('successWishlist', ' has been added to your Wishlist!');
         }
 
         $book = Book::query()->whereHas('bookCopies', function ($q) use ($id) {
@@ -68,7 +71,6 @@ class WishlistController extends Controller
 
         $slug = $book->slug;
 
-        Session::flash('successWishlist', ' has been added to your Wishlist!');
 
         return redirect()->route('book.show', ['book' => $book, 'slug' => $slug]);
     }
