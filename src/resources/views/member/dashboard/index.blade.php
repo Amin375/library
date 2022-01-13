@@ -3,38 +3,37 @@
 @section('content')
     {{--    @dd(auth()->user()->slug)--}}
 
-
-    <div class="absolute p-5 text-white rounded-lg">
-        <div class=" py-8 bg-blue-500">
-{{--            <p class="text-lg">{{ Session::get('successUpdateAccount') }}</p>--}}
+    @if(Session::has('successUpdateAccount'))
+        <div class="show-and-hide absolute p-5 text-white">
+            <div class="rounded-lg px-3 py-8 bg-blue-500 shadow-lg">
+                <p class="text-xl">Your account settings have been updated!</p>
+            </div>
         </div>
-    </div>
+    @endif
 
-    <div
-        class="flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-start px-6 py-8 sm:px-10 md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16">
-        {{--        @if(Session::has('successUpdateAccount'))--}}
-{{--        @endif--}}
-        <div class="w-full lg:w-4/6 xl:w-3/6 2xl:w-3/6 rounded shadow-md">
+    <div class="flex justify-center md:justify-start lg:justify-start xl:justify-start 2xl:justify-start
+        px-6 py-8 sm:px-10 md:px-16 lg:pl-16 xl:pl-16 2xl:pl-16 overflow-hidden">
+
+        <div class="w-full lg:w-4/6 xl:w-3/6 2xl:w-3/6 rounded-md shadow-md">
             <h1 class="w-full bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">Current Loan
                 Information</h1>
-            <table>
-                <tbody>
+            <div class="min-w-full">
+
                 @forelse($loans as $loan)
-                    <tr class="even:bg-gray-400">
-                        <td>
-                            <div class="py-3 px-3 text-base italic">Order from: {{ $loan->created_at }}</div>
+                    @if ($loop->last)
+                        <div class="py-2">
+                            <div class="pb-3 px-3 text-lg italic">Order from: {{ $loan->created_at }}</div>
                             @foreach($loan->bookCopies as $book_copy)
-                                <div class="py-3 px-3 text-base">{{ $book_copy->book->title }}</div>
+                                <div class="px-3 text-base">{{ $book_copy->book->title }}</div>
                             @endforeach
-                        </td>
-                    </tr>
+                        </div>
+                    @endif
                 @empty
                     <div class="h-24">
                         <p class="px-3 pt-5 text-lg italic text-gray-500">Your cart is empty...</p>
                     </div>
                 @endforelse
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
 
@@ -46,8 +45,11 @@
                 class="w-full flex justify-between bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">
 
                 <h1>Wishlist</h1>
-                <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
-                   href="{{ route('wishlist.index') }}"> Go to Wishlist ></a>
+                @if(count($cookieBooks))
+                    <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
+                       href="{{ route('wishlist.index') }}"> Go to Wishlist >
+                    </a>
+                @endif
 
             </div>
             <table>
@@ -74,8 +76,11 @@
             <div
                 class="w-full flex justify-between bg-blue-900 py-3 px-3 text-white text-lg rounded-tl-md rounded-tr-md">
                 <h1>Shopping Cart </h1>
-                <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
-                   href="{{ route('loans.cart') }}"> Go to Shopping Cart ></a>
+                @if(count($sessionBooks))
+                    <a class="italic transform transition focus:outline-none duration-100 hover:scale-105"
+                       href="{{ route('loans.cart') }}"> Go to Shopping Cart >
+                    </a>
+                @endif
             </div>
             <table>
                 <tbody>

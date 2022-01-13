@@ -2,8 +2,6 @@
 
 @section('content')
     <div class="grid justify-items-center">
-
-
             @if(Session::has('success'))
             <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-900 text-white rounded-lg">
                 <div>
@@ -35,7 +33,7 @@
                 <h2 class="text-xl text-center italic pb-5"><a class="px-2.5 py-0.5 rounded-2xl hover:underline"
                                                                href="{{ route('book.author', $book->author->slug) }}">{{ $book->author->name }}</a>
                 </h2>
-                <p class="text-xl pb-8 p-3 px-5 md:px-3">{{ $book->blurb }}</p>
+                <p class="text-xl pb-8 p-3 h-52 px-5 md:px-3">{{ $book->blurb }}</p>
                 <div class="flex justify-between pr-7">
                     <p class="text-xl rounded-2xl pb-5 p-3 italic"><a
                             class="border px-2.5 py-0.5 rounded-2xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
@@ -52,7 +50,13 @@
                                 </button>
                             </form>
                         @else
-                            Niet op voorraad
+                        <div>
+                            <button disabled class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed" type="submit">
+                                <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
+
+                            </button>
+                        </div>
+
                         @endif
                         @if($book->firstAvailableBookCopyId())
                                 <form action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
@@ -64,7 +68,14 @@
                                 </button>
                             </form>
                             @else
-                                Empty...
+                        <div>
+
+                            <button disabled class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"
+                                    type="submit">
+
+                                <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
+                            </button>
+                        </div>
                             @endif
                     </div>
                 </div>

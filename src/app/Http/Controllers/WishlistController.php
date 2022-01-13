@@ -68,9 +68,7 @@ class WishlistController extends Controller
 
         $slug = $book->slug;
 
-
         Session::flash('successWishlist', ' has been added to your Wishlist!');
-
 
         return redirect()->route('book.show', ['book' => $book, 'slug' => $slug]);
     }

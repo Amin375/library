@@ -34,7 +34,7 @@ class Loan extends Model
 
     public function getExpiredAtAttribute()
     {
-        return $this->created_at->addMinute()->format('d-m-Y');
+        return $this->created_at->addWeeks(6)->format('d-m-Y');
     }
 
     public function getWeekBeforeAtAttribute()

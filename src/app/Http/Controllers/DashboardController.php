@@ -18,7 +18,8 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        $loans = Loan::with(['bookCopies'])->get();
+//        $loans = Loan::with(['bookCopies'])->get();
+        $loans = $user->loans;
 
         if (Cookie::has('wishlist')) {
             $cookie = Cookie::get('wishlist');
