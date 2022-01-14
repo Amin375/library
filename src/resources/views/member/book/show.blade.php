@@ -9,6 +9,7 @@
                 </div>
             </div>
         @endif
+
         @if(Session::has('doubleCartStore'))
             <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 text-white rounded-lg">
                 <div>

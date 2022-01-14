@@ -4,13 +4,12 @@
     {{--    @dd($books)--}}
     <div class="mx-0.5 xs:mx-5 sm:mx-10  md:flex lg:flex xl:flex 2xl:flex justify-center py-7 ">
         @if(Session::has('successLoan'))
-            <div class="show-and-hide absolute mt-16 px-10 py-2.5 bg-blue-900 text-white rounded-lg">
+            <div class="show-and-hide absolute mt-16 px-10 py-2.5 bg-blue-900 text- text-lg rounded-lg">
                 <div>
                     <p>{{ Session::get('successLoan') }}</p>
                 </div>
             </div>
         @endif
-
         <div
             class="md:w-11/12 lg:w-10/12 xl:w-10/12 2xl:w-10/12 shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white ">
