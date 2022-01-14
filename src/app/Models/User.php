@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, Sluggable;
 
@@ -29,6 +29,7 @@ class User extends Authenticatable
         'city',
         'country',
         'phone',
+        'email_verified_at',
     ];
 
     /**
@@ -86,6 +87,6 @@ class User extends Authenticatable
             $q->whereHandedIn(0);
         })->first();
 
-        return $loan->created_at->addMinute()->lessThan(now());
+        return $loan->created_at->addMinute()->moreThan(now());
     }
 }

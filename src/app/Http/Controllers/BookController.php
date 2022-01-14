@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Genre;
 use App\Models\Book;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
@@ -46,7 +47,7 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -86,25 +87,25 @@ class BookController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return View
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        $book = Book::query()->find($id);
-        $authors = Author::all();
-        $genres = Genre::all();
-
-        return view('admin.book.edit', ['book' => $book, 'authors' => $authors, 'genres' => $genres]);
+        return view('admin.book.edit', [
+            'book' => $book,
+            'authors' => Author::all(),
+            'genres' => Genre::all(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id): RedirectResponse
     {
         $book = Book::whereId($id)->firstOrFail();
 

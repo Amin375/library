@@ -78,8 +78,11 @@
                        class="block py-2.5 px-4 rounded font-bold transition duration-200 hover:bg-blue-700 hover:text-white">
                         {{ auth()->user()->name }}
                     </a>
-
                     @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.loans.index') }}"
+                           class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
+                            Loans
+                        </a>
                         <a href="{{ route('admin.book_copies.index') }}"
                            class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white">
                             Book Copies

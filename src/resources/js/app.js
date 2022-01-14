@@ -40,3 +40,21 @@ $.ajax({
         console.log("cookie deleted");
     }
 });
+
+window.onorientationchange = function() {
+
+    let htmlElement =  $("html");
+    let bodyElement = $("body");
+
+    if($(window).innerWidth() < $(window).innerHeight()) {//landscape to portrait
+        htmlElement.css("overflow-x","hidden");
+        bodyElement.css("overflow-x", "hidden");
+    } else {//portrait to landscape
+        htmlElement.css("overflow","auto");
+        bodyElement.css("overflow", "auto");
+        //below 2 lines makes the UI not shrink in portrait mode
+        htmlElement.css("overflow-x","auto");
+        bodyElement.css("overflow-x", "auto");
+    }
+
+}

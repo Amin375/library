@@ -65,13 +65,13 @@ class Book extends Model
         return 'books_index';
     }
 
-//    public function toSearchableArray()
-//    {
-//        $array = $this->toArray();
-//
-//        $array['genre'] = $this->genre->title;
-//        $array['author'] = $this->author->name;
-//
-//        return $array;
-//    }
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $array['genre'] = $this->genre->title;
+        $array['author'] = $this->author->name;
+
+        return $array;
+    }
 }

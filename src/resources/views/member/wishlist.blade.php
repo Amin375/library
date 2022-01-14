@@ -53,7 +53,7 @@
                                         Niet op voorraad
                                     @endif
                                     <a class="flex shrink-0 text-lg hover:bg-gray-200 active:bg-gray-300 rounded-xl p-2"
-                                       href="{{ route('wishlist.destroy', $book->firstAvailableBookCopyId() )}}">
+                                       href="{{ route('wishlist.destroy', $book->id )}}">
                                         <img src="{{URL::asset('/icons/bin.svg')}}" alt="Delete Icon">
                                     </a>
                                 </div>
@@ -95,8 +95,8 @@
                 @empty
                     <tr>
                         <td class="w-full">
-                            <div class=" pl-4 py-1.5">
-                                <h1 class="italic text-lg text-gray-500">Your wishlist is empty. Go to the <a
+                            <div class="py-1.5">
+                                <h1 class="italic text-lg text-gray-500 text-center">Your wishlist is empty. Go to the <a
                                         href="{{ route('books.index') }}"><span
                                             class="text-blue-500 hover:text-blue-600 hover:underline">Books</span></a>
                                     page for more books.</h1>

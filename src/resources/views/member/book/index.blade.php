@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex justify-center mt-2.5 gap-x-4 px-2">
         <div class="inline lg:hidden xl:hidden 2xl:hidden bg-gray-200  rounded-xl  overflow-y-hidden" style="box-shadow: inset 12px 0 15px -4px rgb(184 184 184 / 80%), inset -12px 0 8px -4px rgb(184 184 184 / 80%)">
-            <ul class="inline-flex py-1	">
+            <ul class="inline-flex py-1">
         @foreach($alphabetArray as $letter)
                 <form class="inline" action="{{ route('alphabetsearch', $letter) }}" method="get">
                     <li>

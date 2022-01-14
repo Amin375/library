@@ -35,10 +35,10 @@ class Genre extends Model
         return 'genres_index';
     }
 
-    public function toSearchableArray(): array
-    {
-        $array = $this->toArray();
-
-        return $array;
-    }
+//    public function toSearchableArray(): array
+//    {
+//        $array = $this->toArray();
+//
+//        return $array;
+//    }
 }

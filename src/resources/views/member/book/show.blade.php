@@ -3,15 +3,15 @@
 @section('content')
     <div class="grid justify-items-center">
         @if(Session::has('success'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-900 text-white rounded-lg">
+            <div class="show-and-hide absolute mx-6 mt-4 px-10 py-2.5 bg-blue-700 border-2 border-blue-400 text-white rounded-lg shadow-md">
                 <div>
-                    <p class="text-xl"><span class="italic">{{ $book->title }}</span> {{ Session::get('success') }}</p>
+                    <p class="text-xl text-center"><span class="italic">{{ $book->title }}</span> {{ Session::get('success') }}</p>
                 </div>
             </div>
         @endif
 
         @if(Session::has('doubleCartStore'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 text-white rounded-lg">
+            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 border-2 border-red-400 text-white rounded-lg shadow-md">
                 <div>
                     <p class="text-xl"><span
                             class="italic">{{ $book->title }}</span> {{ Session::get('doubleCartStore') }}</p>
@@ -20,18 +20,18 @@
         @endif
 
         @if(Session::has('successWishlist'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-900 text-white rounded-lg">
+            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-700 border-2 border-blue-400 text-white rounded-lg shadow-md">
                 <div>
                     <p class="text-xl"><span
-                            class="italic">{{ $book->title }}</span> {{ Session::get('successWishlist') }}</p>
+                            class="italic">{{ $book->title }}</span>{{ Session::get('successWishlist') }}</p>
                 </div>
             </div>
         @endif
         @if(Session::has('doubleWishlistStore'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 text-white rounded-lg">
+            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 border-2 border-red-400 text-white rounded-lg shadow-md">
                 <div>
                     <p class="text-xl"><span
-                            class="italic">{{ $book->title }}</span> {{ Session::get('doubleWishlistStore') }}</p>
+                            class="italic">{{ $book->title }}</span>{{ Session::get('doubleWishlistStore') }}</p>
                 </div>
             </div>
         @endif
@@ -42,8 +42,8 @@
         md:w-5/6 lg:w-11/12 lg:px-4 xl:px-4 xl:w-11/12 2xl:my-10 2xl:w-4/6 py-10 md:py-3
         md:border lg:border xl:border 2xl:border md:my-10 lg:my-10 xl:my-10 rounded-xl shadow">
             <div class="flex justify-center lg:grid lg:justify-items-center lg:col-span-2 xl:col-span-2 2xl:col-span-2
-              sm:pb-3 md:p-3 2xl:pr-7">
-                <img class="rounded-md shadow-lg h-80 md:h-96 lg:h-10/12" src="{{ secure_asset($book->image()) }}"
+              sm:pb-3 md:p-3">
+                <img class="rounded-md shadow-lg h-80 w-52" src="{{ secure_asset($book->image()) }}"
                      alt="{{ $book->title }} ">
             </div>
             <div class="flex flex-col justify-center  lg:col-span-4 xl:col-span-4 2xl:col-span-4">

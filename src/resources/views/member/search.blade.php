@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="px-96 flex justify-center py-8 w-full">
+    <div class="flex justify-center lg:justify-start xl:justify-start 2xl:justify-start py-8 px-4 w-full lg:w-4/6 xl:w-4/6 2xl:w-4/6">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
-            <div class="table w-full">
+            <div class="flex flex-col w-full">
                 <div class="table-header-group bg-blue-900 text-white">
                     <div class="table-row">
                         <div class="table-cell w-full text-left py-3 px-3 uppercase font-semibold text-sm">
@@ -11,30 +11,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-row ">
-                    @forelse($books as $book)
-                        <a href="{{ route('book.show', ['id' => $book->id] )}}">
-                            <div class="table-cell w-1/3 text-left py-3 px-3 hover:bg-gray-300">
-                                <div class="flex flex-row hover:bg-gray-300">
-                                    <div>
-                                        <span>{{ $book->title }}</span>
-                                    </div>
-                                </div>
+                @forelse($books as $book)
+                    <a class="w-full text-left py-3 px-3 hover:bg-gray-300"
+                       href="{{ route('book.show', ['slug' => $book->slug] )}}">
+                        <div class="table-cell w-full  text-left">
+                            <span>{{ $book->title }}</span>
+                        </div>
+                    </a>
+                @empty
+                    <div class="table-row ">
+                        <div class="table-cell w-full  text-left py-3 px-3 hover:bg-gray-300">
+                            <div class="flex flex-row hover:bg-gray-300">
+                                <h1>No books with {{ $searchRequest }}</h1>
                             </div>
-                        </a>
-                    @empty
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <h1>No books with {{ $searchRequest }}.</h1>
-                            </td>
-                        </tr>
-                    @endforelse
-                </div>
+                        </div>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
 
-    <div class="px-96 flex justify-center py-8 w-full">
+    <div class="flex justify-center lg:justify-start xl:justify-start 2xl:justify-start py-8 px-4 w-full lg:w-4/6 xl:w-4/6 2xl:w-4/6">
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
                 <thead class="bg-blue-900 text-white">
@@ -48,7 +45,7 @@
                         <td class="w-1/3 text-left py-3 px-3">
                             <div class="flex flex-row ">
                                 <div>
-                                    <a href="{{ route('book.author', $author->id) }}">{{ $author->name }}</a>
+                                    <a href="{{ route('book.author', $author->slug) }}">{{ $author->name }}</a>
                                 </div>
                             </div>
                         </td>
