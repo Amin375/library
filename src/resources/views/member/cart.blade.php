@@ -6,7 +6,7 @@
         @if(Session::has('successLoan'))
             <div class="show-and-hide absolute mt-16 px-10 py-2.5 bg-blue-900 text- text-lg rounded-lg">
                 <div>
-                    <p>{{ Session::get('successLoan') }}</p>
+                    <p class="text-white">{{ Session::get('successLoan') }}</p>
                 </div>
             </div>
         @endif
