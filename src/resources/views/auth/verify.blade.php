@@ -33,7 +33,6 @@
                         @csrf
                     </form>
                 </div>
-
             </section>
         </div>
     </div>

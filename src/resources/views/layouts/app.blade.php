@@ -38,7 +38,7 @@
     <!-- mobile menu bar -->
         <div class="bg-blue-900 text-gray-100 flex justify-between md:hidden lg:hidden xl:hidden 2xl:hidden">
         <!-- logo -->
-            <a href="#" class="block p-4 text-white">Library</a>
+            <a href="{{ route('home') }}" class="block p-4 text-white">Library</a>
 
         <!-- mobile menu button -->
             <button class="mobile-menu-button p-4 focus:outline-none">
@@ -55,7 +55,7 @@
                     xl:translate-x-0 2xl:translate-x-0
                         transition duration-200 ease-in-out">
         <!-- logo -->
-            <a href="#" class="text-white flex flex-row items-center space-x-2 px-4">
+            <a href="{{ route('home') }}" class="text-white flex flex-row items-center space-x-2 px-4">
                 <span class="text-2xl pr-0.5">Library</span>
                 {{--                <img class="w-7 h-7 mt-1" src="/img/book.ico" alt="book icon">--}}
             </a>
