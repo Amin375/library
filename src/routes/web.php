@@ -125,8 +125,9 @@ Route::middleware(['auth', 'verified'])
                 'prefix' => 'loans',
                 'as' => '.loans'
             ], function () {
-                Route::get('/', [\App\Http\Controllers\Admin\LoanController::class, 'index'])->name('.index');
+                Route::get('', [\App\Http\Controllers\Admin\LoanController::class, 'index'])->name('.index');
                 Route::get('store/{id}', [BookCopyController::class, 'store'])->name('.store');
+                Route::get('update/{loan:id}', [\App\Http\Controllers\Admin\LoanController::class, 'update'])->name('.update');
                 Route::get('destroy/{id}', [BookCopyController::class, 'destroy'])->name('.destroy');
             });
         });

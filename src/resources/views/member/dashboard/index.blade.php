@@ -30,7 +30,7 @@
                     @endif
                 @empty
                     <div class="h-24">
-                        <p class="px-3 pt-5 text-lg italic text-gray-500">Your cart is empty...</p>
+                        <p class="px-3 pt-5 text-lg italic text-gray-500">You don't have any loans right now...</p>
                     </div>
                 @endforelse
             </div>

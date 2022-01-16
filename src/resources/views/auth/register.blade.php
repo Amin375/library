@@ -40,7 +40,7 @@
                             </label>
 
                             <input id="email" type="email"
-                                   class="border border-gray-300 w-full py-2 px-2 rounded @error('email') border-red-500 @enderror" name="email"
+                                   class="border border-gray-300 w-full py-2 px-2 rounded border-red-500 " name="email"
                                    value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
@@ -57,7 +57,7 @@
 
                             <input id="password" type="password"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('password') border-red-500 @enderror" name="password"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" >
 
                             @error('password')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -83,7 +83,7 @@
 
                             <input id="street" type="text"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('street') border-red-500 @enderror" name="street"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" value="{{ old('street') }}">
 
                             @error('street')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -101,7 +101,7 @@
                             <input id="house_number" type="number"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('house_number') border-red-500 @enderror"
                                    name="house_number"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" value="{{ old('house_number') }}">
 
                             @error('house_number')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -119,7 +119,7 @@
                             <input id="postal-code" type="text"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('postal_code') border-red-500 @enderror"
                                    name="postal_code"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" value="{{ old('postal_code') }}">
 
                             @error('postal_code')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -135,7 +135,7 @@
 
                             <input id="city" type="text"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('city') border-red-500 @enderror" name="city"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" value="{{ old('city') }}">
 
                             @error('city')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -151,7 +151,7 @@
 
                             <input id="country" type="text"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('country') border-red-500 @enderror" name="country"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" value="{{ old('country') }}">
 
                             @error('country')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -167,7 +167,7 @@
 
                             <input id="phone" type="text"
                                    class="border border-gray-300 w-full py-2 px-2 rounded @error('phone') border-red-500 @enderror" name="phone"
-                                   required autocomplete="new-password">
+                                   required autocomplete="new-password" value="{{ old('phone') }}">
 
                             @error('phone')
                             <p class="text-red-500 text-xs italic mt-4">

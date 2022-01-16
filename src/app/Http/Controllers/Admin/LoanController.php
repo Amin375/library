@@ -14,4 +14,12 @@ class LoanController extends Controller
 
         return view('admin.loans.index', ['loans' => $loans]);
     }
+
+    public function update(Loan $loan)
+    {
+        $loan->update(['handed_in' => 1]);
+        $loan->destroy(['handed_in' => 0]);
+
+        return redirect()->route('admin.loans.index', ['loans' => Loan::all()]);
+    }
 }
