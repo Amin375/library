@@ -10,9 +10,10 @@ class BookCopyController extends Controller
 {
     public function index()
     {
-        //show all books
+        //get all books
         $books = Book::with(['author', 'genre'])->withCount('bookCopies')->get();
 
+        //return view including books array
         return view('admin.book_copies.index', ['books' => $books]);
     }
 
@@ -31,6 +32,7 @@ class BookCopyController extends Controller
         $book = BookCopy::query()->where('book_id', $id);
         $book->limit(1)->delete();
 
+        //redirect to defined route
         return redirect()->route('admin.book_copies.index');
     }
 }

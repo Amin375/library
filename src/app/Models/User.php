@@ -52,6 +52,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    //method from the Sluggable package
+    //name column in 'users' can be user as a slug
     public function sluggable(): array
     {
         return [
@@ -61,27 +63,32 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    //send a notification including the mail address of the user
     public function routeNotificationForMail($notification)
     {
         // Return email address only...
         return $this->email;
     }
 
+    //Belongs to relationship with the Role object
     public function role()
     {
         return $this->BelongsTo(Role::class);
     }
 
+    //check if the user has the role title of 'admin'
     public function isAdmin(): bool
     {
         return $this->role->title === 'admin';
     }
 
+    //one to many relationship with the Loan object, a user can have many loans
     public function loans()
     {
         return $this->hasMany(Loan::class);
     }
 
+    //Check if the last order has exceeded the expiration date
     public function isBlackListed()
     {
         $loan = $this->whereHas('loans', function ($q) {

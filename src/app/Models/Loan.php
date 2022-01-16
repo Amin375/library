@@ -17,26 +17,31 @@ class Loan extends Model
         'handed_in'
     ];
 
+    //Many to Many relationship with the BookCopy objects
     public function bookCopies(): BelongsToMany
     {
         return $this->belongsToMany(BookCopy::class, 'book_copy_loan')->withTimestamps();
     }
 
+    //Belongs to relationship loansCart with a user object
     public function loansCart(): BelongsTo
     {
         return $this->belongsTo(User::class, 'sessions');
     }
 
+    //belongs to relationship with a user object
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    //Mutation to get the expired dat of a loan
     public function getExpiredAtAttribute()
     {
         return $this->created_at->addWeeks(6)->format('d-m-Y');
     }
 
+    //Mutation in order to decide whether or not a loan has been expired
     public function getWeekBeforeAtAttribute()
     {
         $date = $this['created_at']->format('d-m-Y');
@@ -45,9 +50,4 @@ class Loan extends Model
 
         return Carbon::parse($expiredDate)->subDay()->format('d-m-Y');
     }
-//
-//    public function isHandedIn()
-//    {
-//        return $this->where('handed_in', 1) ?? false;
-//    }
 }

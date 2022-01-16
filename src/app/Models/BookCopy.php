@@ -16,11 +16,13 @@ class BookCopy extends Model
         'available',
     ];
 
+    //Belongs To relationship with the Book objects
     public function book()
     {
         return $this->BelongsTo(Book::class);
     }
 
+    //Many to Many relationship with Loan objects.
     public function loans()
     {
         return $this->BelongsToMany(Loan::class, 'book_copy_loan')->withTimestamps();

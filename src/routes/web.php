@@ -33,21 +33,24 @@ Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified'])
     ->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::post('search', SearchController::class)->name('search');
+    Route::get('/', [HomeController::class, 'index'])->name('home'); //Route for the homepage
+    Route::post('search', SearchController::class)->name('search'); // Route for the search enginge
 
-    Route::get('alphabetsearch/{letter}', AlphabetSearchController::class)->name('alphabetsearch');
+    Route::get('alphabetsearch/{letter}', AlphabetSearchController::class)->name('alphabetsearch'); // Alphabetsearch route
 
-    Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify');
+    Route::get('notify/{id}', [LoanController::class, 'store'])->name('notify'); //Notification route
 
+    //Dashboard routes
     Route::get('dashboard/{slug}', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('dashboard/edit/{slug}', [DashboardController::class, 'edit'])->name('dashboard.edit');
     Route::post('dashboard/update/{user}', [DashboardController::class, 'update'])->name('dashboard.update');
 
+    //Routes to showcase all the existing objects in a view named index
     Route::get('books', [BookController::class, 'index'])->name('books.index');
     Route::get('genres', [GenreController::class, 'index'])->name('genres.index');
     Route::get('authors', [AuthorController::class, 'index'])->name('authors.index');
 
+    //Routes to showcase elements of a book
     Route::get('book/{slug}', [BookController::class, 'show'])->name('book.show');
     Route::get('books/genre/{slug}', [BookGenreController::class, 'index'])->name('book.genre');
     Route::get('books/author/{slug}', [BookAuthorController::class, 'index'])->name('book.author');
@@ -73,6 +76,7 @@ Route::middleware(['auth', 'verified'])
             Route::get('cart/destroy/{id}', [LoanCartController::class, 'destroy'])->name('.cart.destroy');
         });
 
+        //Route that has been grouped with an added middleware for admins
         Route::group([
             'middleware' => 'admin',
             'prefix' => 'admin',

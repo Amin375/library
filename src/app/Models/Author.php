@@ -16,8 +16,7 @@ class Author extends Model
       'name',
     ];
 
-//    protected $touches = ['books'];
-
+    //Sluggable method to make it possible for the name to be a slug
     public function sluggable(): array
     {
         return [
@@ -27,16 +26,20 @@ class Author extends Model
         ];
     }
 
+    //one to many relationship with the book object
     public function books()
     {
         return $this->hasMany(Book::class);
     }
 
+    //algolia method to create indexes for genres so that they are searchable
     public function searchableAs(): string
     {
         return 'authors_index';
     }
 
+    /*Add the author objects in the searchable array in the
+    algolia method in order to make the Author objects searchable*/
     public function toSearchableArray(): array
     {
         $array = $this->toArray();

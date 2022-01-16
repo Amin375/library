@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class LoanController extends Controller
 {
+    //show all Loans and return the view including an array containing the loans of the users
     public function index()
     {
         $loans = Loan::all();
@@ -15,6 +16,7 @@ class LoanController extends Controller
         return view('admin.loans.index', ['loans' => $loans]);
     }
 
+    //update the loan with the column 'handed_in' to 1 and delete the loan with the column
     public function update(Loan $loan)
     {
         $loan->update(['handed_in' => 1]);

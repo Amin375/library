@@ -16,6 +16,7 @@ class Genre extends Model
         'title'
     ];
 
+    //Sluggable method to make it possible for the title to be a slug
     public function sluggable(): array
     {
         return [
@@ -25,20 +26,15 @@ class Genre extends Model
         ];
     }
 
+    //one to many relationship with the book object
     public function books()
     {
         return $this->hasMany(Book::class);
     }
 
+    //algolia method to create indexes for genres so that they are searchable
     public function searchableAs(): string
     {
         return 'genres_index';
     }
-
-//    public function toSearchableArray(): array
-//    {
-//        $array = $this->toArray();
-//
-//        return $array;
-//    }
 }
