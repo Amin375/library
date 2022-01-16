@@ -20,6 +20,7 @@
             <div class="min-w-full">
 
                 @forelse($loans as $loan)
+
                     @if ($loop->last)
                         <div class="py-2">
                             <div class="pb-3 px-3 text-lg italic">Order from: {{ $loan->created_at }}</div>

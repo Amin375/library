@@ -1,17 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+{{--@dd((auth()->user()->isBlackListed()))--}}
     <div class="grid justify-items-center">
         @if(Session::has('success'))
-            <div class="show-and-hide absolute mx-6 mt-4 px-10 py-2.5 bg-blue-700 border-2 border-blue-400 text-white rounded-lg shadow-md">
+            <div
+                class="show-and-hide absolute mx-6 mt-4 px-10 py-2.5 bg-blue-700 border-2 border-blue-400 text-white rounded-lg shadow-md">
                 <div>
-                    <p class="text-xl text-center"><span class="italic">{{ $book->title }}</span> {{ Session::get('success') }}</p>
+                    <p class="text-xl text-center"><span
+                            class="italic">{{ $book->title }}</span> {{ Session::get('success') }}</p>
                 </div>
             </div>
         @endif
 
         @if(Session::has('doubleCartStore'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 border-2 border-red-400 text-white rounded-lg shadow-md">
+            <div
+                class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 border-2 border-red-400 text-white rounded-lg shadow-md">
                 <div>
                     <p class="text-xl"><span
                             class="italic">{{ $book->title }}</span> {{ Session::get('doubleCartStore') }}</p>
@@ -20,7 +24,8 @@
         @endif
 
         @if(Session::has('successWishlist'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-700 border-2 border-blue-400 text-white rounded-lg shadow-md">
+            <div
+                class="show-and-hide absolute mt-4 px-10 py-2.5 bg-blue-700 border-2 border-blue-400 text-white rounded-lg shadow-md">
                 <div>
                     <p class="text-xl"><span
                             class="italic">{{ $book->title }}</span>{{ Session::get('successWishlist') }}</p>
@@ -28,7 +33,8 @@
             </div>
         @endif
         @if(Session::has('doubleWishlistStore'))
-            <div class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 border-2 border-red-400 text-white rounded-lg shadow-md">
+            <div
+                class="show-and-hide absolute mt-4 px-10 py-2.5 bg-red-600 border-2 border-red-400 text-white rounded-lg shadow-md">
                 <div>
                     <p class="text-xl"><span
                             class="italic">{{ $book->title }}</span>{{ Session::get('doubleWishlistStore') }}</p>
@@ -58,48 +64,50 @@
                             href="{{ route('book.genre', $book->genre->slug) }}">{{ $book->genre->title }}</a></p>
                     <div class="flex gap-5">
 
-                        @if($book->firstAvailableBookCopyId())
-                            <form
-                                action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
-                                method="post">
-                                @csrf
-                                <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" type="submit">
-                                    <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
+{{--                        @if(!auth()->user()->isBlackListed())--}}
 
-                                </button>
-                            </form>
-                        @else
-                            <div>
-                                <button disabled
-                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"
-                                        type="submit">
-                                    <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
+                            @if($book->firstAvailableBookCopyId())
+                                <form
+                                    action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
+                                    method="post">
+                                    @csrf
+                                    <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" type="submit">
+                                        <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
 
-                                </button>
-                            </div>
+                                    </button>
+                                </form>
+                                <form
+                                    action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
+                                    method="post">
+                                    @csrf
+                                    <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 cursor-pointer"
+                                            type="submit">
+                                        <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
+                                    </button>
+                                </form>
+                            @endif
+{{--                        @else--}}
+{{--                            <div class="pt-3 italic">--}}
+{{--                                <p>Hand in your current loan to order books!</p>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <button disabled--}}
+{{--                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"--}}
+{{--                                        type="submit">--}}
+{{--                                    <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">--}}
 
-                        @endif
-                        @if($book->firstAvailableBookCopyId())
-                            <form
-                                action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
-                                method="post">
-                                @csrf
-                                <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 cursor-pointer"
-                                        type="submit">
-                                    <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
-                                </button>
-                            </form>
-                        @else
-                            <div>
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <button disabled--}}
+{{--                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"--}}
+{{--                                        type="submit">--}}
 
-                                <button disabled
-                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"
-                                        type="submit">
+{{--                                    <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
 
-                                    <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
-                                </button>
-                            </div>
-                        @endif
+{{--                        @endif--}}
                     </div>
                 </div>
             </div>

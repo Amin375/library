@@ -14,8 +14,8 @@
                 @forelse($loans as $loan)
                     <div class="w-full flex justify-between py-3 px-3 border-t border-gray-500">
                         <div class="flex flex-col">
-                            <h1 class="text-xl font-bold"><span class="opacity-75">{{ $loan->user->name }}</span>, Member ID: {{ $loan->user->id }},
-                                Loan ID: {{ $loan->id }}</h1>
+                            <h1 class="text-xl font-bold">{{ $loan->user->name }}, <span class="opacity-75">Member ID: {{ $loan->user->id }},
+                                Loan ID: {{ $loan->id }}</span></h1>
                             <div class="py-2">
                                 <div class="pb-2 px-3 text-lg italic">Order from: {{ $loan->created_at }}</div>
                                 @foreach($loan->bookCopies as $book_copy)

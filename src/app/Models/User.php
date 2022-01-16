@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -87,6 +88,6 @@ class User extends Authenticatable implements MustVerifyEmail
             $q->whereHandedIn(0);
         })->first();
 
-        return $loan->created_at->addMinute()->moreThan(now());
+        return $loan->created_at->addWeeks(6)->lessThan(now());
     }
 }
