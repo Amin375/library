@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="flex ml-5 mt-10">
+        <h1 class="text-lg">Search results for:<span class="font-bold">"{{ $searchRequest }}"</span></h1>
+    </div>
     <div class="flex justify-center lg:justify-start xl:justify-start 2xl:justify-start py-8 px-4 w-full lg:w-4/6 xl:w-4/6 2xl:w-4/6">
-        <div>
-            <h1>Search results for:  {{ $searchRequest }}</h1>
-        </div>
         <div class="w-full shadow overflow-hidden rounded border-b border-gray-200">
             <div class="flex flex-col w-full">
                 <div class="table-header-group bg-blue-900 text-white">
