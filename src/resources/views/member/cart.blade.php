@@ -93,7 +93,7 @@
                         <td>
                             <form action="{{ route('loans.store', auth()->id() )}}" method="post">
                                 @csrf
-                                <button class="bg-blue-900 hover:bg-blue-800 p-2 m-1 rounded text-white" type="submit">
+                                <button class="bg-blue-900 hover:bg-blue-800 px-3 py-3 m-1 rounded text-white" type="submit">
                                     Order
                                 </button>
                             </form>

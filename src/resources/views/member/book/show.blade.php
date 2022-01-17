@@ -71,7 +71,11 @@
                                     action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
                                     method="post">
                                     @csrf
-                                    <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300" type="submit">
+                                    <button
+                                        class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 @if(auth()->user()->isBlackListed()) cursor-not-allowed bg-red-200 @else bg-gray-200 @endif"
+                                        type="submit"
+                                        @if(auth()->user()->isBlackListed()) disabled @endif
+                                    >
                                         <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
 
                                     </button>
