@@ -40,7 +40,7 @@
                             </label>
 
                             <input id="email" type="email"
-                                   class="border border-gray-300 w-full py-2 px-2 rounded border-red-500 " name="email"
+                                   class="border border-gray-300 w-full py-2 px-2 rounded  @error('email')  border-red-500 @enderror" name="email"
                                    value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
@@ -92,7 +92,6 @@
                             @enderror
                         </div>
 
-                        {{--         house_number           --}}
                         <div class="flex flex-wrap">
                             <label for="housenumber" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 Housenumber
@@ -109,7 +108,6 @@
                             </p>
                             @enderror
                         </div>
-
 
                         <div class="flex flex-wrap">
                             <label for="postal_code" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
@@ -191,7 +189,6 @@
                             </p>
                         </div>
                     </form>
-
                 </section>
             </div>
         </div>
