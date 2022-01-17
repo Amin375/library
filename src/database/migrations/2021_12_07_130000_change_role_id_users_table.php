@@ -26,7 +26,7 @@ class ChangeRoleIdUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role_id')->constrained()->default(2);
+            $table->dropColumn('role_id');
         });
     }
 }
