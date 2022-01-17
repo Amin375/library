@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--@dd((auth()->user()->isBlackListed()))--}}
+    {{--@dd((auth()->user()->isBlackListed()))--}}
     <div class="grid justify-items-center">
         @if(Session::has('success'))
             <div
@@ -63,55 +63,33 @@
                             class="border px-2.5 py-0.5 rounded-2xl hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
                             href="{{ route('book.genre', $book->genre->slug) }}">{{ $book->genre->title }}</a></p>
                     <div class="flex gap-5">
-
-{{--                        @if(!auth()->user()->isBlackListed())--}}
-
-                            @if($book->firstAvailableBookCopyId())
-                                <form
-                                    action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
-                                    method="post">
-                                    @csrf
-                                    <button
-                                        class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 @if(auth()->user()->isBlackListed()) cursor-not-allowed bg-red-200 @else bg-gray-200 @endif"
-                                        type="submit"
-                                        @if(auth()->user()->isBlackListed()) disabled @endif
-                                    >
-                                        <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
-
-                                    </button>
-                                </form>
-                                <form
-                                    action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
-                                    method="post">
-                                    @csrf
-                                    <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 cursor-pointer"
-                                            type="submit">
-                                        <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
-                                    </button>
-                                </form>
+                        @if($book->firstAvailableBookCopyId())
+                            @if(auth()->user()->isBlackListed())
+                                <p class="pt-3 italic">Hand in your current loan to order books!</p>
                             @endif
-{{--                        @else--}}
-{{--                            <div class="pt-3 italic">--}}
-{{--                                <p>Hand in your current loan to order books!</p>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <button disabled--}}
-{{--                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"--}}
-{{--                                        type="submit">--}}
-{{--                                    <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">--}}
+                            <form
+                                action="{{ route('loans.cart.store', [$book->firstAvailableBookCopyId(), 'slug' => $book->slug]) }}"
+                                method="post">
+                                @csrf
+                                <button
+                                    class="text-lg  rounded-xl p-2  @if(auth()->user()->isBlackListed()) cursor-not-allowed bg-gray-300 opacity-50 @else bg-gray-200 hover:bg-gray-300 @endif"
+                                    type="submit"
+                                    @if(auth()->user()->isBlackListed()) disabled @endif
+                                >
+                                    <img src="{{URL::asset('/icons/cart.svg')}}" alt="Cart Icon">
 
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <button disabled--}}
-{{--                                        class="text-lg bg-gray-500 opacity-30 rounded-xl p-2  cursor-not-allowed"--}}
-{{--                                        type="submit">--}}
-
-{{--                                    <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-
-{{--                        @endif--}}
+                                </button>
+                            </form>
+                            <form
+                                action="{{ route('wishlist.store', [$book->firstAvailableBookCopyId(),'slug' => $book->slug]) }}"
+                                method="post">
+                                @csrf
+                                <button class="text-lg bg-gray-200 rounded-xl p-2 hover:bg-gray-300 cursor-pointer"
+                                        type="submit">
+                                    <img src="{{URL::asset('/icons/wishlist.svg')}}" alt="Wishlist Icon">
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
