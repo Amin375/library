@@ -11,8 +11,6 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LoanCartController;
-use App\Http\Controllers\NotifyController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]); //Authentication routes, only verified users are able to get the Auth middleware
 
 Route::middleware(['auth', 'verified'])
     ->group(function () {
