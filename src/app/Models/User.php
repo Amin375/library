@@ -53,7 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     //method from the Sluggable package
-    //name column in 'users' can be user as a slug
+    //name column in 'users' can be user as a slug.
     public function sluggable(): array
     {
         return [
