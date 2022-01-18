@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
     {
 //      Genre::factory(10)->create();
 //      Role::factory(1)->create();
+
         Role::create([
             'title' => 'admin'
         ]);
@@ -1013,16 +1014,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'George Orwell'
         ]);
 ////
-//        Loan::create([
-//            'user_id' => 3,
-//            'handed_in' => 0,
-//            'created_at' => '2021-12-10 15:54:01',
-//            'updated_at' => '2021-12-10 15:54:01'
-//        ]);
-//
-//        BookCopy::create([
-//           'loan_id' => 1,
-//           'book_copy_id' => 51,
-//        ]);
+        Loan::create([
+            'user_id' => 3,
+            'handed_in' => 0,
+            'created_at' => '2021-12-10 15:54:01',
+            'updated_at' => '2021-12-10 15:54:01'
+        ]);
+
+        BookCopy::create([
+           'loan_id' => 1,
+           'book_copy_id' => 51,
+        ]);
     }
 }
