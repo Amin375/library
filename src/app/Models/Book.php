@@ -71,13 +71,13 @@ class Book extends Model
 
     /*Algolia method that included the genre and author indexes together with book so that
         can look up a genre or author that is related to a book*/
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        $array['genre'] = $this->genre->title; //in the searchable array that has genre, it becomes the genre title
-        $array['author'] = $this->author->name; //in the searchable array that has genre, it becomes the author name
-
-        return $array;
-    }
+//    public function toSearchableArray()
+//    {
+//        $array = $this->toArray();
+//
+//        $array['genre'] = $this->genre->title; //in the searchable array that has genre, it becomes the genre title
+//        $array['author'] = $this->author->name; //in the searchable array that has genre, it becomes the author name
+//
+//        return $array;
+//    }
 }
