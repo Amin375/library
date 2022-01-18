@@ -20,10 +20,10 @@
             </section>
         </div>
         <div
-            class="mx-10 my-10 grid grid-cols-1 grid-cols-1 grid-cols-1 sm:grid-cols-4 md:grid-col-6 lg:grid-cols-12 xl:grid-cols-12 2xl:grid-cols-12 gap-4">
+            class="mx-10 my-10 grid grid-cols-1 grid-cols-1 md:grid-cols-1 lg:grid-cols-12 xl:grid-cols-12 2xl:grid-cols-12 gap-4">
             @foreach($books as $book)
                 @if($loop->iteration <= 2)
-                    <div class="lg:col-span-6 xl:col-span-6 2xl:col-span-6 p-5 border border-gray-500 rounded-md shadow-md mb-10">
+                    <div class="col-span-6 p-5 border border-gray-500 rounded-md shadow-md mb-10">
                         <div class="grid lg:grid-cols-12 xl:grid-cols-12 2xl:grid-cols-12 gap-x-3">
                             <div class="col-span-4">
                                 <img class="rounded-md shadow-lg h-80 w-52" src="{{ secure_asset($book->image()) }}"
