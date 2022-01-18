@@ -14,8 +14,12 @@ class Loan extends Model
 
     protected $fillable = [
         'user_id',
-        'handed_in'
+        'handed_in',
+        'created_at'
     ];
+
+//    public $timestamps = false;
+//    public $incrementing = false;
 
     //Many to Many relationship with the BookCopy objects
     public function bookCopies(): BelongsToMany

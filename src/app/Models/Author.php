@@ -39,11 +39,11 @@ class Author extends Model
     }
 
     /*Add the author objects in the searchable array in the
-    algolia method in order to make the Author objects searchable*/
-    public function toSearchableArray(): array
-    {
-        $array = $this->toArray();
-
-        return $array;
-    }
+//    algolia method in order to make the Author objects searchable*/
+//    public function toSearchableArray(): array
+//    {
+//        $array = $this->toArray();
+//
+//        return $array;
+//    }
 }
