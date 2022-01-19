@@ -100,7 +100,6 @@ class User extends Authenticatable implements MustVerifyEmail
                 ->created_at
                 ->addWeeks(6)
                 ->lessThan(now());
-
         }
 
         return $loan;

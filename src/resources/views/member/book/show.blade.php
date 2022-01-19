@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--    @dd((auth()->user()->isBlackListed()))--}}
+    @dd((auth()->user()->isBlackListed()))
     <div class="grid justify-items-center">
         @if(Session::has('success'))
             <div
