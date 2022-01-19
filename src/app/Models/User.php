@@ -99,7 +99,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 ->addWeeks(6)
                 ->lessThan(now());
         }else{
-            return '';
+            return null;
         }
     }
 }

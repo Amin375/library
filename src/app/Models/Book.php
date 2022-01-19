@@ -78,6 +78,6 @@ class Book extends Model
 //        $array['genre'] = $this->genre->title; //in the searchable array that has genre, it becomes the genre title
 //        $array['author'] = $this->author->name; //in the searchable array that has genre, it becomes the author name
 //
-//        return $array;
+//        return $arra  y;
 //    }
 }
