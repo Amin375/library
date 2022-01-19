@@ -91,15 +91,18 @@ class User extends Authenticatable implements MustVerifyEmail
     //Check if the last order has exceeded the expiration date
     public function isBlackListed()
     {
+        $loan = false;
+
         if(Loan::exists()){
-            return $this->hasMany(Loan::class)
+            $loan = $this->hasMany(Loan::class)
                 ->whereHandedIn(0)
                 ->first()
                 ->created_at
                 ->addWeeks(6)
                 ->lessThan(now());
-        }else{
-            return null;
+
         }
+
+        return $loan;
     }
 }
