@@ -33,11 +33,11 @@ class Genre extends Model
     }
 
     //algolia method to create indexes for genres so that they are searchable
-    public function searchableAs(): string
-    {
-        return 'genres_index';
-    }
-
+//    public function searchableAs(): string
+//    {
+//        return 'genres_index';
+//    }
+//
 //    public function toSearchableArray(): array
 //    {
 //        $array = $this->toArray();
