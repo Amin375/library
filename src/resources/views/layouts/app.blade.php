@@ -55,7 +55,7 @@
                     xl:translate-x-0 2xl:translate-x-0
                         transition duration-200 ease-in-out">
         <!-- logo -->
-            <a href="{{ route('home') }}" class="text-white flex flex-row items-center space-x-2 px-4">
+            <a href="{{ route('books.index') }}" class="text-white flex flex-row items-center space-x-2 px-4">
                 <span class="text-2xl pr-0.5">Library</span>
                 {{--                <img class="w-7 h-7 mt-1" src="/img/book.ico" alt="book icon">--}}
             </a>
